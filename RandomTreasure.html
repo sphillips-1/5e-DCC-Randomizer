@@ -5,7 +5,7 @@
 	function get_treasure(){
 
 		<!–– Get Challenge Rating ––>
-		var challengeRating = document.getElementById("spnRaw");
+		var challengeRating = document.getElementById("challenge_rating");
 
 		<!–– Roll a d100 ––>
 		var diceRoll = 	getRandomArbitrary(1,100);
@@ -13,7 +13,8 @@
 		<!–– Get GP Amount ––>
 		var gp = get_GP(challengeRating);
 
-		document.write(gp);
+		document.getElementById("output").value = gp;
+		
 
 
 
@@ -61,10 +62,10 @@
 		<option value="2" data-vk="2" data-tk="2">Challenge 5-10</option>
 		<option value="3" data-vk="3" data-tk="3">Challenge 11-16</option>
 		<option value="4" data-vk="4" data-tk="4">Challenge 17+</option>
-	
+	</select>	
 	<input type="button" value="Go!" onclick="get_treasure();">
-		
-    	</select>
+
+	<div id = "output">Hello World</div>
 </body>
 </html>
 
