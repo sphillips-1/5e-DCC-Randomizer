@@ -1,60 +1,44 @@
+    
 <!DOCTYPE HTML>
 <html>
 <head>
-<script type = "text/javascript">
-	function get_treasure(){
-
-		<!–– Get Challenge Rating ––>
-		var challengeRating = document.getElementById("challenge_rating");
-
-		<!–– Roll a d100 ––>
-		var diceRoll = 	getRandomArbitrary(1,100);
-
-	}
-
-	function getRandomArbitrary(min, max) {
-	  return Math.random() * (max - min) + min;
-	}
-
-	function get_GP(challengeRating){
-
-		var CP;
-		<!––
-		var SP;
-		var GP;
-		––>
-
-		switch(challengeRating) {
-			case "Challenge 0-4":
-				<!–– CP = 6d6 * 100, SP = 3d6 *100, GP = 2d6*10 ––>
-				CP = getRandomArbitrary(1,6) + getRandomArbitrary(1,6) + getRandomArbitrary(1,6) + getRandomArbitrary(1,6) + getRandomArbitrary(1,6) + getRandomArbitrary(1,6)
-				break;
-			case "Challenge 5-10":
-
-				break;
-			case "Challenge 11-16":
-				break;
-			case "Challenge 17+":
-
-				break;
-		}
-
-		return CP;
-
-	}
-</script>
 </head>
 <body>
 	<h1>DnD 5E Random Treasure Hoard</h1>
 	<select id="challenge_rating" name="challenge_rating" onchange="set_field(this);" class="string">
-		<option value="1" data-vk="1" data-tk="1">Challenge 0-4</option>
-		<option value="2" data-vk="2" data-tk="2">Challenge 5-10</option>
-		<option value="3" data-vk="3" data-tk="3">Challenge 11-16</option>
-		<option value="4" data-vk="4" data-tk="4">Challenge 17+</option>
+		<option value="Challenge 0-4">Challenge 0-4</option>
+		<option value="Challenge 5-10">Challenge 5-10</option>
+		<option value="Challenge 11-16">Challenge 11-16</option>
+		<option value="Challenge 17+">Challenge 17+</option>
 	</select>	
-	<input type="button" value="Go!" onclick="get_treasure();">
+	<input type="button" value="Go!" onclick="get_treasure()">
 
-	<div id = "output">Hello World</div>
+	<div id = "CR"></div>
+	<div id = "DiceRoll"></div>
+  	<div id = "GP"></div>	
 </body>
 </html>
+<script type = "text/javascript">
+	function get_treasure(){
+    
+    
+    	<!-- Get Challenge Rating -->
+    	var challengeRating = document.getElementById("challenge_rating").value;
+		document.getElementById("CR").innerHTML = challengeRating;
 
+		<!-- Get d100 Dice roll -->
+        var diceRoll = getRandomArbitrary(1,100);
+      	document.getElementById("DiceRoll").innerHTML = diceRoll;
+        
+        <!-- Get GP awarded -->
+        
+		document.getElementById("GP").innerHTML = "199";
+      	
+	}
+    
+  	function getRandomArbitrary(min, max) {
+	   
+      return Math.floor(Math.random() * (+max - +min)) + +min;
+	}
+
+</script>
