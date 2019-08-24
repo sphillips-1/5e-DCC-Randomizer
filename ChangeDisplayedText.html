@@ -1,20 +1,6 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<script type = "text/javascript">
-	function update_text(){
-
-		<!–– Get Challenge Rating ––>
-		var challengeRating = document.getElementById("challenge_rating").value;
-
-		<!–– Roll a d100 ––>
-		var diceRoll = 	getRandomArbitrary(1,100);
-
-	}
-
-
-
-</script>
 </head>
 <body>
 	<h1>DnD 5E Random Treasure Hoard</h1>
@@ -24,9 +10,17 @@
 		<option value="3" data-vk="3" data-tk="3">Challenge 11-16</option>
 		<option value="4" data-vk="4" data-tk="4">Challenge 17+</option>
 	</select>	
-	<input type="button" value="Go!" onclick="get_treasure();">
+	<input type="button" value="Go!" onclick="update_text()">
 
 	<div id = "output">Hello World</div>
 </body>
 </html>
+<script type = "text/javascript">
+	function update_text(){
+    
+    	var textfromdropdownlist = document.getElementById("challenge_rating").innerHTML;
+		document.getElementById("output").innerHTML=textfromdropdownlist;
+	}
+
+</script>
 
