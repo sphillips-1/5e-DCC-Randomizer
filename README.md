@@ -21,6 +21,14 @@ Syntax highlighted code block
 1. Numbered
 2. List
 
+<details>
+<summary>Heading</summary>
+    + markdown list 1
+        + nested list 1
+        + nested list 2
+    + markdown list 2
+</details>
+
 **Bold** and _Italic_ and `Code` text
 
 [Link](url) and ![Image](src)
