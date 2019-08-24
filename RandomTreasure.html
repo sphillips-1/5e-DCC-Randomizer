@@ -8,8 +8,61 @@
 		<option value="3" data-vk="3" data-tk="3">Challenge 11-16</option>
 		<option value="4" data-vk="4" data-tk="4">Challenge 17+</option>
 	
-	<input type="button" value="Go!" onclick="get_items();">
+	<input type="button" value="Go!" onclick="get_treasure();">
 		
     	</select>
 </body>
 </html>
+
+function get_treasure(){
+	
+	<!–– Get Challenge Rating ––>
+	var challengeRating = document.getElementById("spnRaw");
+
+	<!–– Roll a d100 ––>
+	var diceRoll = 	getRandomArbitrary(1,100);
+	
+	<!–– Get GP Amount ––>
+	var gp = get_GP(challengeRating)
+
+	<script>
+		document.write(gp);
+	</script>
+
+
+
+	<!–– Get Treasure formula from Table ––>
+		
+
+}
+
+function getRandomArbitrary(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
+function get_GP(challengeRating){
+	
+	var CP;
+	<!––
+	var SP;
+	var GP;
+	––>
+
+	switch(challengeRating) {
+		case "Challenge 0-4":
+			<!–– CP = 6d6 * 100, SP = 3d6 *100, GP = 2d6*10 ––>
+			CP = getRandomArbitrary(1,6) + getRandomArbitrary(1,6) + getRandomArbitrary(1,6) + getRandomArbitrary(1,6) + getRandomArbitrary(1,6) + getRandomArbitrary(1,6)
+			break;
+		case "Challenge 5-10":
+
+			break;
+		case "Challenge 11-16":
+			break;
+		case "Challenge 17+":
+
+			break;
+	}
+
+	return CP;
+	
+}
