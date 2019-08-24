@@ -1,1 +1,50 @@
 
+
+<!DOCTYPE HTML>
+<html>
+  <head>
+  </head>
+  <body>
+    <h1>Dice Demo</h1>
+    <select id="dice" name="dice" onchange="set_field(this);" class="string">
+      <option value="d4">1d4</option>
+      <option value="d6">2d6</option>
+      <option value="d8">3d8</option>
+      <option value="d10">4d10</option>
+    </select>	
+    <input type="button" value="Go!" onclick="get_roll()">
+
+    <div id = "DiceRoll"></div>
+  </body>
+</html>
+<script type = "text/javascript">
+  function get_roll(){
+
+
+    <!-- Get Challenge Rating -->
+    var dice = document.getElementById("dice").value;
+    document.getElementById("DiceRoll").innerHTML = dice;
+    
+    var results = rollAndCombineDice(dice);
+
+
+  }
+
+  function getRandomArbitrary(min, max) {
+
+    return Math.floor(Math.random() * (+max - +min)) + +min;
+  }
+
+  function rollAndCombineDice(dice){
+  
+  	var total = 0;
+    var dice;
+  	var diceFormula = dice.split("d");
+    
+	for (i = 0; i < diceFormula[0]; i++) { 
+  		total = getRandomArbitrary(1,diceFormula
+    }
+  	
+  }
+
+</script>
