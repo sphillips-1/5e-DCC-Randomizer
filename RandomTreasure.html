@@ -15,7 +15,9 @@
 
     <div id = "CR"></div>
     <div id = "DiceRoll"></div>
-    <div id = "GP"></div>	
+    <div id = "GPDiceRolls"></div>
+    <div id = "GP"></div>   
+    
   </body>
 </html>
 <script type = "text/javascript">
@@ -27,18 +29,38 @@
     document.getElementById("CR").innerHTML = challengeRating;
 
     <!-- Get d100 Dice roll -->
-    var diceRoll = getRandomArbitrary(1,100);
+    var diceRoll = getRandomArbitrary(100);
     document.getElementById("DiceRoll").innerHTML = "D100 roll:" + diceRoll;
 
     <!-- Get GP awarded -->
+    document.getElementById("GPDiceRolls").innerHTML = rollAndCombineDice("6d6")
     document.getElementById("GP").innerHTML = "GP awarded:" + "199";
 
   }
 
-  function getRandomArbitrary(min, max) {
+  function getRandomArbitrary(max) {
 
-    return Math.floor(Math.random() * (+max - +min)) + +min;
+    return Math.floor((Math.random() * max) + 1);
   }
 
+  function rollAndCombineDice(dice){
 
+    var diceResults = [];
+    var dice;
+    var diceFormula = dice.split("d");
+
+    var numberOfDice = diceFormula[0];
+    var diceSize = diceFormula[1];
+
+    for (i = 0; i < numberOfDice; i++) { 
+
+      <!-- total = getRandomArbitrary(1,diceSize) + total; -->
+
+        diceResults.push(getRandomArbitrary(diceSize));
+
+    }
+
+    return diceResults;
+
+  }
 </script>
