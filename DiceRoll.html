@@ -7,44 +7,50 @@
   <body>
     <h1>Dice Demo</h1>
     <select id="dice" name="dice" onchange="set_field(this);" class="string">
-      <option value="d4">1d4</option>
-      <option value="d6">2d6</option>
-      <option value="d8">3d8</option>
-      <option value="d10">4d10</option>
+      <option value="1d4">1d4</option>
+      <option value="2d6">2d6</option>
+      <option value="3d8">3d8</option>
+      <option value="4d10">4d10</option>
     </select>	
     <input type="button" value="Go!" onclick="get_roll()">
 
-    <div id = "DiceRoll"></div>
+    <div id = "output">TESTING</div>
   </body>
 </html>
+
 <script type = "text/javascript">
   function get_roll(){
-
-
-    <!-- Get Challenge Rating -->
-    var dice = document.getElementById("dice").value;
-    document.getElementById("DiceRoll").innerHTML = dice;
     
-    var results = rollAndCombineDice(dice);
+    var selectedDice = document.getElementById("dice").value;
+	
+    
+	<!-- document.getElementById("output").innerHTML = selectedDice; -->
+    
+    var results = rollAndCombineDice(selectedDice);
 
-
+	document.getElementById("output").innerHTML = "GP:[" + results + "]";
   }
-
   function getRandomArbitrary(min, max) {
-
-    return Math.floor(Math.random() * (+max - +min)) + +min;
+    return Math.floor((Math.random() * max) + 1);
   }
-
   function rollAndCombineDice(dice){
   
-  	var total = 0;
+  	var diceResults = [];
     var dice;
   	var diceFormula = dice.split("d");
+
+	var numberOfDice = diceFormula[0];
+    var diceSize = diceFormula[1];
     
-	for (i = 0; i < diceFormula[0]; i++) { 
-  		total = getRandomArbitrary(1,diceFormula
+	for (i = 0; i < numberOfDice; i++) { 
+  		
+        <!-- total = getRandomArbitrary(1,diceSize) + total; -->
+        
+        diceResults.push(getRandomArbitrary(1,diceSize));
+        
     }
+    
+    return diceResults;
   	
   }
-
 </script>
