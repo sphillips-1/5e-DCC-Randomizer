@@ -1,1 +1,40 @@
 
+<!DOCTYPE HTML>
+<html>
+  <head>
+  </head>
+  <body>
+    <h1>DnD 5E Treasure Hoard CR 0-4 Coin Generator</h1>
+
+    <input type="button" value="Go!" onclick="get_Loot()">
+
+    
+  </body>
+</html>
+<script type = "text/javascript">
+  function get_Loot(){
+
+    <!-- Get d100 Dice roll -->
+    var diceRoll = getRandomArbitrary(100);
+    document.getElementById("DiceRoll").innerHTML = "D100 roll:" + diceRoll;
+    <!-- Get GP awarded -->
+    document.getElementById("GPDiceRolls").innerHTML = rollAndCombineDice("6d6")
+  }
+  function getRandomArbitrary(max) {
+    return Math.floor((Math.random() * max) + 1);
+  }
+  
+  function
+  function rollAndCombineDice(dice){
+    var diceResults = [];
+    var dice;
+    var diceFormula = dice.split("d");
+    var numberOfDice = diceFormula[0];
+    var diceSize = diceFormula[1];
+    for (i = 0; i < numberOfDice; i++) { 
+      <!-- total = getRandomArbitrary(1,diceSize) + total; -->
+        diceResults.push(getRandomArbitrary(diceSize));
+    }
+    return diceResults;
+  }
+</script>
