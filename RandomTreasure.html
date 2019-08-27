@@ -72,8 +72,8 @@
     return diceTotal;
   }
   
-  function GetBaseGP(crGParray){
-  	crGParray.split(";");
+  function GetBaseGP(GPFormula){
+	var crGParray = GPFormula.split(";");
     
     var CP = rollAndCombineDice(crGParray[0])*.01;
     console.log("CP formula-" + crGParray[0]);
