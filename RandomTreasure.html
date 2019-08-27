@@ -19,51 +19,18 @@
 </html>
 <script type = "text/javascript">
   function get_treasure(){
-    <!-- Get Challenge Rating -->
-    var challengeRating = document.getElementById("challenge_rating").value;
-    console.log(challengeRating)
+
+	var challengeRating = document.getElementById("challenge_rating").value;
     
     var diceRoll = getRandomArbitrary(100);
     
     var LootFormula = CR4LootTable[getRandomArbitrary(100)-1];
     
-    
-    if (LootFormula.split(";")[1].includes("Magic ltem Table")){
-    
-    	switch (LootFormula.split(";")[1]){
-        case "Magic ltem Table A":
-        	break;
-        case "Magic ltem Table B":
-        	break;
-        case "Magic ltem Table C":
-        	break;
-        case "Magic ltem Table D":
-        	break;
-        case "Magic ltem Table E":
-        	break;
-        case "Magic ltem Table F":
-        	break;
-        case "Magic ltem Table G":
-        	break;
-        case "Magic ltem Table H":
-        	break;
-        case "Magic ltem Table I":
-        	break;
-        }
-    
-    
-    };
-    
-    console.log(diceRoll);
+    var MagicItems = GetMagicItems(LootFormula);
     
 	console.log("Challenge Rating Formula : ["+ChallengeRatingGP[challengeRating]+"]")
     var baseGP = GetBaseGP(ChallengeRatingGP[challengeRating])
-
-	document.getElementById("output").innerHTML = "Challenge Rating ["+challengeRating+"] <br> D100 Loot Formula ["+LootFormula+"] <br> Currency: <br>"+ baseGP[0]+ " <br> Total in GP:["+ baseGP[1]+ "]";
-    
-    
-    
-    
+	document.getElementById("output").innerHTML = "Challenge Rating ["+challengeRating+"] <br> D100 Loot Formula ["+LootFormula+"] <br> Currency: <br>"+ baseGP[0]+ " <br> Total in GP:["+ baseGP[1]+ "] <br> Magic Items:["+MagicItems+"];
   }
   function getRandomArbitrary(max) {
     return Math.floor((Math.random() * max) + 1);
@@ -71,12 +38,10 @@
   function rollAndCombineDice(dice){
     var diceResults = [];
     var dice;
-
 	var diceFormula = dice.split("d").join(",").split("*").join(",").split(",");
     var numberOfDice = diceFormula[0];
     var diceSize = diceFormula[1];
     for (i = 0; i < numberOfDice; i++) { 
-      <!-- total = getRandomArbitrary(1,diceSize) + total; -->
         diceResults.push(getRandomArbitrary(diceSize));
     }
     
@@ -116,9 +81,61 @@
      
     var TotalGP = CP + SP + GP + PP;
     var MoneyArray = ["CP["+CP+"] SP["+SP+"] GP["+GP+"] PP["+PP+"]",TotalGP]
-
 	return MoneyArray;    
   	
+  }
+  
+  function GetMagicItems(LootFormula){
+  
+  	var magicItemArray = [];
+  	if (LootFormula.split(";")[1].includes("Magic ltem Table")){
+    
+    	var magicItemFormula = LootFormula.split(";")[1]
+        
+        var magicItemDice = magicItemFormula.split("|")[0]
+        var magicItemTable = magicItemFormula.split("|")[1]
+        
+        
+		var magicItemDiceResults = rollAndCombineDice(magicItemDice)
+        
+		var table;
+
+        
+    	switch (magicItemFormula){
+        case "Magic ltem Table A":
+        	table = MagicTableA;
+        	break;
+        case "Magic ltem Table B":
+        	break;
+        case "Magic ltem Table C":
+        	break;
+        case "Magic ltem Table D":
+        	break;
+        case "Magic ltem Table E":
+        	break;
+        case "Magic ltem Table F":
+        	break;
+        case "Magic ltem Table G":
+        	break;
+        case "Magic ltem Table H":
+        	break;
+        case "Magic ltem Table I":
+        	break;
+        }
+        
+        
+        
+      	for (i = 0; i < magicItemDiceResults; i++) { 
+        	magicItemArray.push(table[getRandomArbitrary(100)-1]);
+    	}
+        
+        
+    
+    
+    };
+    
+    return magicItemArray;
+  
   }
   
   var ChallengeRatingGP = {"Challenge 0-4":"6d6*100;3d6*100;2d6*10;0d0*0","Challenge 5-10":"2d6*100;2d6*1000;6d6*100;3d6* 10","Challenge 11-16":"0d0*0;0d0*0;4d6*1000;5d6*100","Challenge 17+":"0d0*0;0d0*0;12d6*1000;8d6*1000"};
