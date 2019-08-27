@@ -23,23 +23,15 @@
     var challengeRating = document.getElementById("challenge_rating").value;
     console.log(challengeRating)
     
-    <!-- Get d100 Dice roll -->
     var diceRoll = getRandomArbitrary(100);
     console.log(diceRoll);
-    
-    //<!-- Get GP awarded -->
-    //<!-- First example: CP[6d6*100]  SP[3d6*100] GP[2d6*10] PP[0d0] -->
-    //var copperPieces = rollAndCombineDice(ChallengeRatingGP[challengeRating]);
-    
-    console.log("Challenge Rating Formula : ["+ChallengeRatingGP[challengeRating]+"]")
-    
+
+	console.log("Challenge Rating Formula : ["+ChallengeRatingGP[challengeRating]+"]")
     var baseGP = GetBaseGP(ChallengeRatingGP[challengeRating])
 
-    console.log("Base GP:["+ baseGP + "]");
+    //console.log("Base GP:["+ baseGP + "]");
+	document.getElementById("output").innerHTML = "Challenge Rating ["+challengeRating+"] <br> D100 ["+diceRoll+"] <br> Currency: <br>"+ baseGP[0]+ " <br> Total in GP:["+ baseGP[1]+ "]";
     
-	document.getElementById("output").innerHTML = "Challenge Rating ["+challengeRating+"] <br> D100 ["+diceRoll+"] <br> GP:["+ baseGP+ "]"
-    
-    //document.getElementById("output").innerHTML = ChallengeRatingGP[challengeRating]
     
   }
   function getRandomArbitrary(max) {
@@ -92,9 +84,9 @@
     console.log("PP:["+PP+"]"); 
      
     var TotalGP = CP + SP + GP + PP;
-    
-    return TotalGP;
-    
+    var MoneyArray = ["CP["+CP+"] SP["+SP+"] GP["+GP+"] PP["+PP+"]",TotalGP]
+
+	return MoneyArray;    
   	
   }
   
