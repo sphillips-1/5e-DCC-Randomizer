@@ -21,16 +21,18 @@
   function get_treasure(){
     <!-- Get Challenge Rating -->
     var challengeRating = document.getElementById("challenge_rating").value;
-    document.getElementById("CR").innerHTML = challengeRating;
+    console.log(challengeRating)
+    
     <!-- Get d100 Dice roll -->
     var diceRoll = getRandomArbitrary(100);
-    document.getElementById("DiceRoll").innerHTML = "D100 roll:" + diceRoll;
+    console.log(diceRoll);
+    
     <!-- Get GP awarded -->
-    var copperPieces = rollAndCombineDice("6d6")
+    var copperPieces = rollAndCombineDice("6d6");
     console.log(copperPieces);
 
 
-	document.getElementById("output").innerHTML = challengeRating + " " + copperPieces;
+	document.getElementById("output").innerHTML = challengeRating + "<br>" + diceRoll + "<br>"+ copperPieces
     
   }
   function getRandomArbitrary(max) {
