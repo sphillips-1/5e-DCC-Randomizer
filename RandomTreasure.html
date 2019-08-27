@@ -34,10 +34,10 @@
     
     
     var baseGP = GetBaseGP(ChallengeRatingGP[challengeRating])
-    document.getElementById("Currency").innerHTML = "Currency: <br>"+ baseGP[0]+ " <br> Total in GP:["+ baseGP[1]+ "]";
+    document.getElementById("Currency").innerHTML = "Currency: "+ baseGP[0]+ " <br> Currency Combined:["+ baseGP[1]+ "]";
     
-    //var MagicItems = GetMagicItems(LootFormula);
-    //document.getElementById("Magic Items").innerHTML = "Magic Items [" + MagicItems + "]";
+    var MagicItems = GetMagicItems(LootFormula);
+    document.getElementById("Magic Items").innerHTML = "Magic Items [" + MagicItems + "]";
     
   }
   function getRandomArbitrary(max) {
@@ -93,7 +93,7 @@
   	
   }
   
-  /*
+  
   function GetMagicItems(LootFormula){
   
   	var magicItemArray = [];
@@ -146,7 +146,7 @@
     return magicItemArray;
   
   }
-  */
+  
   
   var ChallengeRatingGP = {"Challenge 0-4":"6d6*100;3d6*100;2d6*10;0d0*0","Challenge 5-10":"2d6*100;2d6*1000;6d6*100;3d6* 10","Challenge 11-16":"0d0*0;0d0*0;4d6*1000;5d6*100","Challenge 17+":"0d0*0;0d0*0;12d6*1000;8d6*1000"};
   
