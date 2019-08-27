@@ -27,8 +27,10 @@
     var diceRoll = getRandomArbitrary(100);
     console.log(diceRoll);
     
-    <!-- Get GP awarded -->
+    //<!-- Get GP awarded -->
+    //<!-- First example: CP[6d6*100]  SP[3d6*100] GP[2d6*10] PP[0d0] -->
     var copperPieces = rollAndCombineDice("6d6");
+
     console.log(copperPieces);
 
 
@@ -41,13 +43,15 @@
   function rollAndCombineDice(dice){
     var diceResults = [];
     var dice;
-    var diceFormula = dice.split("d");
+    //var diceFormula = dice.split("d");
+    var diceFormula = dice.split("/d|*/");
     var numberOfDice = diceFormula[0];
     var diceSize = diceFormula[1];
     for (i = 0; i < numberOfDice; i++) { 
       <!-- total = getRandomArbitrary(1,diceSize) + total; -->
         diceResults.push(getRandomArbitrary(diceSize));
     }
+    
     return diceResults;
   }
 </script>
