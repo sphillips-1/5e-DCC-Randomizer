@@ -74,19 +74,19 @@
   	crGParray.split(";");
     
     var CP = rollAndCombineDice(crGParray[0])*.01;
-    console.log(crGParray[0]);
+    console.log("CP formula-" + crGParray[0]);
     console.log("CP:["+CP+"]");
     
     var SP = rollAndCombineDice(crGParray[1])*.1;
-    console.log(crGParray[1]);
+    console.log("SP formula-" + crGParray[1]);
     console.log("SP:["+SP+"]");    
     
     var GP = rollAndCombineDice(crGParray[2]);
-    console.log(crGParray[2]);
+    console.log("GP formula-" + crGParray[2]);
 	console.log("GP:["+GP+"]"); 
     
     var PP = rollAndCombineDice(crGParray[3])*10;
-    console.log(crGParray[3]);
+    console.log("PP formula-" + crGParray[3]);
     console.log("PP:["+PP+"]"); 
      
     var TotalGP = CP + SP + GP + PP;
