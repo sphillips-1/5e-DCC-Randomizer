@@ -1,4 +1,3 @@
-
 <!DOCTYPE HTML>
 <html>
   <head>
@@ -13,56 +12,40 @@
     </select>	
     <input type="button" value="Go!" onclick="get_treasure()">
 
-    <div id = "CR"></div>
-    <div id = "DiceRoll"></div>
-    <div id = "GPDiceRolls"></div>
-    <div id = "CP"></div>
-    <div id = "SP"></div>   
-    <div id = "GP"></div>   
+    <div id = "output"></div>
+
     
   </body>
 </html>
 <script type = "text/javascript">
   function get_treasure(){
-
-
     <!-- Get Challenge Rating -->
     var challengeRating = document.getElementById("challenge_rating").value;
     document.getElementById("CR").innerHTML = challengeRating;
-
     <!-- Get d100 Dice roll -->
     var diceRoll = getRandomArbitrary(100);
     document.getElementById("DiceRoll").innerHTML = "D100 roll:" + diceRoll;
-
     <!-- Get GP awarded -->
-    document.getElementById("GPDiceRolls").innerHTML = rollAndCombineDice("6d6")
+    var copperPieces = rollAndCombineDice("6d6")
+    console.log(copperPieces);
 
 
+	document.getElementById("output").innerHTML = challengeRating + " " + copperPieces;
+    
   }
-
   function getRandomArbitrary(max) {
-
     return Math.floor((Math.random() * max) + 1);
   }
-
   function rollAndCombineDice(dice){
-
     var diceResults = [];
     var dice;
     var diceFormula = dice.split("d");
-
     var numberOfDice = diceFormula[0];
     var diceSize = diceFormula[1];
-
     for (i = 0; i < numberOfDice; i++) { 
-
       <!-- total = getRandomArbitrary(1,diceSize) + total; -->
-
         diceResults.push(getRandomArbitrary(diceSize));
-
     }
-
     return diceResults;
-
   }
 </script>
