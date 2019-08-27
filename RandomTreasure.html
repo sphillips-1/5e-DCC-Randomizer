@@ -24,13 +24,44 @@
     console.log(challengeRating)
     
     var diceRoll = getRandomArbitrary(100);
+    
+    var LootFormula = CR4LootTable[getRandomArbitrary(100)-1];
+    
+    
+    if (LootFormula.split(";")[1].includes("Magic ltem Table")){
+    
+    	switch (LootFormula.split(";")[1]){
+        case "Magic ltem Table A"
+        	break;
+        case "Magic ltem Table B"
+        	break;
+        case "Magic ltem Table C"
+        	break;
+        case "Magic ltem Table D"
+        	break;
+        case "Magic ltem Table E"
+        	break;
+        case "Magic ltem Table F"
+        	break;
+        case "Magic ltem Table G"
+        	break;
+        case "Magic ltem Table H"
+        	break;
+        case "Magic ltem Table I"
+        	break;
+        }
+    
+    
+    };
+    
     console.log(diceRoll);
-
+    
 	console.log("Challenge Rating Formula : ["+ChallengeRatingGP[challengeRating]+"]")
     var baseGP = GetBaseGP(ChallengeRatingGP[challengeRating])
 
-    //console.log("Base GP:["+ baseGP + "]");
-	document.getElementById("output").innerHTML = "Challenge Rating ["+challengeRating+"] <br> D100 ["+diceRoll+"] <br> Currency: <br>"+ baseGP[0]+ " <br> Total in GP:["+ baseGP[1]+ "]";
+	document.getElementById("output").innerHTML = "Challenge Rating ["+challengeRating+"] <br> D100 Loot Formula ["+LootFormula+"] <br> Currency: <br>"+ baseGP[0]+ " <br> Total in GP:["+ baseGP[1]+ "]";
+    
+    
     
     
   }
@@ -91,5 +122,14 @@
   }
   
   var ChallengeRatingGP = {"Challenge 0-4":"6d6*100;3d6*100;2d6*10;0d0*0","Challenge 5-10":"2d6*100;2d6*1000;6d6*100;3d6* 10","Challenge 11-16":"0d0*0;0d0*0;4d6*1000;5d6*100","Challenge 17+":"0d0*0;0d0*0;12d6*1000;8d6*1000"};
+  
+  var CR4LootTable = [";|",";|",";|",";|",";|",";|","2d6*10;|","2d6*10;|","2d6*10;|","2d6*10;|","2d6*10;|","2d6*10;|","2d6*10;|","2d6*10;|","2d6*10;|","2d6*10;|","2d4*25;|","2d4*25;|","2d4*25;|","2d4*25;|","2d4*25;|","2d4*25;|","2d4*25;|","2d4*25;|","2d4*25;|","2d4*25;|","2d6*50;|","2d6*50;|","2d6*50;|","2d6*50;|","2d6*50;|","2d6*50;|","2d6*50;|","2d6*50;|","2d6*50;|","2d6*50;|","2d6*10;1d6|Magic Item Table A","2d6*10;1d6|Magic Item Table A","2d6*10;1d6|Magic Item Table A","2d6*10;1d6|Magic Item Table A","2d6*10;1d6|Magic Item Table A","2d6*10;1d6|Magic Item Table A","2d6*10;1d6|Magic Item Table A","2d6*10;1d6|Magic Item Table A","2d4*25;1d6|Magic Item Table A","2d4*25;1d6|Magic Item Table A","2d4*25;1d6|Magic Item Table A","2d4*25;1d6|Magic Item Table A","2d4*25;1d6|Magic Item Table A","2d4*25;1d6|Magic Item Table A","2d4*25;1d6|Magic Item Table A","2d4*25;1d6|Magic Item Table A","2d6*50;1d6|Magic Item Table A","2d6*50;1d6|Magic Item Table A","2d6*50;1d6|Magic Item Table A","2d6*50;1d6|Magic Item Table A","2d6*50;1d6|Magic Item Table A","2d6*50;1d6|Magic Item Table A","2d6*50;1d6|Magic Item Table A","2d6*50;1d6|Magic Item Table A","2d6*10;1d4|Magic ltem Table B","2d6*10;1d4|Magic ltem Table B","2d6*10;1d4|Magic ltem Table B","2d6*10;1d4|Magic ltem Table B","2d6*10;1d4|Magic ltem Table B","2d4*25;1d4|Magic ltem Table B","2d4*25;1d4|Magic ltem Table B","2d4*25;1d4|Magic ltem Table B","2d4*25;1d4|Magic ltem Table B","2d4*25;1d4|Magic ltem Table B","2d6*50;1d4|Magic ltem Table B","2d6*50;1d4|Magic ltem Table B","2d6*50;1d4|Magic ltem Table B","2d6*50;1d4|Magic ltem Table B","2d6*50;1d4|Magic ltem Table B","2d6*10;1d4|Magic ltem Table C","2d6*10;1d4|Magic ltem Table C","2d6*10;1d4|Magic ltem Table C","2d4*25;1d4|Magic ltem Table C","2d4*25;1d4|Magic ltem Table C","2d6*50;1d4|Magic ltem Table C","2d6*50;1d4|Magic ltem Table C","2d6*50;1d4|Magic ltem Table C","2d6*50;1d4|Magic ltem Table C","2d6*50;1d4|Magic ltem Table C","2d4*25;1d4|Magic ltem Table F","2d4*25;1d4|Magic ltem Table F","2d4*25;1d4|Magic ltem Table F","2d4*25;1d4|Magic ltem Table F","2d4*25;1d4|Magic ltem Table F","2d4*25;1d4|Magic ltem Table F","2d4*25;1d4|Magic ltem Table F","2d6*50;1d4|Magic ltem Table F","2d6*50;1d4|Magic ltem Table F","2d6*50;1d4|Magic ltem Table F","2d6*50;1d4|Magic ltem Table F","2d6*50;1d4|Magic ltem Table F","2d4*25;1d1|Magic ltem Table G","2d4*25;1d1|Magic ltem Table G","2d6*50;1d1|Magic ltem Table G"];
+  
+  
+  var CR10LootTable = [];
+  var CR16LootTable = [];
+  var CR17LootTable = [];
+  
+  var MagicTableA = ["Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Spell scroll (cantrip)","Spell scroll (cantrip)","Spell scroll (cantrip)","Spell scroll (cantrip)","Spell scroll (cantrip)","Spell scroll (cantrip)","Spell scroll (cantrip)","Spell scroll (cantrip)","Spell scroll (cantrip)","Spell scroll (cantrip)","Potion of climbing","Potion of climbing","Potion of climbing","Potion of climbing","Potion of climbing","Potion of climbing","Potion of climbing","Potion of climbing","Potion of climbing","Potion of climbing","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (2nd leve l)","Spell scroll (2nd leve l)","Spell scroll (2nd leve l)","Spell scroll (2nd leve l)","Potion of greater healing","Potion of greater healing","Potion of greater healing","Potion of greater healing","Bag of holding","Driftglobe"];
   
 </script>
