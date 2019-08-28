@@ -1,4 +1,3 @@
-<script type="text/javascript">
 function get_treasure(){
 	var challengeRating = document.getElementById("challenge_rating").value;
     document.getElementById("Challenge Rating").innerHTML = "Challenge Rating ["+challengeRating+"]";
