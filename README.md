@@ -1,5 +1,5 @@
 
 # DnD 5E Random Treasure Hoard
 
-Go [HERE!](https://sphillips-1.github.io/RandomTreasure/index.html)
+Go [HERE!](https://sphillips-1.github.io/RandomTreasure)
 
