@@ -20,7 +20,7 @@ function GetLootFormula(challengeRating,d100){
         
         var lootFormula = table[d100-1];
         console.log("testing lootformula");
-        console.log(JSON.stringify(lootFormula.ArtAndGemsGP));
+        console.log(lootFormula(0));
         console.log("ending test on lootformula");
         return lootFormula;
 }
