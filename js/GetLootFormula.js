@@ -18,9 +18,9 @@ function GetLootFormula(challengeRating,d100){
         	break;
         }
         
-        var lootFormula = table[d100-1];
+        var lootFormula = table[0];
         console.log("testing lootformula");
-        console.log(lootFormula(0));
+        console.log(lootFormula);
         console.log("ending test on lootformula");
         return lootFormula;
 }
