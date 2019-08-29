@@ -47,7 +47,7 @@ function createFormulaObject(varArtAndGemsGP, varMagicItemDice, varMagicItemTabl
 
 function CR4LootTable(){
 
-  var table = [];
+  var table = new Array();
   var i;
     
   for (; i < 6; i++) {
