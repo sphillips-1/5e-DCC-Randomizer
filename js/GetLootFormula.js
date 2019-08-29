@@ -45,142 +45,53 @@ function CR4LootTable(){
   for (; i < 6; i++) {
     table.push(new createFormulaObject("","","","",""));
   }
-  
   for (; i < 10; i++) {
     table.push(new createFormulaObject("2d6*10","","","",""));
   }
-  
-  /*
   for (; i < 10; i++) {
-    object.ArtAndGemsGP="2d4*25";
-    object.MagicItemDice="";
-    object.MagicItemTable=""; 
-    object.MagicItemDice2=""; 
-    object.MagicItemTable2="";
-
-    table.push(object)
+    table.push(new createFormulaObject("2d4*25","","","",""));
   }
   for (; i < 10; i++) {
-    object.ArtAndGemsGP="2d6*50";
-    object.MagicItemDice="";
-    object.MagicItemTable=""; 
-    object.MagicItemDice2=""; 
-    object.MagicItemTable2="";
-
-    table.push(object)
-  }
-  
-  for (; i < 8; i++) {
-    
-    object.ArtAndGemsGP="2d6*10";
-    object.MagicItemDice="1d6";
-    object.MagicItemTable="Magic Item Table A"; 
-    object.MagicItemDice2=""; 
-    object.MagicItemTable2="";
-
-    table.push(object)
+	table.push(new createFormulaObject("2d6*50","","","",""));
   }
   for (; i < 8; i++) {
-    
-    object.ArtAndGemsGP="2d4*25";
-    object.MagicItemDice="1d6";
-    object.MagicItemTable="Magic Item Table A"; 
-    object.MagicItemDice2=""; 
-    object.MagicItemTable2="";
-
-    table.push(object)
+	table.push(new createFormulaObject("2d6*10","1d6","Magic Item Table A","",""));
   }
   for (; i < 8; i++) {
-    
-    object.ArtAndGemsGP="2d6*50";
-    object.MagicItemDice="1d6";
-    object.MagicItemTable="Magic Item Table A"; 
-    object.MagicItemDice2=""; 
-    object.MagicItemTable2="";
-
-    table.push(object)
+    table.push(new createFormulaObject("2d4*25","1d6","Magic Item Table A","",""));
+  }
+  for (; i < 8; i++) {
+	table.push(new createFormulaObject("2d6*50","1d6","Magic Item Table A","",""));
   }
   for (; i < 5; i++) {
-    object.ArtAndGemsGP="2d6*10";
-    object.MagicItemDice="1d4";
-    object.MagicItemTable="Magic ltem Table B"; 
-    object.MagicItemDice2=""; 
-    object.MagicItemTable2="";
-
-    table.push(object)
+	table.push(new createFormulaObject("2d6*10","1d4","Magic ltem Table B","",""));
   }
   for (; i < 5; i++) {
-    object.ArtAndGemsGP="2d4*25";
-    object.MagicItemDice="1d4";
-    object.MagicItemTable="Magic ltem Table B"; 
-    object.MagicItemDice2=""; 
-    object.MagicItemTable2="";
-
-    table.push(object)
+	table.push(new createFormulaObject("2d4*25","1d4","Magic ltem Table B","",""));
   }
   for (; i < 5; i++) {
-    object.ArtAndGemsGP="2d6*50";
-    object.MagicItemDice="1d4";
-    object.MagicItemTable="Magic ltem Table B"; 
-    object.MagicItemDice2=""; 
-    object.MagicItemTable2="";
-
-    table.push(object)
+	table.push(new createFormulaObject("2d6*50","1d4","Magic ltem Table B","",""));	  
   }
   for (; i < 5; i++) {
-    object.ArtAndGemsGP="2d4*25";
-    object.MagicItemDice="1d4";
-    object.MagicItemTable="Magic ltem Table C"; 
-    object.MagicItemDice2=""; 
-    object.MagicItemTable2="";
-
-    table.push(object)
+	table.push(new createFormulaObject("2d4*25","1d4","Magic ltem Table C","",""));	  	  
   }
   for (; i < 5; i++) {
-    object.ArtAndGemsGP="2d6*50";
-    object.MagicItemDice="1d4";
-    object.MagicItemTable="Magic ltem Table C"; 
-    object.MagicItemDice2=""; 
-    object.MagicItemTable2="";
-
-    table.push(object)
+	table.push(new createFormulaObject("2d6*50","1d4","Magic ltem Table C","",""));	  	  	  
   }
   for (; i < 7; i++) {
-    object.ArtAndGemsGP="2d4*25";
-    object.MagicItemDice="1d4";
-    object.MagicItemTable="Magic ltem Table F"; 
-    object.MagicItemDice2=""; 
-    object.MagicItemTable2="";
-
-    table.push(object)
+	table.push(new createFormulaObject("2d4*25","1d4","Magic ltem Table F","",""));	  	  
   }
   for (; i < 5; i++) {
-    object.ArtAndGemsGP="2d6*50";
-    object.MagicItemDice="1d4";
-    object.MagicItemTable="Magic ltem Table F"; 
-    object.MagicItemDice2=""; 
-    object.MagicItemTable2="";
-
-    table.push(object)
+	table.push(new createFormulaObject("2d6*50","1d4","Magic ltem Table F","",""));	
   }  
   for (; i < 2; i++) {
-    object.ArtAndGemsGP="2d4*25";
-    object.MagicItemDice="1d1";
-    object.MagicItemTable="Magic ltem Table G"; 
-    object.MagicItemDice2=""; 
-    object.MagicItemTable2="";
-
-    table.push(object)
+	table.push(new createFormulaObject("2d4*25","1d1","Magic ltem Table G","",""));	
   } 
-  for (; i < 1; i++) {
-    object.ArtAndGemsGP="2d6*50";
-    object.MagicItemDice="1d1";
-    object.MagicItemTable="Magic ltem Table G"; 
-    object.MagicItemDice2=""; 
-    object.MagicItemTable2="";
-
-    table.push(object)
-  }
-  */
+  
+  for (; i < 2; i++) {
+	table.push(new createFormulaObject("2d6*50","1d1","Magic ltem Table G","",""));	
+  } 
+  
   return table;
 }
+
