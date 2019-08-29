@@ -48,3 +48,21 @@ var CR4LootTable = [";|",";|",";|",";|",";|",";|","2d6*10;|","2d6*10;|","2d6*10;
 var CR10LootTable = [];
 var CR16LootTable = [];
 var CR17LootTable = [];
+
+
+function CR4LootTableTest(){
+
+  var table = [];
+    
+  for (; i < 6; i++) {
+    table.push(";;;")
+  }
+  for (; i < 10; i++) {
+    table.push("2d6*10;;;")
+  }
+  for (; i < 10; i++) {
+    table.push("2d6*10;;;")
+  }
+  
+  
+}
