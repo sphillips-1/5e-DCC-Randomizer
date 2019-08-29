@@ -39,7 +39,12 @@
 		
 		//Get Loot Formula
 		var LootFormula = GetLootFormula(challengeRating,diceRoll);
-		document.getElementById("Loot Formula").innerHTML = "D100 Loot Formula ["+LootFormula+"]";
+		document.getElementById("Loot Formula").innerHTML = "GP ["+LootFormula.GP+"]";
+		
+		
+		
+		//var lootFormulaObject = {GP:gpFormula, MagicItemFormula:magicItemDice, MagicItemTable:magicItemTable, MagicItemFormula2:magicItemDice2, MagicItemTable2:magicItemTable2};
+
 
 		/*
 		var baseGP = GetBaseGP(ChallengeRatingGP[challengeRating])
