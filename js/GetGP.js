@@ -1,23 +1,37 @@
-function GetGP(GPFormula){
+function GetGP(challengeRating){
 	
-	var crGParray = GPFormula.split(";");
+	var table;
+	
+	switch (challengeRating){
+        case "Challenge 0-4":
+        	table = CR4;
+        	break;
+        case "Challenge 5-10":
+		table = CR10;
+        	break;
+        case "Challenge 11-16":
+		table = CR16;
+        	break;
+        case "Challenge 17+":
+		table = CR17;
+        	break;
+        }
+
+	var varCP = rollAndCombineDice(table.CP);
+	var varSP = rollAndCombineDice(table.SP);
+	var varGP = rollAndCombineDice(table.GP);
+	var varPP = rollAndCombineDice(table.PP);
 	
 	
-	var varCP = rollAndCombineDice(crGParray[0])*.01;
-	var varSP = rollAndCombineDice(crGParray[1])*.1;
-	var varGP = rollAndCombineDice(crGParray[2]);
-	var varPP = rollAndCombineDice(crGParray[3])*10;
-	var varTotalGP = varCP + varSP + varGP + varPP;
+	var CPtoGP = varCP*.01;
+	var SPtoGP = varSP*.1;
+	var PPtoGP = varPP*10;
 	
-	var CPtoGP = ;
-	var SPtoGP = ;
-	var PPtoGP = ;
-	
+	var varTotalGP = CPtoGP + SPtoGP + varGP + PPtoGP;
 	
 	var Currency = { CP:varCP ,SP:varSP ,GP:varGP, PP:varPP, Total:varTotalGP} 
 	
-	var MoneyArray = ["CP["+CP+"] SP["+SP+"] GP["+GP+"] PP["+PP+"]",TotalGP]
-	return MoneyArray;
+	return Currency;
 }
 
   function getRandomArbitrary(max) {
@@ -40,3 +54,9 @@ function GetGP(GPFormula){
     diceTotal = diceTotal * diceFormula[2];
     return diceTotal;
   }
+
+
+var CR4 = {CP:"6d6*100",SP:"3d6*100",GP:"2d6*10",PP:"0d0*0"};
+var CR10 = {CP:"2d6*100",SP:"2d6*1000",GP:"6d6*100",PP:"3d6*10"};
+var CR16 = {CP:"0d0*0",SP:"0d0*0",GP:"4d6*1000",PP:"5d6*100"};
+var CR17 = {CP:"0d0*0",SP:"0d0*0",GP:"12d6*1000",PP:"8d6*1000"};
