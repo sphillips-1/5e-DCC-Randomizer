@@ -22,8 +22,23 @@ function GetLootFormula(challengeRating,d100){
         var gpFormula = lootFormula.split(";")[0];
         var magicItemDice = lootFormula.split(";")[1].split("|")[0];
         var magicItemTable = lootFormula.split(";")[1].split("|")[1];
-        var magicItemDice2 = lootFormula.split(";")[2].split("|")[0];
-        var magicItemTable2 = lootFormula.split(";")[2].split("|")[1];
+        
+  
+        var magicItemDice2; 
+        
+        If (typeOf lootFormula.split(";")[2].split("|")[0] === 'undefined'){
+          magicItemDice2 = "";
+        }else{
+          magicItemDice2 = lootFormula.split(";")[2].split("|")[0];
+        }
+  
+        var magicItemTable2;
+        If (typeOf lootFormula.split(";")[2].split("|")[1] === 'undefined'){
+          magicItemTable2 = "";
+        }else{
+          magicItemTable2 = lootFormula.split(";")[2].split("|")[1];
+        }
+  
   
         var lootFormulaObject = {GP:gpFormula, MagicItemFormula:magicItemDice, MagicItemTable:magicItemTable, MagicItemFormula2:magicItemDice2, MagicItemTable2:magicItemTable2};
         return lootFormulaObject;
