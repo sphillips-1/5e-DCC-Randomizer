@@ -29,6 +29,11 @@ var CR16LootTable = [];
 var CR17LootTable = [];
 
 
+function createFormulaObject(varArtAndGemsGP, varMagicItemDice, varMagicItemTable, varMagicItemDice2, varMagicItemTable2){
+  var object = {ArtAndGemsGP:varArtAndGemsGP, MagicItemDice:varMagicItemDice, MagicItemTable:varMagicItemTable, MagicItemDice2:varMagicItemDice2, MagicItemTable2:varMagicItemTable2};
+  return object;
+}
+
 function CR4LootTable(){
 
   var table = [];
@@ -36,24 +41,11 @@ function CR4LootTable(){
   var i;
     
   for (; i < 6; i++) {
-    
-    object.ArtAndGemsGP="";
-    object.MagicItemDice="";
-    object.MagicItemTable=""; 
-    object.MagicItemDice2=""; 
-    object.MagicItemTable2="";
-
-    table.push(object);
+    table.push(new createFormulaObject("","","","",""));
   }
   
   for (; i < 10; i++) {
-    object.ArtAndGemsGP="2d6*10";
-    object.MagicItemDice="";
-    object.MagicItemTable=""; 
-    object.MagicItemDice2=""; 
-    object.MagicItemTable2="";
-
-    table.push(object);
+    table.push(new createFormulaObject("2d6*10","","","",""));
   }
   
   /*
