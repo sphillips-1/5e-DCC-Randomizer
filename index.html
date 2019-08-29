@@ -5,6 +5,8 @@
 	<script src="js/jquery-3.4.1.min.js"></script>
 	<script src="js/test.js" type="text/javascript"></script>
 	<script src="js/GetLootFormula.js" type="text/javascript"></script>
+	<script src="js/GetGP.js" type="text/javascript"></script>
+	
 	
 
 </head>
@@ -37,8 +39,21 @@
 		//Get D100 Roll
 		var diceRoll = getRandomArbitrary(100);
 		
+		//Get Currency
+		var Currency = GetGP(challengeRating);
+		
+		/*
+			Currency.CP
+			Currency.SP
+			Currency.GP
+			Currency.PP
+			Currency.Total 
+		*/
+		document.getElementById("Loot Formula").innerHTML = "Currency <br>CP["+Currency.CP+"] <br>SP["+Currency.SP+"] <br>GP["+Currency.GP+"] <br>PP["+Currency.PP+"] <br>Total in GP["+Currency.Total+"]";
+		
+		
 		//Get Loot Formula
-		var LootFormula = GetLootFormula(challengeRating,diceRoll);
+		//var LootFormula = GetLootFormula(challengeRating,diceRoll);
 		
 		/*
 		    object.ArtAndGemsGP="2d4*25";
@@ -48,7 +63,7 @@
 		    object.MagicItemTable2="";
 		*/
 		
-		document.getElementById("Loot Formula").innerHTML = "GP []";
+		document.getElementById("Loot Formula").innerHTML = "Loot Formula []";
 		
 		
 		
