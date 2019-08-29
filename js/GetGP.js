@@ -18,9 +18,13 @@ function GetGP(challengeRating){
         }
 
 	var varCP = rollAndCombineDice(table.CP);
+	console.log("CP = ["+varCP+"]");
 	var varSP = rollAndCombineDice(table.SP);
+	console.log("SP = ["+varSP+"]");
 	var varGP = rollAndCombineDice(table.GP);
+	console.log("GP = ["+varGP+"]");
 	var varPP = rollAndCombineDice(table.PP);
+	console.log("PP = ["+varPP+"]");
 	
 	
 	var CPtoGP = varCP*.01;
