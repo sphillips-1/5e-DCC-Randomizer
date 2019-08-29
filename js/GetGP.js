@@ -1,21 +1,24 @@
 function GetGP(GPFormula){
+	
 	var crGParray = GPFormula.split(";");
-    var CP = rollAndCombineDice(crGParray[0])*.01;
-    console.log("CP formula-" + crGParray[0]);
-    console.log("CP:["+CP+"]");
-    var SP = rollAndCombineDice(crGParray[1])*.1;
-    console.log("SP formula-" + crGParray[1]);
-    console.log("SP:["+SP+"]");
-    var GP = rollAndCombineDice(crGParray[2]);
-    console.log("GP formula-" + crGParray[2]);
-	console.log("GP:["+GP+"]");
-    var PP = rollAndCombineDice(crGParray[3])*10;
-    console.log("PP formula-" + crGParray[3]);
-    console.log("PP:["+PP+"]");
-    var TotalGP = CP + SP + GP + PP;
-    var MoneyArray = ["CP["+CP+"] SP["+SP+"] GP["+GP+"] PP["+PP+"]",TotalGP]
+	
+	
+	var varCP = rollAndCombineDice(crGParray[0])*.01;
+	var varSP = rollAndCombineDice(crGParray[1])*.1;
+	var varGP = rollAndCombineDice(crGParray[2]);
+	var varPP = rollAndCombineDice(crGParray[3])*10;
+	var varTotalGP = varCP + varSP + varGP + varPP;
+	
+	var CPtoGP = ;
+	var SPtoGP = ;
+	var PPtoGP = ;
+	
+	
+	var Currency = { CP:varCP ,SP:varSP ,GP:varGP, PP:varPP, Total:varTotalGP} 
+	
+	var MoneyArray = ["CP["+CP+"] SP["+SP+"] GP["+GP+"] PP["+PP+"]",TotalGP]
 	return MoneyArray;
-  }
+}
 
   function getRandomArbitrary(max) {
     return Math.floor((Math.random() * max) + 1);
