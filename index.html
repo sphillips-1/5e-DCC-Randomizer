@@ -26,15 +26,24 @@
 </html>
 <script>
 	function get_treasure(){
+		
+		//Get Challenge Rating
 		var challengeRating = document.getElementById("challenge_rating").value;
 		document.getElementById("Challenge Rating").innerHTML = "Challenge Rating ["+challengeRating+"]";
+		
+		//Get D100 Roll
 		var diceRoll = getRandomArbitrary(100);
+		
+		//Get Loot Formula
 		var LootFormula = CR4LootTable[getRandomArbitrary(100)-1];
 		document.getElementById("Loot Formula").innerHTML = "D100 Loot Formula ["+LootFormula+"]";
+
+		/*
 		var baseGP = GetBaseGP(ChallengeRatingGP[challengeRating])
 		document.getElementById("Currency").innerHTML = "Currency: "+ baseGP[0]+ " <br> Currency Combined:["+ baseGP[1]+ "]";
 		var MagicItems = GetMagicItems(LootFormula);
 		document.getElementById("Magic Items").innerHTML = "Magic Items [" + MagicItems + "]";
+		*/
 	  }
 	
 </script>
