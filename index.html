@@ -53,7 +53,7 @@
 		
 		
 		//Get Loot Formula
-		//var LootFormula = GetLootFormula(challengeRating,diceRoll);
+		var LootFormula = GetLootFormula(challengeRating,diceRoll);
 		
 		/*
 		    object.ArtAndGemsGP="2d4*25";
@@ -63,7 +63,7 @@
 		    object.MagicItemTable2="";
 		*/
 		
-		document.getElementById("Loot Formula").innerHTML = "Loot Formula []";
+		document.getElementById("Loot Formula").innerHTML = "Loot Formula ["+LootFormula.ArtAndGemsGP+"]";
 		
 		
 		
