@@ -43,9 +43,9 @@ function CR4LootTable(){
     object.MagicItemDice2=""; 
     object.MagicItemTable2="";
 
-    table.push(object)
+    table.push(object);
   }
-  /*
+  
   for (; i < 10; i++) {
     object.ArtAndGemsGP="2d6*10";
     object.MagicItemDice="";
@@ -53,8 +53,10 @@ function CR4LootTable(){
     object.MagicItemDice2=""; 
     object.MagicItemTable2="";
 
-    table.push(object)
+    table.push(object);
   }
+  
+  /*
   for (; i < 10; i++) {
     object.ArtAndGemsGP="2d4*25";
     object.MagicItemDice="";
