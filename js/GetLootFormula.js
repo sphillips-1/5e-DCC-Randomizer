@@ -25,14 +25,7 @@ function GetLootFormula(challengeRating,d100){
         return lootFormula;
 }
 
-//var CR4LootTable = [";|",";|",";|",";|",";|",";|","2d6*10;|","2d6*10;|","2d6*10;|","2d6*10;|","2d6*10;|","2d6*10;|","2d6*10;|","2d6*10;|","2d6*10;|","2d6*10;|","2d4*25;|","2d4*25;|","2d4*25;|","2d4*25;|","2d4*25;|","2d4*25;|","2d4*25;|","2d4*25;|","2d4*25;|","2d4*25;|","2d6*50;|","2d6*50;|","2d6*50;|","2d6*50;|","2d6*50;|","2d6*50;|","2d6*50;|","2d6*50;|","2d6*50;|","2d6*50;|","2d6*10;1d6|Magic Item Table A","2d6*10;1d6|Magic Item Table A","2d6*10;1d6|Magic Item Table A","2d6*10;1d6|Magic Item Table A","2d6*10;1d6|Magic Item Table A","2d6*10;1d6|Magic Item Table A","2d6*10;1d6|Magic Item Table A","2d6*10;1d6|Magic Item Table A","2d4*25;1d6|Magic Item Table A","2d4*25;1d6|Magic Item Table A","2d4*25;1d6|Magic Item Table A","2d4*25;1d6|Magic Item Table A","2d4*25;1d6|Magic Item Table A","2d4*25;1d6|Magic Item Table A","2d4*25;1d6|Magic Item Table A","2d4*25;1d6|Magic Item Table A","2d6*50;1d6|Magic Item Table A","2d6*50;1d6|Magic Item Table A","2d6*50;1d6|Magic Item Table A","2d6*50;1d6|Magic Item Table A","2d6*50;1d6|Magic Item Table A","2d6*50;1d6|Magic Item Table A","2d6*50;1d6|Magic Item Table A","2d6*50;1d6|Magic Item Table A","2d6*10;1d4|Magic ltem Table B","2d6*10;1d4|Magic ltem Table B","2d6*10;1d4|Magic ltem Table B","2d6*10;1d4|Magic ltem Table B","2d6*10;1d4|Magic ltem Table B","2d4*25;1d4|Magic ltem Table B","2d4*25;1d4|Magic ltem Table B","2d4*25;1d4|Magic ltem Table B","2d4*25;1d4|Magic ltem Table B","2d4*25;1d4|Magic ltem Table B","2d6*50;1d4|Magic ltem Table B","2d6*50;1d4|Magic ltem Table B","2d6*50;1d4|Magic ltem Table B","2d6*50;1d4|Magic ltem Table B","2d6*50;1d4|Magic ltem Table B","2d6*10;1d4|Magic ltem Table C","2d6*10;1d4|Magic ltem Table C","2d6*10;1d4|Magic ltem Table C","2d4*25;1d4|Magic ltem Table C","2d4*25;1d4|Magic ltem Table C","2d6*50;1d4|Magic ltem Table C","2d6*50;1d4|Magic ltem Table C","2d6*50;1d4|Magic ltem Table C","2d6*50;1d4|Magic ltem Table C","2d6*50;1d4|Magic ltem Table C","2d4*25;1d4|Magic ltem Table F","2d4*25;1d4|Magic ltem Table F","2d4*25;1d4|Magic ltem Table F","2d4*25;1d4|Magic ltem Table F","2d4*25;1d4|Magic ltem Table F","2d4*25;1d4|Magic ltem Table F","2d4*25;1d4|Magic ltem Table F","2d6*50;1d4|Magic ltem Table F","2d6*50;1d4|Magic ltem Table F","2d6*50;1d4|Magic ltem Table F","2d6*50;1d4|Magic ltem Table F","2d6*50;1d4|Magic ltem Table F","2d4*25;1d1|Magic ltem Table G","2d4*25;1d1|Magic ltem Table G","2d6*50;1d1|Magic ltem Table G"];
-var CR10LootTable = [];
-var CR16LootTable = [];
-var CR17LootTable = [];
-
-
 function createFormulaObject(varArtAndGemsGP, varMagicItemDice, varMagicItemTable, varMagicItemDice2, varMagicItemTable2){
-  	//var object = {ArtAndGemsGP:varArtAndGemsGP, MagicItemDice:varMagicItemDice, MagicItemTable:varMagicItemTable, MagicItemDice2:varMagicItemDice2, MagicItemTable2:varMagicItemTable2};
 	
 	var object = new Object(), 
 	ArtAndGemsGP = varArtAndGemsGP, 
@@ -45,61 +38,45 @@ function createFormulaObject(varArtAndGemsGP, varMagicItemDice, varMagicItemTabl
 	return object;
 }
 
-function CR4LootTable(){
-
-  var table = new Array();
-  var i;
-    
-  for (; i < 6; i++) {
-    table.push(new createFormulaObject("","","","",""));
-  }
-  for (; i < 10; i++) {
-    table.push(new createFormulaObject("2d6*10","","","",""));
-  }
-  for (; i < 10; i++) {
-    table.push(new createFormulaObject("2d4*25","","","",""));
-  }
-  for (; i < 10; i++) {
-	table.push(new createFormulaObject("2d6*50","","","",""));
-  }
-  for (; i < 8; i++) {
-	table.push(new createFormulaObject("2d6*10","1d6","Magic Item Table A","",""));
-  }
-  for (; i < 8; i++) {
-    table.push(new createFormulaObject("2d4*25","1d6","Magic Item Table A","",""));
-  }
-  for (; i < 8; i++) {
-	table.push(new createFormulaObject("2d6*50","1d6","Magic Item Table A","",""));
-  }
-  for (; i < 5; i++) {
-	table.push(new createFormulaObject("2d6*10","1d4","Magic ltem Table B","",""));
-  }
-  for (; i < 5; i++) {
-	table.push(new createFormulaObject("2d4*25","1d4","Magic ltem Table B","",""));
-  }
-  for (; i < 5; i++) {
-	table.push(new createFormulaObject("2d6*50","1d4","Magic ltem Table B","",""));	  
-  }
-  for (; i < 5; i++) {
-	table.push(new createFormulaObject("2d4*25","1d4","Magic ltem Table C","",""));	  	  
-  }
-  for (; i < 5; i++) {
-	table.push(new createFormulaObject("2d6*50","1d4","Magic ltem Table C","",""));	  	  	  
-  }
-  for (; i < 7; i++) {
-	table.push(new createFormulaObject("2d4*25","1d4","Magic ltem Table F","",""));	  	  
-  }
-  for (; i < 5; i++) {
-	table.push(new createFormulaObject("2d6*50","1d4","Magic ltem Table F","",""));	
-  }  
-  for (; i < 2; i++) {
-	table.push(new createFormulaObject("2d4*25","1d1","Magic ltem Table G","",""));	
-  } 
-  
-  for (; i < 2; i++) {
-	table.push(new createFormulaObject("2d6*50","1d1","Magic ltem Table G","",""));	
-  } 
-  
-  return table;
+function inRange(x, min, max) {
+    return min <= x && x <= max;
+}
+function CR4LootTable(d100){
+	if(inRange(d100, 1, 6)) {
+		lootFormula =  createFormulaObject("","","","","");
+	}else if(inRange(d100,7,16){
+		lootFormula =  createFormulaObject("2d6*10","","","","");
+	}else if(inRange(d100,17,26){
+		lootFormula =  createFormulaObject("2d4*25","","","","");
+	}else if(inRange(d100,27,36){
+		lootFormula =  createFormulaObject("2d6*50","","","","");
+	}else if(inRange(d100,37,44){
+		lootFormula =  createFormulaObject("2d6*10","1d6","Magic Item Table A","","");
+	}else if(inRange(d100,45,52){
+		lootFormula =  createFormulaObject("2d4*25","1d6","Magic Item Table A","","");
+	}else if(inRange(d100,53,60){
+		lootFormula =  createFormulaObject("2d6*50","1d6","Magic Item Table A","","");
+	}else if(inRange(d100,61,65){
+		lootFormula =  createFormulaObject("2d6*10","1d4","Magic ltem Table B","","");
+	}else if(inRange(d100,66,70){
+		lootFormula =  createFormulaObject("2d4*25","1d4","Magic ltem Table B","","");
+	}else if(inRange(d100,71,75){
+		lootFormula =  createFormulaObject("2d6*50","1d4","Magic ltem Table B","","");
+	}else if(inRange(d100,76,78){
+		lootFormula =  createFormulaObject("2d4*10","1d4","Magic ltem Table C","","");
+	}else if(inRange(d100,79,80){
+		lootFormula =  createFormulaObject("2d4*25","1d4","Magic ltem Table C","","");
+	}else if(inRange(d100,81,85){
+		lootFormula =  createFormulaObject("2d6*50","1d4","Magic ltem Table C","","");
+	}else if(inRange(d100,86,92){
+		lootFormula =  createFormulaObject("2d4*25","1d4","Magic ltem Table F","","");	
+	}else if(inRange(d100,93,97){
+		lootFormula =  createFormulaObject("2d6*50","1d4","Magic ltem Table F","","");	
+	}else if(inRange(d100,98,99){
+		lootFormula =  createFormulaObject("2d4*25","1d1","Magic ltem Table G","","");	
+	}else if(inRange(d100,100,100){
+		lootFormula =  createFormulaObject("2d6*50","1d1","Magic ltem Table G","","");	
+	}
+	return lootFormula;
 }
 
