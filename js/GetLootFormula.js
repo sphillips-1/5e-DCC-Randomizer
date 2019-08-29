@@ -1,6 +1,6 @@
 function GetLootFormula(challengeRating,d100){
 
-  console.log("d100=[" +d100 + "]});  
+  console.log("d100=[" +d100 + "]");  
   
   var table;
   switch (challengeRating){
