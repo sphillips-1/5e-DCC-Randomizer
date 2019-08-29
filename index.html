@@ -39,7 +39,16 @@
 		
 		//Get Loot Formula
 		var LootFormula = GetLootFormula(challengeRating,diceRoll);
-		document.getElementById("Loot Formula").innerHTML = "GP ["+LootFormula.GP+"]";
+		
+		/*
+		    object.ArtAndGemsGP="2d4*25";
+		    object.MagicItemDice="";
+		    object.MagicItemTable="", 
+		    object.MagicItemDice2="", 
+		    object.MagicItemTable2="";
+		*/
+		
+		document.getElementById("Loot Formula").innerHTML = "GP ["+LootFormula.ArtAndGemsGP+"]";
 		
 		
 		
