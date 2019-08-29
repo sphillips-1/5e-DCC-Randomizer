@@ -26,7 +26,7 @@ var CR16LootTable = [];
 var CR17LootTable = [];
 
 
-function CR4LootTableTest(){
+function CR4LootTable(){
 
   var table = [];
   var lootFormulaObject = {ArtAndGemsGP:"", MagicItemDice:"", MagicItemTable:"", MagicItemDice2:"", MagicItemTable2:""};
