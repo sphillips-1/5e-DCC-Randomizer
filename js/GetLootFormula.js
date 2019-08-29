@@ -32,15 +32,15 @@ var CR17LootTable = [];
 function CR4LootTable(){
 
   var table = [];
-  var object = {ArtAndGemsGP:"", MagicItemDice:"", MagicItemTable:"", MagicItemDice2:"", MagicItemTable2:""};
+  var object = {ArtAndGemsGP:""; MagicItemDice:""; MagicItemTable:"", MagicItemDice2:"", MagicItemTable2:""};
   var i;
     
   for (; i < 6; i++) {
     
     object.ArtAndGemsGP="";
     object.MagicItemDice="";
-    object.MagicItemTable="", 
-    object.MagicItemDice2="", 
+    object.MagicItemTable=""; 
+    object.MagicItemDice2=""; 
     object.MagicItemTable2="";
 
     table.push(object)
@@ -48,8 +48,8 @@ function CR4LootTable(){
   for (; i < 10; i++) {
     object.ArtAndGemsGP="2d6*10";
     object.MagicItemDice="";
-    object.MagicItemTable="", 
-    object.MagicItemDice2="", 
+    object.MagicItemTable=""; 
+    object.MagicItemDice2=""; 
     object.MagicItemTable2="";
 
     table.push(object)
@@ -57,8 +57,8 @@ function CR4LootTable(){
   for (; i < 10; i++) {
     object.ArtAndGemsGP="2d4*25";
     object.MagicItemDice="";
-    object.MagicItemTable="", 
-    object.MagicItemDice2="", 
+    object.MagicItemTable=""; 
+    object.MagicItemDice2=""; 
     object.MagicItemTable2="";
 
     table.push(object)
@@ -66,8 +66,8 @@ function CR4LootTable(){
   for (; i < 10; i++) {
     object.ArtAndGemsGP="2d6*50";
     object.MagicItemDice="";
-    object.MagicItemTable="", 
-    object.MagicItemDice2="", 
+    object.MagicItemTable=""; 
+    object.MagicItemDice2=""; 
     object.MagicItemTable2="";
 
     table.push(object)
@@ -77,8 +77,8 @@ function CR4LootTable(){
     
     object.ArtAndGemsGP="2d6*10";
     object.MagicItemDice="1d6";
-    object.MagicItemTable="Magic Item Table A", 
-    object.MagicItemDice2="", 
+    object.MagicItemTable="Magic Item Table A"; 
+    object.MagicItemDice2=""; 
     object.MagicItemTable2="";
 
     table.push(object)
@@ -87,8 +87,8 @@ function CR4LootTable(){
     
     object.ArtAndGemsGP="2d4*25";
     object.MagicItemDice="1d6";
-    object.MagicItemTable="Magic Item Table A", 
-    object.MagicItemDice2="", 
+    object.MagicItemTable="Magic Item Table A"; 
+    object.MagicItemDice2=""; 
     object.MagicItemTable2="";
 
     table.push(object)
@@ -97,8 +97,8 @@ function CR4LootTable(){
     
     object.ArtAndGemsGP="2d6*50";
     object.MagicItemDice="1d6";
-    object.MagicItemTable="Magic Item Table A", 
-    object.MagicItemDice2="", 
+    object.MagicItemTable="Magic Item Table A"; 
+    object.MagicItemDice2=""; 
     object.MagicItemTable2="";
 
     table.push(object)
@@ -106,8 +106,8 @@ function CR4LootTable(){
   for (; i < 5; i++) {
     object.ArtAndGemsGP="2d6*10";
     object.MagicItemDice="1d4";
-    object.MagicItemTable="Magic ltem Table B", 
-    object.MagicItemDice2="", 
+    object.MagicItemTable="Magic ltem Table B"; 
+    object.MagicItemDice2=""; 
     object.MagicItemTable2="";
 
     table.push(object)
@@ -115,8 +115,8 @@ function CR4LootTable(){
   for (; i < 5; i++) {
     object.ArtAndGemsGP="2d4*25";
     object.MagicItemDice="1d4";
-    object.MagicItemTable="Magic ltem Table B", 
-    object.MagicItemDice2="", 
+    object.MagicItemTable="Magic ltem Table B"; 
+    object.MagicItemDice2=""; 
     object.MagicItemTable2="";
 
     table.push(object)
@@ -124,8 +124,8 @@ function CR4LootTable(){
   for (; i < 5; i++) {
     object.ArtAndGemsGP="2d6*50";
     object.MagicItemDice="1d4";
-    object.MagicItemTable="Magic ltem Table B", 
-    object.MagicItemDice2="", 
+    object.MagicItemTable="Magic ltem Table B"; 
+    object.MagicItemDice2=""; 
     object.MagicItemTable2="";
 
     table.push(object)
@@ -133,8 +133,8 @@ function CR4LootTable(){
   for (; i < 5; i++) {
     object.ArtAndGemsGP="2d4*25";
     object.MagicItemDice="1d4";
-    object.MagicItemTable="Magic ltem Table C", 
-    object.MagicItemDice2="", 
+    object.MagicItemTable="Magic ltem Table C"; 
+    object.MagicItemDice2=""; 
     object.MagicItemTable2="";
 
     table.push(object)
@@ -142,8 +142,8 @@ function CR4LootTable(){
   for (; i < 5; i++) {
     object.ArtAndGemsGP="2d6*50";
     object.MagicItemDice="1d4";
-    object.MagicItemTable="Magic ltem Table C", 
-    object.MagicItemDice2="", 
+    object.MagicItemTable="Magic ltem Table C"; 
+    object.MagicItemDice2=""; 
     object.MagicItemTable2="";
 
     table.push(object)
@@ -151,8 +151,8 @@ function CR4LootTable(){
   for (; i < 7; i++) {
     object.ArtAndGemsGP="2d4*25";
     object.MagicItemDice="1d4";
-    object.MagicItemTable="Magic ltem Table F", 
-    object.MagicItemDice2="", 
+    object.MagicItemTable="Magic ltem Table F"; 
+    object.MagicItemDice2=""; 
     object.MagicItemTable2="";
 
     table.push(object)
@@ -160,8 +160,8 @@ function CR4LootTable(){
   for (; i < 5; i++) {
     object.ArtAndGemsGP="2d6*50";
     object.MagicItemDice="1d4";
-    object.MagicItemTable="Magic ltem Table F", 
-    object.MagicItemDice2="", 
+    object.MagicItemTable="Magic ltem Table F"; 
+    object.MagicItemDice2=""; 
     object.MagicItemTable2="";
 
     table.push(object)
@@ -169,8 +169,8 @@ function CR4LootTable(){
   for (; i < 2; i++) {
     object.ArtAndGemsGP="2d4*25";
     object.MagicItemDice="1d1";
-    object.MagicItemTable="Magic ltem Table G", 
-    object.MagicItemDice2="", 
+    object.MagicItemTable="Magic ltem Table G"; 
+    object.MagicItemDice2=""; 
     object.MagicItemTable2="";
 
     table.push(object)
@@ -178,8 +178,8 @@ function CR4LootTable(){
   for (; i < 1; i++) {
     object.ArtAndGemsGP="2d6*50";
     object.MagicItemDice="1d1";
-    object.MagicItemTable="Magic ltem Table G", 
-    object.MagicItemDice2="", 
+    object.MagicItemTable="Magic ltem Table G"; 
+    object.MagicItemDice2=""; 
     object.MagicItemTable2="";
 
     table.push(object)
