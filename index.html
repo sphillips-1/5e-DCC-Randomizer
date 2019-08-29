@@ -4,6 +4,9 @@
 	
 	<script src="js/jquery-3.4.1.min.js"></script>
 	<script src="js/test.js" type="text/javascript"></script>
+	<script src="js/GetLootFormula.js" type="text/javascript"></script>
+	
+
 </head>
 <body>
     	<h1>DnD 5E Random Treasure Hoard</h1>
@@ -35,7 +38,7 @@
 		var diceRoll = getRandomArbitrary(100);
 		
 		//Get Loot Formula
-		var LootFormula = CR4LootTable[getRandomArbitrary(100)-1];
+		var LootFormula = GetLootFormula(challengeRating,diceRoll);
 		document.getElementById("Loot Formula").innerHTML = "D100 Loot Formula ["+LootFormula+"]";
 
 		/*
