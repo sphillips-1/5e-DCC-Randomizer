@@ -37,41 +37,6 @@
     var MoneyArray = ["CP["+CP+"] SP["+SP+"] GP["+GP+"] PP["+PP+"]",TotalGP]
 	return MoneyArray;
   }
-  function GetMagicItems(LootFormula){
-  	var magicItemArray = [];
-  	if (LootFormula.split(";")[1].includes("Magic ltem Table")){
-    	var magicItemFormula = LootFormula.split(";")[1]
-        var magicItemDice = magicItemFormula.split("|")[0]
-        var magicItemTable = magicItemFormula.split("|")[1]
-		var magicItemDiceResults = rollAndCombineDice(magicItemDice)
-		var table;
-    	switch (magicItemFormula){
-        case "Magic ltem Table A":
-        	table = MagicTableA;
-        	break;
-        case "Magic ltem Table B":
-        	break;
-        case "Magic ltem Table C":
-        	break;
-        case "Magic ltem Table D":
-        	break;
-        case "Magic ltem Table E":
-        	break;
-        case "Magic ltem Table F":
-        	break;
-        case "Magic ltem Table G":
-        	break;
-        case "Magic ltem Table H":
-        	break;
-        case "Magic ltem Table I":
-        	break;
-        }
-      	for (i = 0; i < magicItemDiceResults; i++) {
-        	console.log(table[getRandomArbitrary(100)-1]);
-        	magicItemArray.push(table[getRandomArbitrary(100)-1]);
-    	}
-    };
-    return magicItemArray;
-  }
+
   var ChallengeRatingGP = {"Challenge 0-4":"6d6*100;3d6*100;2d6*10;0d0*0","Challenge 5-10":"2d6*100;2d6*1000;6d6*100;3d6* 10","Challenge 11-16":"0d0*0;0d0*0;4d6*1000;5d6*100","Challenge 17+":"0d0*0;0d0*0;12d6*1000;8d6*1000"};
   
