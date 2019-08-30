@@ -1,59 +1,109 @@
 
   function GetMagicItems(LootFormula){
-	  
-  	var magicItem1Dice = rollAndCombineDice(LootFormula.MagicItemDice);
-  	var magicItem2Dice = rollAndCombineDice(LootFormula.MagicItemDice2);		   
-
   	var magicItems;
-	  
 
-	for (i = 0; i < magicItem2Dice; i++) {
-        	
-    	}
-	  
+  	//Magic Table #1
+	var magicItem1Dice = rollAndCombineDice(LootFormula.MagicItemDice);  
 	switch (LootFormula.MagicItemTable){
         case "Magic ltem Table A":
-		
 		for (i = 0; i < magicItem1Dice; i++) {
-        		MagicTableA
+			magicItems.push(MagicTableA(getRandomArbitrary(100)));
     		}
         	break;
         case "Magic ltem Table B":
+		for (i = 0; i < magicItem1Dice; i++) {
+			magicItems.push(MagicTableA(getRandomArbitrary(100)));
+    		}	
         	break;
         case "Magic ltem Table C":
+		for (i = 0; i < magicItem1Dice; i++) {
+			magicItems.push(MagicTableA(getRandomArbitrary(100)));
+    		}	
         	break;
         case "Magic ltem Table D":
+		for (i = 0; i < magicItem1Dice; i++) {
+			magicItems.push(MagicTableA(getRandomArbitrary(100)));
+    		}	
         	break;
         case "Magic ltem Table E":
+		for (i = 0; i < magicItem1Dice; i++) {
+			magicItems.push(MagicTableA(getRandomArbitrary(100)));
+    		}	
         	break;
         case "Magic ltem Table F":
+		for (i = 0; i < magicItem1Dice; i++) {
+			magicItems.push(MagicTableA(getRandomArbitrary(100)));
+    		}	
         	break;
         case "Magic ltem Table G":
+		for (i = 0; i < magicItem1Dice; i++) {
+			magicItems.push(MagicTableA(getRandomArbitrary(100)));
+    		}	
         	break;
         case "Magic ltem Table H":
+		for (i = 0; i < magicItem1Dice; i++) {
+			magicItems.push(MagicTableA(getRandomArbitrary(100)));
+    		}	
         	break;
         case "Magic ltem Table I":
+		for (i = 0; i < magicItem1Dice; i++) {
+			magicItems.push(MagicTableA(getRandomArbitrary(100)));
+    		}	
         	break;
         }
 	  
-	LootFormula.MagicItemTable
-	LootFormula.MagicItemTable2
-	  
-	
-	var magicItemArray = [];
-  	if (LootFormula.split(";")[1].includes("Magic ltem Table")){
-    	var magicItemFormula = LootFormula.split(";")[1]
-        var magicItemDice = magicItemFormula.split("|")[0]
-        var magicItemTable = magicItemFormula.split("|")[1]
-		var magicItemDiceResults = rollAndCombineDice(magicItemDice)
-		var table;
 
-      	for (i = 0; i < magicItemDiceResults; i++) {
-        	console.log(table[getRandomArbitrary(100)-1]);
-        	magicItemArray.push(table[getRandomArbitrary(100)-1]);
-    	}
-    };
-    return magicItemArray;
+
+  	//Magic Table #2
+  	var magicItem2Dice = rollAndCombineDice(LootFormula.MagicItemDice2);
+	switch (LootFormula.MagicItemTable2){
+        case "Magic ltem Table A":
+		for (i = 0; i < magicItem2Dice; i++) {
+			magicItems.push(MagicTableA(getRandomArbitrary(100)));
+    		}
+        	break;
+        case "Magic ltem Table B":
+		for (i = 0; i < magicItem2Dice; i++) {
+			magicItems.push(MagicTableA(getRandomArbitrary(100)));
+    		}	
+        	break;
+        case "Magic ltem Table C":
+		for (i = 0; i < magicItem2Dice; i++) {
+			magicItems.push(MagicTableA(getRandomArbitrary(100)));
+    		}	
+        	break;
+        case "Magic ltem Table D":
+		for (i = 0; i < magicItem2Dice; i++) {
+			magicItems.push(MagicTableA(getRandomArbitrary(100)));
+    		}	
+        	break;
+        case "Magic ltem Table E":
+		for (i = 0; i < magicItem2Dice; i++) {
+			magicItems.push(MagicTableA(getRandomArbitrary(100)));
+    		}	
+        	break;
+        case "Magic ltem Table F":
+		for (i = 0; i < magicItem2Dice; i++) {
+			magicItems.push(MagicTableA(getRandomArbitrary(100)));
+    		}	
+        	break;
+        case "Magic ltem Table G":
+		for (i = 0; i < magicItem2Dice; i++) {
+			magicItems.push(MagicTableA(getRandomArbitrary(100)));
+    		}	
+        	break;
+        case "Magic ltem Table H":
+		for (i = 0; i < magicItem2Dice; i++) {
+			magicItems.push(MagicTableA(getRandomArbitrary(100)));
+    		}	
+        	break;
+        case "Magic ltem Table I":
+		for (i = 0; i < magicItem2Dice; i++) {
+			magicItems.push(MagicTableA(getRandomArbitrary(100)));
+    		}	
+        	break;
+        }
+	return magicItems;
   }
 
 
@@ -102,4 +152,7 @@ function rollAndCombineDice(dice){
     diceTotal = diceTotal * diceFormula[2];
     return diceTotal;
   }
+function getRandomArbitrary(max) {
+    return Math.floor((Math.random() * max) + 1);
+}
 
