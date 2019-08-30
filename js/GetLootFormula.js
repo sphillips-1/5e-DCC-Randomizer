@@ -26,14 +26,11 @@ function GetLootFormula(challengeRating,d100){
 
 function createFormulaObject(varArtAndGemsGP, varMagicItemDice, varMagicItemTable, varMagicItemDice2, varMagicItemTable2){
 	
-	var object = new Object(), 
-	ArtAndGemsGP = varArtAndGemsGP, 
-	MagicItemDice=varMagicItemDice, 
-	MagicItemTable=varMagicItemTable,
-	MagicItemDice2=varMagicItemDice2,
-	MagicItemTable2=varMagicItemTable2;
-
-	
+	var object = {ArtAndGemsGP: varArtAndGemsGP, 
+	MagicItemDice:varMagicItemDice, 
+	MagicItemTable:varMagicItemTable,
+	MagicItemDice2:varMagicItemDice2,
+	MagicItemTable2:varMagicItemTable2};
 	return object;
 }
 
