@@ -42,6 +42,9 @@ function inRange(x, min, max) {
     return min <= x && x <= max;
 }
 function CR4LootTable(d100){
+
+	var lootFormula;
+
 	if(inRange(d100, 1, 6)) {
 		lootFormula =  createFormulaObject("","","","","");
 	} else if(inRange(d100,7,16)) {
