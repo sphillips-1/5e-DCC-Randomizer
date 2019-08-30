@@ -1,27 +1,22 @@
 
   function GetMagicItems(LootFormula){
 	  
-	  var magicItem1Dice = rollAndCombineDice(LootFormula.MagicItemDice);
-	  var magicItem2Dice = rollAndCombineDice(LootFormula.MagicItemDice2);		   
+  	var magicItem1Dice = rollAndCombineDice(LootFormula.MagicItemDice);
+  	var magicItem2Dice = rollAndCombineDice(LootFormula.MagicItemDice2);		   
 
-      	for (i = 0; i < numberOfDice; i++) {
-        	diceResults.push(getRandomArbitrary(diceSize));
+  	var magicItems;
+	  
+
+	for (i = 0; i < magicItem2Dice; i++) {
+        	
     	}
 	  
-	LootFormula.MagicItemTable
-	LootFormula.MagicItemTable2
-	  
-	
-	var magicItemArray = [];
-  	if (LootFormula.split(";")[1].includes("Magic ltem Table")){
-    	var magicItemFormula = LootFormula.split(";")[1]
-        var magicItemDice = magicItemFormula.split("|")[0]
-        var magicItemTable = magicItemFormula.split("|")[1]
-		var magicItemDiceResults = rollAndCombineDice(magicItemDice)
-		var table;
-    	switch (magicItemFormula){
+	switch (LootFormula.MagicItemTable){
         case "Magic ltem Table A":
-        	table = MagicTableA;
+		
+		for (i = 0; i < magicItem1Dice; i++) {
+        		MagicTableA
+    		}
         	break;
         case "Magic ltem Table B":
         	break;
@@ -40,6 +35,19 @@
         case "Magic ltem Table I":
         	break;
         }
+	  
+	LootFormula.MagicItemTable
+	LootFormula.MagicItemTable2
+	  
+	
+	var magicItemArray = [];
+  	if (LootFormula.split(";")[1].includes("Magic ltem Table")){
+    	var magicItemFormula = LootFormula.split(";")[1]
+        var magicItemDice = magicItemFormula.split("|")[0]
+        var magicItemTable = magicItemFormula.split("|")[1]
+		var magicItemDiceResults = rollAndCombineDice(magicItemDice)
+		var table;
+
       	for (i = 0; i < magicItemDiceResults; i++) {
         	console.log(table[getRandomArbitrary(100)-1]);
         	magicItemArray.push(table[getRandomArbitrary(100)-1]);
