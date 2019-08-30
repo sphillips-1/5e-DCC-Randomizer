@@ -44,37 +44,37 @@ function inRange(x, min, max) {
 function CR4LootTable(d100){
 	if(inRange(d100, 1, 6)) {
 		lootFormula =  createFormulaObject("","","","","");
-	} else if(inRange(d100,7,16){
+	} else if(inRange(d100,7,16)) {
 		lootFormula =  createFormulaObject("2d6*10","","","","");
-	} else if(inRange(d100,17,26){
+	} else if(inRange(d100,17,26)){
 		lootFormula =  createFormulaObject("2d4*25","","","","");
-	} else if(inRange(d100,27,36){
+	} else if(inRange(d100,27,36)){
 		lootFormula =  createFormulaObject("2d6*50","","","","");
-	} else if(inRange(d100,37,44){
+	} else if(inRange(d100,37,44)){
 		lootFormula =  createFormulaObject("2d6*10","1d6","Magic Item Table A","","");
-	} else if(inRange(d100,45,52){
+	} else if(inRange(d100,45,52)){
 		lootFormula =  createFormulaObject("2d4*25","1d6","Magic Item Table A","","");
-	} else if(inRange(d100,53,60){
+	} else if(inRange(d100,53,60)){
 		lootFormula =  createFormulaObject("2d6*50","1d6","Magic Item Table A","","");
-	} else if(inRange(d100,61,65){
+	} else if(inRange(d100,61,65)){
 		lootFormula =  createFormulaObject("2d6*10","1d4","Magic ltem Table B","","");
-	} else if(inRange(d100,66,70){
+	} else if(inRange(d100,66,70)){
 		lootFormula =  createFormulaObject("2d4*25","1d4","Magic ltem Table B","","");
-	} else if(inRange(d100,71,75){
+	} else if(inRange(d100,71,75)){
 		lootFormula =  createFormulaObject("2d6*50","1d4","Magic ltem Table B","","");
-	}else if(inRange(d100,76,78){
+	}else if(inRange(d100,76,78)){
 		lootFormula =  createFormulaObject("2d4*10","1d4","Magic ltem Table C","","");
-	} else if(inRange(d100,79,80){
+	} else if(inRange(d100,79,80)){
 		lootFormula =  createFormulaObject("2d4*25","1d4","Magic ltem Table C","","");
-	} else if(inRange(d100,81,85){
+	} else if(inRange(d100,81,85)){
 		lootFormula =  createFormulaObject("2d6*50","1d4","Magic ltem Table C","","");
-	} else if(inRange(d100,86,92){
+	} else if(inRange(d100,86,92)){
 		lootFormula =  createFormulaObject("2d4*25","1d4","Magic ltem Table F","","");	
-	} else if(inRange(d100,93,97){
+	} else if(inRange(d100,93,97)){
 		lootFormula =  createFormulaObject("2d6*50","1d4","Magic ltem Table F","","");	
-	} else if(inRange(d100,98,99){
+	} else if(inRange(d100,98,99)){
 		lootFormula =  createFormulaObject("2d4*25","1d1","Magic ltem Table G","","");	
-	} else if(inRange(d100,100,100){
+	} else if(inRange(d100,100,100)){
 		lootFormula =  createFormulaObject("2d6*50","1d1","Magic ltem Table G","","");	
 	}
 	return lootFormula;
