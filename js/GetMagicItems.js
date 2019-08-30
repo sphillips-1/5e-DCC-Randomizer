@@ -1,8 +1,13 @@
 
   function GetMagicItems(LootFormula){
 	  
-	var MagicItems={}
-	
+	  
+	  		   
+		    LootFormula.MagicItemDice
+		    LootFormula.MagicItemTable
+		    LootFormula.MagicItemDice2
+		    LootFormula.MagicItemTable2
+	  
 	
 	var magicItemArray = [];
   	if (LootFormula.split(";")[1].includes("Magic ltem Table")){
