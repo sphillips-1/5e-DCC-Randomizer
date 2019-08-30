@@ -1,12 +1,19 @@
 function GetMagicItems(LootFormula){
   	var magicItems;
 
+	
   	//Magic Table #1
-	var magicItem1Dice = rollAndCombineDice(LootFormula.MagicItemDice);  
+	var magicItem1Dice = rollAndCombineDice(LootFormula.MagicItemDice);
+	console.log(magicItem1Dice);
+	
+	var output;
+	
 	switch (LootFormula.MagicItemTable){
         case "Magic ltem Table A":
 		for (i = 0; i < magicItem1Dice; i++) {
-			magicItems.push(MagicTableA(getRandomArbitrary(100)));
+			output = MagicTableA(getRandomArbitrary(100));
+			console.log(output);
+			magicItems.push(output);
     		}
         	break;
         case "Magic ltem Table B":
