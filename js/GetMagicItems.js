@@ -40,4 +40,29 @@
     return magicItemArray;
   }
 
-var MagicTableA = ["Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Spell scroll (cantrip)","Spell scroll (cantrip)","Spell scroll (cantrip)","Spell scroll (cantrip)","Spell scroll (cantrip)","Spell scroll (cantrip)","Spell scroll (cantrip)","Spell scroll (cantrip)","Spell scroll (cantrip)","Spell scroll (cantrip)","Potion of climbing","Potion of climbing","Potion of climbing","Potion of climbing","Potion of climbing","Potion of climbing","Potion of climbing","Potion of climbing","Potion of climbing","Potion of climbing","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (2nd leve l)","Spell scroll (2nd leve l)","Spell scroll (2nd leve l)","Spell scroll (2nd leve l)","Potion of greater healing","Potion of greater healing","Potion of greater healing","Potion of greater healing","Bag of holding","Driftglobe"];
+var MagicTableA = ["","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Potion of healing","Spell scroll (cantrip)","Spell scroll (cantrip)","Spell scroll (cantrip)","Spell scroll (cantrip)","Spell scroll (cantrip)","Spell scroll (cantrip)","Spell scroll (cantrip)","Spell scroll (cantrip)","Spell scroll (cantrip)","Spell scroll (cantrip)","Potion of climbing","Potion of climbing","Potion of climbing","Potion of climbing","Potion of climbing","Potion of climbing","Potion of climbing","Potion of climbing","Potion of climbing","Potion of climbing","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (1st level)","Spell scroll (2nd leve l)","Spell scroll (2nd leve l)","Spell scroll (2nd leve l)","Spell scroll (2nd leve l)","Potion of greater healing","Potion of greater healing","Potion of greater healing","Potion of greater healing","Bag of holding","Driftglobe"];
+
+function MagicTableA(d100){
+
+	var magicItem;
+
+	if(inRange(d100, 1, 50)) {
+		magicItem =  "Potion of healing";
+	} else if(inRange(d100,51,60)) {
+		magicItem =  "Spell scroll (cantrip)";
+	} else if(inRange(d100,61,70)){
+		magicItem =  "Potion of climbing";
+	} else if(inRange(d100,71,90)){
+		magicItem =  "Spell Scroll (1st level)";
+	} else if(inRange(d100,91,94)){
+		magicItem =  "Spell Scroll (2nd level)";
+	} else if(inRange(d100,95,98)){
+		magicItem =  "Greater potion of healing";
+	} else if(inRange(d100,99,99)){
+		magicItem =  "Bag of holding";
+	} else if(inRange(d100,100,100)){
+		magicItem =  "Driftglobe;
+	} 
+	return magicItem;
+}
+
