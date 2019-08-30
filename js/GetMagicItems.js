@@ -1,5 +1,4 @@
-
-  function GetMagicItems(LootFormula){
+function GetMagicItems(LootFormula){
   	var magicItems;
 
   	//Magic Table #1
