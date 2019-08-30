@@ -18,9 +18,6 @@ function GetLootFormula(challengeRating,d100){
         	break;
         }
         
-        console.log("testing lootformula");
-        console.log(lootFormula.ArtAndGemsGP);
-        console.log("ending test on lootformula");
         return lootFormula;
 }
 
