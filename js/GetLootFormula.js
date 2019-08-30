@@ -2,25 +2,24 @@ function GetLootFormula(challengeRating,d100){
 
   console.log("d100=[" +d100 + "]");  
   
-  var table;
+  var lootFormula;
   switch (challengeRating){
         case "Challenge 0-4":
-        	table = CR4LootTable();
+        	lootFormula = CR4LootTable(d100);
         	break;
         case "Challenge 5-10":
-          table = CR10LootTable();
+			lootFormula = CR10LootTable(d100);
         	break;
         case "Challenge 11-16":
-          table = CR16LootTable();
+			lootFormula = CR16LootTable(d100);
         	break;
         case "Challenge 17+":
-          table = CR17LootTable();
+			lootFormula = CR17LootTable(d100);
         	break;
         }
         
-        var lootFormula = CR4LootTable()[9];
         console.log("testing lootformula");
-        console.log(lootFormula);
+        console.log(lootFormula.ArtAndGemsGP);
         console.log("ending test on lootformula");
         return lootFormula;
 }
