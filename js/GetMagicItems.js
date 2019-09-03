@@ -471,7 +471,7 @@ function getRandomSpellScroll(spellLevel){
 
 	}
 
-	var randomSpell = "Spell Scroll of" & spellTable[Math.floor(Math.random() * spellTable.length)];
+	var randomSpell = "Spell Scroll of" + spellTable[Math.floor(Math.random() * spellTable.length)];
 	
 	return randomSpell;
 
