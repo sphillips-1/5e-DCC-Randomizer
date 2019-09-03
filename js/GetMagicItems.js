@@ -1,55 +1,52 @@
 function GetMagicItems(LootFormula){
   	var magicItems = [];
 
-	
   	//Magic Table #1
 	var magicItem1Dice = rollAndCombineDice(LootFormula.MagicItemDice);
-	console.log(magicItem1Dice);
-	
 	var output;
 	
 	switch (LootFormula.MagicItemTable){
-        case "Magic ltem Table A":
+        case "Magic Item Table A":
 		for (i = 0; i < magicItem1Dice; i++) {
 			magicItems.push(MagicTableA(getRandomArbitrary(100)));
     		}
         	break;
-        case "Magic ltem Table B":
+        case "Magic Item Table B":
 		for (i = 0; i < magicItem1Dice; i++) {
 			magicItems.push(MagicTableB(getRandomArbitrary(100)));
     		}	
         	break;
-        case "Magic ltem Table C":
+        case "Magic Item Table C":
 		for (i = 0; i < magicItem1Dice; i++) {
 			magicItems.push(MagicTableC(getRandomArbitrary(100)));
     		}	
         	break;
-        case "Magic ltem Table D":
+        case "Magic Item Table D":
 		for (i = 0; i < magicItem1Dice; i++) {
 			magicItems.push(MagicTableD(getRandomArbitrary(100)));
     		}	
         	break;
-        case "Magic ltem Table E":
+        case "Magic Item Table E":
 		for (i = 0; i < magicItem1Dice; i++) {
 			magicItems.push(MagicTableE(getRandomArbitrary(100)));
     		}	
         	break;
-        case "Magic ltem Table F":
+        case "Magic Item Table F":
 		for (i = 0; i < magicItem1Dice; i++) {
 			magicItems.push(MagicTableF(getRandomArbitrary(100)));
     		}	
         	break;
-        case "Magic ltem Table G":
+        case "Magic Item Table G":
 		for (i = 0; i < magicItem1Dice; i++) {
 			magicItems.push(MagicTableG(getRandomArbitrary(100)));
     		}	
         	break;
-        case "Magic ltem Table H":
+        case "Magic Item Table H":
 		for (i = 0; i < magicItem1Dice; i++) {
 			magicItems.push(MagicTableH(getRandomArbitrary(100)));
     		}	
         	break;
-        case "Magic ltem Table I":
+        case "Magic Item Table I":
 		for (i = 0; i < magicItem1Dice; i++) {
 			magicItems.push(MagicTableI(getRandomArbitrary(100)));
     		}	
@@ -61,47 +58,47 @@ function GetMagicItems(LootFormula){
   	//Magic Table #2
   	var magicItem2Dice = rollAndCombineDice(LootFormula.MagicItemDice2);
 	switch (LootFormula.MagicItemTable2){
-        case "Magic ltem Table A":
+        case "Magic Item Table A":
 		for (i = 0; i < magicItem2Dice; i++) {
 			magicItems.push(MagicTableA(getRandomArbitrary(100)));
     		}
         	break;
-        case "Magic ltem Table B":
+        case "Magic Item Table B":
 		for (i = 0; i < magicItem2Dice; i++) {
 			magicItems.push(MagicTableB(getRandomArbitrary(100)));
     		}	
         	break;
-        case "Magic ltem Table C":
+        case "Magic Item Table C":
 		for (i = 0; i < magicItem2Dice; i++) {
 			magicItems.push(MagicTableC(getRandomArbitrary(100)));
     		}	
         	break;
-        case "Magic ltem Table D":
+        case "Magic Item Table D":
 		for (i = 0; i < magicItem2Dice; i++) {
 			magicItems.push(MagicTableD(getRandomArbitrary(100)));
     		}	
         	break;
-        case "Magic ltem Table E":
+        case "Magic Item Table E":
 		for (i = 0; i < magicItem2Dice; i++) {
 			magicItems.push(MagicTableE(getRandomArbitrary(100)));
     		}	
         	break;
-        case "Magic ltem Table F":
+        case "Magic Item Table F":
 		for (i = 0; i < magicItem2Dice; i++) {
 			magicItems.push(MagicTableF(getRandomArbitrary(100)));
     		}	
         	break;
-        case "Magic ltem Table G":
+        case "Magic Item Table G":
 		for (i = 0; i < magicItem2Dice; i++) {
 			magicItems.push(MagicTableG(getRandomArbitrary(100)));
     		}	
         	break;
-        case "Magic ltem Table H":
+        case "Magic Item Table H":
 		for (i = 0; i < magicItem2Dice; i++) {
 			magicItems.push(MagicTableH(getRandomArbitrary(100)));
     		}	
         	break;
-        case "Magic ltem Table I":
+        case "Magic Item Table I":
 		for (i = 0; i < magicItem2Dice; i++) {
 			magicItems.push(MagicTableI(getRandomArbitrary(100)));
     		}	
@@ -124,6 +121,8 @@ function MagicTableA(d100){
 	else if(inRange(d100,95,98)){magicItem =  "Greater potion of healing";}
 	else if(inRange(d100,99,99)){magicItem =  "Bag of holding";}
 	else if(inRange(d100,100,100)){magicItem =  "Driftglobe";} 
+
+	console.log(magicItem);
 
 	return magicItem;
 }

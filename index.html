@@ -76,11 +76,12 @@
 
 		if (LootFormula.MagicItemDice != ""){
 			outputLootFormula = outputLootFormula + "<br>["+LootFormula.MagicItemDice+"] items from ["+LootFormula.MagicItemTable+"]";
+			console.log(outputLootFormula)
 		}
 
 		if (LootFormula.MagicItemDice2 != ""){
 			outputLootFormula = outputLootFormula + "<br>["+LootFormula.MagicItemDice2+"] items from ["+LootFormula.MagicItemTable2+"]";
-			console.Log('it happened');
+			console.log(outputLootFormula)
 		}
 
 		document.getElementById("Loot Formula").innerHTML = outputLootFormula;
