@@ -114,10 +114,10 @@ function MagicTableA(d100){
 	var magicItem;
 
 	if(inRange(d100, 1, 50)) {magicItem =  "Potion of healing";}
-	else if(inRange(d100,51,60)) {magicItem =  "Spell scroll (cantrip)";}
+	else if(inRange(d100,51,60)) {magicItem =  getRandomSpellScroll(0);}
 	else if(inRange(d100,61,70)){magicItem =  "Potion of climbing";}
-	else if(inRange(d100,71,90)){magicItem =  "Spell Scroll (1st level)";}
-	else if(inRange(d100,91,94)){magicItem =  "Spell Scroll (2nd level)";}
+	else if(inRange(d100,71,90)){magicItem =  getRandomSpellScroll(1);}
+	else if(inRange(d100,91,94)){magicItem =  getRandomSpellScroll(2);}
 	else if(inRange(d100,95,98)){magicItem =  "Greater potion of healing";}
 	else if(inRange(d100,99,99)){magicItem =  "Bag of holding";}
 	else if(inRange(d100,100,100)){magicItem =  "Driftglobe";} 
@@ -137,8 +137,8 @@ function MagicTableB(d100){
 	else if(inRange(d100, 40, 44)) {magicItem =  "Potion of hill giant strength";}
 	else if(inRange(d100, 45, 49)) {magicItem =  "Potion of growth";}
 	else if(inRange(d100, 50, 54)) {magicItem =  "Potion of water breathing";}
-	else if(inRange(d100, 55, 59)) {magicItem =  "Spell scroll (2nd level)";}
-	else if(inRange(d100, 60, 64)) {magicItem =  "Spell scroll (3rd level)";}
+	else if(inRange(d100, 55, 59)) {magicItem =  getRandomSpellScroll(2);}
+	else if(inRange(d100, 60, 64)) {magicItem =  getRandomSpellScroll(3);}
 	else if(inRange(d100, 65, 67)) {magicItem =  "Bag of holding";}
 	else if(inRange(d100, 68, 70)) {magicItem =  "Keoghtom's ointment";}
 	else if(inRange(d100, 71, 73)) {magicItem =  "Oil of slipperiness";}
@@ -172,7 +172,7 @@ function MagicTableC(d100){
 	var magicItem;
 
 	if(inRange(d100, 1, 15)) {magicItem =  "Potion of superior healing";}
-	else if(inRange(d100, 16, 22)) {magicItem =  "Spell scroll (4th level)";}
+	else if(inRange(d100, 16, 22)) {magicItem =  getRandomSpellScroll(4);}
 	else if(inRange(d100, 23, 27)) {magicItem =  "Ammunition, +2";}
 	else if(inRange(d100, 28, 32)) {magicItem =  "Potion of clairvoyance";}
 	else if(inRange(d100, 33, 37)) {magicItem =  "Potion of diminution";}
@@ -182,7 +182,7 @@ function MagicTableC(d100){
 	else if(inRange(d100, 53, 57)) {magicItem =  "Potion of heroism";}
 	else if(inRange(d100, 58, 62)) {magicItem =  "Potion of invulnerability";}
 	else if(inRange(d100, 63, 67)) {magicItem =  "Potion of mind reading";}
-	else if(inRange(d100, 68, 72)) {magicItem =  "Spell scroll (5thlevel)";}
+	else if(inRange(d100, 68, 72)) {magicItem =  getRandomSpellScroll(5);}
 	else if(inRange(d100, 73, 75)) {magicItem =  "Elixir of health";}
 	else if(inRange(d100, 76, 78)) {magicItem =  "Oil of etherealness";}
 	else if(inRange(d100, 79, 81)) {magicItem =  "Potion of fire giant strength";}
@@ -209,15 +209,15 @@ function MagicTableD(d100){
 	if(inRange(d100, 1, 20)) {magicItem =  "Potion of supreme healing";}
 	else if(inRange(d100, 21, 30)) {magicItem =  "Potion of invisibility";}
 	else if(inRange(d100, 31, 40)) {magicItem =  "Potion of speed";}
-	else if(inRange(d100, 41, 50)) {magicItem =  "Spell scroll (6th level)";}
-	else if(inRange(d100, 51, 57)) {magicItem =  "Spell scroll (7th level)";}
+	else if(inRange(d100, 41, 50)) {magicItem =  getRandomSpellScroll(6);}
+	else if(inRange(d100, 51, 57)) {magicItem =  getRandomSpellScroll(7);}
 	else if(inRange(d100, 58, 62)) {magicItem =  "Ammunition, +3";}
 	else if(inRange(d100, 63, 67)) {magicItem =  "Oil of sharpness";}
 	else if(inRange(d100, 68, 72)) {magicItem =  "Potion of flying";}
 	else if(inRange(d100, 73, 77)) {magicItem =  "Potion of cloud giant strength";}
 	else if(inRange(d100, 78, 82)) {magicItem =  "Potion of longevity";}
 	else if(inRange(d100, 83, 87)) {magicItem =  "Potion of vitality";}
-	else if(inRange(d100, 88, 92)) {magicItem =  "Spell scroll (8th level)";}
+	else if(inRange(d100, 88, 92)) {magicItem =  getRandomSpellScroll(8);}
 	else if(inRange(d100, 93, 95)) {magicItem =  "Horseshoes of a zephyr";}
 	else if(inRange(d100, 96, 98)) {magicItem =  "Nolzur's marvelous pigments";}
 	else if(inRange(d100, 99, 99)) {magicItem =  "Bag of devouring";}
@@ -229,10 +229,10 @@ function MagicTableE(d100){
 
 	var magicItem;
 
-	if(inRange(d100, 1, 30)) {magicItem =  "Spell scroll (8th level)";}
+	if(inRange(d100, 1, 30)) {magicItem =  getRandomSpellScroll(8);}
 	else if(inRange(d100, 31, 55)) {magicItem =  "Potion of storm giant strength";}
 	else if(inRange(d100, 56, 70)) {magicItem =  "Potion of supreme healing";}
-	else if(inRange(d100, 71, 85)) {magicItem =  "Spell scroll (9st level)";}
+	else if(inRange(d100, 71, 85)) {magicItem =  getRandomSpellScroll(9);}
 	else if(inRange(d100, 86, 93)) {magicItem =  "Universal solvent";}
 	else if(inRange(d100, 94, 98)) {magicItem =  "Arrow of slaying";}
 	else if(inRange(d100, 99, 100)) {magicItem =  "Sovereign glue";}
@@ -424,3 +424,518 @@ function getRandomArbitrary(max) {
     return Math.floor((Math.random() * max) + 1);
 }
 
+function getRandomSpellScroll(spellLevel){
+
+	var spellTable;
+
+	switch (spellLevel){
+		case 0:
+		spellTable = spellscrolls0;
+		break;
+
+		case 1:
+		spellTable = spellscrolls1;
+		break;
+
+		case 2:
+		spellTable = spellscrolls2;
+		break;
+
+		case 3:
+		spellTable = spellscrolls3;
+		break;
+
+		case 4:
+		spellTable = spellscrolls4;
+		break;
+
+		case 5:
+		spellTable = spellscrolls5;
+		break;
+
+		case 6:
+		spellTable = spellscrolls6;
+		break;
+
+		case 7:
+		spellTable = spellscrolls7
+		break;
+
+		case 8:
+		spellTable = spellscrolls8;
+		break;
+
+		case 9:
+		spellTable = spellscrolls9;
+		break;
+
+	}
+
+	var randomSpell = spellTable[Math.floor(Math.random() * spellTable.length)];
+	
+	return randomSpell;
+
+}
+
+var spellscrolls0 = [
+	"Acid Splash",
+	"Blade Ward",
+	"Booming Blade",
+	"Chill Touch",
+	"Control Flames",
+	"Create Bonfire",
+	"Dancing Lights",
+	"Druidcraft",
+	"Eldritch Blast",
+	"Fire Bolt",
+	"Friends",
+	"Frostbite",
+	"Green-Flame Blade",
+	"Guidance",
+	"Gust",
+	"Infestation",
+	"Light",
+	"Lightning Lure",
+	"Mage Hand",
+	"Magic Stone",
+	"Mending",
+	"Message",
+	"Minor Illusion",
+	"Mold Earth",
+	"Poison Spray",
+	"Prestidigitation",
+	"Primal Savagery",
+	"Produce Flame",
+	"Ray of Frost",
+	"Resistance",
+	"Sacred Flame",
+	"Shape Water",
+	"Shillelagh",
+	"Shocking Grasp",
+	"Spare the Dying",
+	"Sword Burst",
+	"Thaumaturgy",
+	"Thorn Whip",
+	"Thunderclap",
+	"Toll the Dead",
+	"True Strike",
+	"Vicious Mockery",
+	"Word of Radiance"];
+
+var spellscrolls1 = ["Absorb Elements",
+"Alarm",
+"Animal Friendship",
+"Armor of Agathys",
+"Arms of Hadar",
+"Bane",
+"Beast Bond",
+"Bless",
+"Burning Hands",
+"Catapult",
+"Cause Fear",
+"Ceremony",
+"Chaos Bolt",
+"Charm Person",
+"Chromatic Orb",
+"Color Spray",
+"Command",
+"Compelled Duel",
+"Comprehend Languages",
+"Create or Destroy Water",
+"Cure Wounds",
+"Detect Evil and Good",
+"Detect Magic",
+"Detect Poison and Disease",
+"Disguise Self",
+"Dissonant Whispers",
+"Divine Favor",
+"Earth Tremor",
+"Ensnaring Strike",
+"Entangle",
+"Expeditious Retreat",
+"Faerie Fire",
+"False Life",
+"Feather Fall",
+"Find Familiar",
+"Fog Cloud",
+"Goodberry",
+"Grease",
+"Guiding Bolt",
+"Hail of Thorns",
+"Healing Word",
+"Hellish Rebuke",
+"Heroism",
+"Hex",
+"Hunter's Mark",
+"Ice Knife",
+"Identify",
+"Illusory Script",
+"Inflict Wounds",
+"Jump",
+"Longstrider",
+"Mage Armor",
+"Magic Missile",
+"Protection from Evil and Good",
+"Purify Food and Drink",
+"Ray of Sickness",
+"Sanctuary",
+"Searing Smite",
+"Shield",
+"Shield of Faith",
+"Silent Image",
+"Sleep",
+"Snare",
+"Speak with Animals",
+"Tasha's Hideous Laughter",
+"Tenser's Floating Disk",
+"Thunderous Smite",
+"Thunderwave",
+"Unseen Servant",
+"Witch Bolt",
+"Wrathful Smite",
+"Zephyr Strike"];
+var spellscrolls2 = ["Aganazzar's Scorcher",
+"Aid",
+"Alter Self",
+"Animal Messenger",
+"Arcane Lock",
+"Augury",
+"Barkskin",
+"Beast Sense",
+"Blindness/Deafness",
+"Blur",
+"Branding Smite",
+"Calm Emotions",
+"Cloud of Daggers",
+"Continual Flame",
+"Cordon of Arrows",
+"Crown of Madness",
+"Darkness",
+"Darkvision",
+"Detect Thoughts",
+"Dragon's Breath",
+"Dust Devil",
+"Earthbind",
+"Enhance Ability",
+"Enlarge/Reduce",
+"Enthrall",
+"Find Steed",
+"Find Traps",
+"Flame Blade",
+"Flaming Sphere",
+"Gentle Repose",
+"Gust of Wind",
+"Healing Spirit",
+"Heat Metal",
+"Hold Person",
+"Invisibility",
+"Knock",
+"Lesser Restoration",
+"Levitate",
+"Locate Animals or Plants",
+"Locate Object",
+"Magic Mouth",
+"Magic Weapon",
+"Maximilian's Earthen Grasp",
+"Melf's Acid Arrow",
+"Mind Spike",
+"Mirror Image",
+"Misty Step",
+"Moonbeam",
+"Nystul's Magic Aura",
+"Pass without Trace",
+"Phantasmal Force",
+"Prayer of Healing",
+"Protection from Poison",
+"Pyrotechnics",
+"Ray of Enfeeblement",
+"Rope Trick",
+"Scorching Ray",
+"See Invisibility",
+"Shadow Blade",
+"Shatter",
+"Silence",
+"Skywrite",
+"Snilloc's Snowball Swarm",
+"Spider Climb",
+"Spike Growth",
+"Spiritual Weapon",
+"Suggestion",
+"Warding Bond",
+"Warding Wind",
+"Web",
+"Zone of Truth"];
+var spellscrolls3 = ["Animate Dead",
+"Aura of Vitality",
+"Beacon of Hope",
+"Bestow Curse",
+"Blinding Smite",
+"Blink",
+"Call Lightning",
+"Catnap",
+"Clairvoyance",
+"Conjure Animals",
+"Conjure Barrage",
+"Counterspell",
+"Create Food and Water",
+"Crusader's Mantle",
+"Daylight",
+"Dispel Magic",
+"Elemental Weapon",
+"Enemies Abound",
+"Erupting Earth",
+"Fear",
+"Feign Death",
+"Fireball",
+"Flame Arrows",
+"Fly",
+"Gaseous Form",
+"Glyph of Warding",
+"Haste",
+"Hunger of Hadar",
+"Hypnotic Pattern",
+"Leomund's Tiny Hut",
+"Life Transference",
+"Lightning Arrow",
+"Lightning Bolt",
+"Magic Circle",
+"Major Image",
+"Mass Healing Word",
+"Meld into Stone",
+"Melf's Minute Meteors",
+"Nondetection",
+"Phantom Steed",
+"Plant Growth",
+"Protection from Energy",
+"Remove Curse",
+"Revivify",
+"Sending",
+"Sleet Storm",
+"Slow",
+"Speak with Dead",
+"Speak with Plants",
+"Spirit Guardians",
+"Stinking Cloud",
+"Summon Lesser Demons",
+"Thunder Step",
+"Tidal Wave",
+"Tiny Servant",
+"Tongues",
+"Vampiric Touch",
+"Wall of Sand",
+"Wall of Water",
+"Water Breathing",
+"Water Walk",
+"Wind Wall"];
+var spellscrolls4 = ["Arcane Eye",
+"Aura of Life",
+"Aura of Purity",
+"Banishment",
+"Blight",
+"Charm Monster",
+"Compulsion",
+"Confusion",
+"Conjure Minor Elementals",
+"Conjure Woodland Beings",
+"Control Water",
+"Death Ward",
+"Dimension Door",
+"Divination",
+"Dominate Beast",
+"Elemental Bane",
+"Evard's Black Tentacles",
+"Fabricate",
+"Find Greater Steed",
+"Fire Shield",
+"Freedom of Movement",
+"Giant Insect",
+"Grasping Vine",
+"Greater Invisibility",
+"Guardian of Faith",
+"Guardian of Nature",
+"Hallucinatory Terrain",
+"Ice Storm",
+"Leomund's Secret Chest",
+"Locate Creature",
+"Mordenkainen's Faithful Hound",
+"Mordenkainen's Private Sanctum",
+"Otiluke's Resilient Sphere",
+"Phantasmal Killer",
+"Polymorph",
+"Shadow of Moil",
+"Sickening Radiance",
+"Staggering Smite",
+"Stone Shape",
+"Stoneskin",
+"Storm Sphere",
+"Summon Greater Demon",
+"Vitriolic Sphere",
+"Wall of Fire",
+"Watery Sphere"];
+var spellscrolls5 = ["Animate Objects",
+"Antilife Shell",
+"Awaken",
+"Banishing Smite",
+"Bigby's Hand",
+"Circle of Power",
+"Cloudkill",
+"Commune",
+"Commune with Nature",
+"Cone of Cold",
+"Conjure Elemental",
+"Conjure Volley",
+"Contact Other Plane",
+"Contagion",
+"Control Winds",
+"Creation",
+"Danse Macabre",
+"Dawn",
+"Destructive Wave",
+"Dispel Evil and Good",
+"Dominate Person",
+"Dream",
+"Enervation",
+"Far Step",
+"Flame Strike",
+"Geas",
+"Greater Restoration",
+"Hallow",
+"Hold Monster",
+"Holy Weapon",
+"Immolation",
+"Infernal Calling",
+"Insect Plague",
+"Legend Lore",
+"Maelstrom",
+"Mass Cure Wounds",
+"Mislead",
+"Modify Memory",
+"Negative Energy Flood",
+"Passwall",
+"Planar Binding",
+"Raise Dead",
+"Rary's Telepathic Bond",
+"Reincarnate",
+"Scrying",
+"Seeming",
+"Skill Empowerment",
+"Steel Wind Strike",
+"Swift Quiver",
+"Synaptic Static",
+"Telekinesis",
+"Teleportation Circle",
+"Transmute Rock",
+"Tree Stride",
+"Wall of Force",
+"Wall of Light",
+"Wall of Stone",
+"Wrath of Nature"];
+var spellscrolls6 = ["Arcane Gate",
+"Blade Barrier",
+"Bones of the Earth",
+"Chain Lightning",
+"Circle of Death",
+"Conjure Fey",
+"Contingency",
+"Create Homunculus",
+"Create Undead",
+"Disintegrate",
+"Drawmij's Instant Summons",
+"Druid Grove",
+"Eyebite",
+"Find the Path",
+"Flesh to Stone",
+"Forbiddance",
+"Globe of Invulnerability",
+"Guards and Wards",
+"Harm",
+"Heal",
+"Heroes' Feast",
+"Investiture of Flame",
+"Investiture of Ice",
+"Investiture of Stone",
+"Investiture of Wind",
+"Magic Jar",
+"Mass Suggestion",
+"Mental Prison",
+"Move Earth",
+"Otiluke's Freezing Sphere",
+"Otto's Irresistible Dance",
+"Planar Ally",
+"Primordial Ward",
+"Programmed Illusion",
+"Scatter",
+"Soul Cage",
+"Sunbeam",
+"Tenser's Transformation",
+"Transport via Plants",
+"True Seeing",
+"Wall of Ice",
+"Wall of Thorns",
+"Wind Walk",
+"Word of Recall"];
+var spellscrolls7 = ["Conjure Celestial",
+"Crown of Stars",
+"Delayed Blast Fireball",
+"Divine Word",
+"Etherealness",
+"Finger of Death",
+"Fire Storm",
+"Forcecage",
+"Mirage Arcane",
+"Mordenkainen's Magnificent Mansion",
+"Mordenkainen's Sword",
+"Plane Shift",
+"Power Word Pain",
+"Prismatic Spray",
+"Project Image",
+"Regenerate",
+"Resurrection",
+"Reverse Gravity",
+"Sequester",
+"Simulacrum",
+"Symbol",
+"Teleport",
+"Temple of the Gods",
+"Whirlwind"];
+var spellscrolls8 = ["Abi-Dalzim's Horrid Wilting",
+"Animal Shapes",
+"Antimagic Field",
+"Antipathy/Sympathy",
+"Clone",
+"Control Weather",
+"Demiplane",
+"Dominate Monster",
+"Earthquake",
+"Feeblemind",
+"Glibness",
+"Holy Aura",
+"Illusory Dragon",
+"Incendiary Cloud",
+"Maddening Darkness",
+"Maze",
+"Mighty Fortress",
+"Mind Blank",
+"Power Word Stun",
+"Sunburst",
+"Telepathy",
+"Tsunami"];
+var spellscrolls9 = ["Astral Projection",
+"Foresight",
+"Gate",
+"Imprisonment",
+"Invulnerability",
+"Mass Heal",
+"Mass Polymorph",
+"Meteor Swarm",
+"Power Word Heal",
+"Power Word Kill",
+"Prismatic Wall",
+"Psychic Scream",
+"Shapechange",
+"Storm of Vengeance",
+"Time Stop",
+"True Polymorph",
+"True Resurrection",
+"Weird",
+"Wish"];
