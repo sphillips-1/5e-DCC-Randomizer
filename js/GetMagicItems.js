@@ -1,5 +1,5 @@
 function GetMagicItems(LootFormula){
-  	var magicItems;
+  	var magicItems = [];
 
 	
   	//Magic Table #1
