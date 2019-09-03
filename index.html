@@ -24,6 +24,7 @@
     	<input type="button" value="Go!" onclick="get_treasure()">
 
 	<div id="Challenge Rating"></div>
+	<div id="D100 Roll"></div>
 	<div id="Loot Formula"></div>
 	<div id="Currency"></div>
 	<div id="Art and Gems Currency"></div>
@@ -41,6 +42,7 @@
 		
 		//Get D100 Roll
 		var diceRoll = getRandomArbitrary(100);
+		document.getElementById("D100 Roll").innerHTML = diceRoll;
 		
 		//Get Currency
 		var Currency = GetGP(challengeRating);
