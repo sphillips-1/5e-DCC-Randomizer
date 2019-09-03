@@ -231,7 +231,7 @@ function MagicTableE(d100){
 
 	if(inRange(d100, 1, 30)) {magicItem =  "Spell scroll (8th level)";}
 	else if(inRange(d100, 31, 55)) {magicItem =  "Potion of storm giant strength";}
-	else if(inRange(d100, 56, 70)) {magicItem =  "Poti on of supreme healing";}
+	else if(inRange(d100, 56, 70)) {magicItem =  "Potion of supreme healing";}
 	else if(inRange(d100, 71, 85)) {magicItem =  "Spell scroll (9st level)";}
 	else if(inRange(d100, 86, 93)) {magicItem =  "Universal solvent";}
 	else if(inRange(d100, 94, 98)) {magicItem =  "Arrow of slaying";}
