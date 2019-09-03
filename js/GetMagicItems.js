@@ -122,8 +122,6 @@ function MagicTableA(d100){
 	else if(inRange(d100,99,99)){magicItem =  "Bag of holding";}
 	else if(inRange(d100,100,100)){magicItem =  "Driftglobe";} 
 
-	console.log(magicItem);
-
 	return magicItem;
 }
 
