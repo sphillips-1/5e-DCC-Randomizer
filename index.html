@@ -52,7 +52,11 @@
 			Currency.PP
 			Currency.Total 
 		*/
-		document.getElementById("Currency").innerHTML = "--------------------------<br>Currency <br>CP["+Currency.CP+"] <br>SP["+Currency.SP+"] <br>GP["+Currency.GP+"] <br>PP["+Currency.PP+"] <br>Total in GP["+Currency.Total+"]";
+		document.getElementById("Currency").innerHTML = "--------------------------"+
+			"<br>Currency"+
+			"<br>["+Currency.CP+"] copper pieces, ["+Currency.SP+"] silver pieces, ["+Currency.GP+"] gold pieces, ["+Currency.PP+"] platinum pieces"+
+			"<br>OR"+
+			"<br>["+Currency.Total+"] gold pieces";
 		
 		
 		//Get Loot Formula
@@ -66,15 +70,29 @@
 		    LootFormula.MagicItemTable2
 		*/
 		
-		document.getElementById("Loot Formula").innerHTML = "--------------------------<br>Loot Formula <br> GP from Art and Gems["+LootFormula.ArtAndGemsGP+"]<br>Magic Item Dice["+LootFormula.MagicItemDice+"]<br>Magic Item Table["+LootFormula.MagicItemTable+"]<br>Magic Item Dice 2["+LootFormula.MagicItemDice2+"]<br>Magic Item Table 2["+LootFormula.MagicItemTable2+"]";
+		var outputLootFormula = "--------------------------"+
+			"<br>Loot Formula" + 
+			"<br> GP from Art and Gems["+LootFormula.ArtAndGemsGP+"]";
+
+		if (LootFormula.MagicItemDice != ""){
+			outputLootFormula = outputLootFormula + "<br>["+LootFormula.MagicItemDice+"] items from ["+LootFormula.MagicItemTable+"]";
+		}
+
+		if (LootFormula.MagicItemDice2 != ""){
+			outputLootFormula = outputLootFormula + "<br>["+LootFormula.MagicItemDice2+"] items from ["+LootFormula.MagicItemTable2+"]";
+		}
+
+		document.getElementById("Loot Formula").innerHTML = outputLootFormula;
 		
 		//Get GP from Arts and Gems
 		var ArtsAndGemsGP = GetArtAndGems(LootFormula.ArtAndGemsGP);
-		document.getElementById("Art and Gems Currency").innerHTML = "--------------------------<br>GP from Art and Gems["+ArtsAndGemsGP+"]";
+		document.getElementById("Art and Gems Currency").innerHTML = "--------------------------"+
+			"<br>GP from Art and Gems["+ArtsAndGemsGP+"]";
 		
 		//Get Magic Items
 		var MagicItems = GetMagicItems(LootFormula);
-		document.getElementById("Magic Items").innerHTML = "--------------------------<br>" + MagicItems.join("<br>");
+		document.getElementById("Magic Items").innerHTML = "--------------------------"+
+			"<br>" + MagicItems.join("<br>");
 	  }
 	
 </script>
