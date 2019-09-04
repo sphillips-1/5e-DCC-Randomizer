@@ -1,4 +1,5 @@
 
+/*  
   function getRandomArbitrary(max) {
     return Math.floor((Math.random() * max) + 1);
   }
@@ -39,4 +40,4 @@
   }
 
   var ChallengeRatingGP = {"Challenge 0-4":"6d6*100;3d6*100;2d6*10;0d0*0","Challenge 5-10":"2d6*100;2d6*1000;6d6*100;3d6* 10","Challenge 11-16":"0d0*0;0d0*0;4d6*1000;5d6*100","Challenge 17+":"0d0*0;0d0*0;12d6*1000;8d6*1000"};
-  
+ */ 

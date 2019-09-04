@@ -1,109 +1,45 @@
 function GetMagicItems(LootFormula){
   	var magicItems = [];
 
-  	//Magic Table #1
+	  //Magic Table #1
+	var output;  
+
 	var magicItem1Dice = rollAndCombineDice(LootFormula.MagicItemDice);
-	var output;
+	var table1 = [];
+		
+	if (LootFormula.MagicItemTable=="Magic Item Table A"){table1 = MagicTableA;}
+	else if (LootFormula.MagicItemTable=="Magic Item Table B"){table1 = MagicTableB;}
+	else if (LootFormula.MagicItemTable=="Magic Item Table C"){table1 = MagicTableC;}
+	else if (LootFormula.MagicItemTable=="Magic Item Table D"){table1 = MagicTableD;}
+	else if (LootFormula.MagicItemTable=="Magic Item Table E"){table1 = MagicTableE;}
+	else if (LootFormula.MagicItemTable=="Magic Item Table F"){table1 = MagicTableF;}
+	else if (LootFormula.MagicItemTable=="Magic Item Table G"){table1 = MagicTableG;}
+	else if (LootFormula.MagicItemTable=="Magic Item Table H"){table1 = MagicTableH;}
+	else if (LootFormula.MagicItemTable=="Magic Item Table I"){table1 = MagicTableI;}
 	
-	switch (LootFormula.MagicItemTable){
-        case "Magic Item Table A":
-		for (i = 0; i < magicItem1Dice; i++) {
-			magicItems.push(MagicTableA(getRandomArbitrary(100)));
-    		}
-        	break;
-        case "Magic Item Table B":
-		for (i = 0; i < magicItem1Dice; i++) {
-			magicItems.push(MagicTableB(getRandomArbitrary(100)));
-    		}	
-        	break;
-        case "Magic Item Table C":
-		for (i = 0; i < magicItem1Dice; i++) {
-			magicItems.push(MagicTableC(getRandomArbitrary(100)));
-    		}	
-        	break;
-        case "Magic Item Table D":
-		for (i = 0; i < magicItem1Dice; i++) {
-			magicItems.push(MagicTableD(getRandomArbitrary(100)));
-    		}	
-        	break;
-        case "Magic Item Table E":
-		for (i = 0; i < magicItem1Dice; i++) {
-			magicItems.push(MagicTableE(getRandomArbitrary(100)));
-    		}	
-        	break;
-        case "Magic Item Table F":
-		for (i = 0; i < magicItem1Dice; i++) {
-			magicItems.push(MagicTableF(getRandomArbitrary(100)));
-    		}	
-        	break;
-        case "Magic Item Table G":
-		for (i = 0; i < magicItem1Dice; i++) {
-			magicItems.push(MagicTableG(getRandomArbitrary(100)));
-    		}	
-        	break;
-        case "Magic Item Table H":
-		for (i = 0; i < magicItem1Dice; i++) {
-			magicItems.push(MagicTableH(getRandomArbitrary(100)));
-    		}	
-        	break;
-        case "Magic Item Table I":
-		for (i = 0; i < magicItem1Dice; i++) {
-			magicItems.push(MagicTableI(getRandomArbitrary(100)));
-    		}	
-        	break;
-        }
+	for (i = 0; i < magicItem1Dice; i++) {
+		magicItems.push(table1(getRandomArbitrary(100)));
+	}	
+	
 	  
 
-
-  	//Magic Table #2
-  	var magicItem2Dice = rollAndCombineDice(LootFormula.MagicItemDice2);
-	switch (LootFormula.MagicItemTable2){
-        case "Magic Item Table A":
-		for (i = 0; i < magicItem2Dice; i++) {
-			magicItems.push(MagicTableA(getRandomArbitrary(100)));
-    		}
-        	break;
-        case "Magic Item Table B":
-		for (i = 0; i < magicItem2Dice; i++) {
-			magicItems.push(MagicTableB(getRandomArbitrary(100)));
-    		}	
-        	break;
-        case "Magic Item Table C":
-		for (i = 0; i < magicItem2Dice; i++) {
-			magicItems.push(MagicTableC(getRandomArbitrary(100)));
-    		}	
-        	break;
-        case "Magic Item Table D":
-		for (i = 0; i < magicItem2Dice; i++) {
-			magicItems.push(MagicTableD(getRandomArbitrary(100)));
-    		}	
-        	break;
-        case "Magic Item Table E":
-		for (i = 0; i < magicItem2Dice; i++) {
-			magicItems.push(MagicTableE(getRandomArbitrary(100)));
-    		}	
-        	break;
-        case "Magic Item Table F":
-		for (i = 0; i < magicItem2Dice; i++) {
-			magicItems.push(MagicTableF(getRandomArbitrary(100)));
-    		}	
-        	break;
-        case "Magic Item Table G":
-		for (i = 0; i < magicItem2Dice; i++) {
-			magicItems.push(MagicTableG(getRandomArbitrary(100)));
-    		}	
-        	break;
-        case "Magic Item Table H":
-		for (i = 0; i < magicItem2Dice; i++) {
-			magicItems.push(MagicTableH(getRandomArbitrary(100)));
-    		}	
-        	break;
-        case "Magic Item Table I":
-		for (i = 0; i < magicItem2Dice; i++) {
-			magicItems.push(MagicTableI(getRandomArbitrary(100)));
-    		}	
-        	break;
-        }
+	var magicItem2Dice = rollAndCombineDice(LootFormula.MagicItemDice2);
+	var table2 = [];
+		
+	if (LootFormula.MagicItemTable2=="Magic Item Table A"){table2 = MagicTableA;}
+	else if (LootFormula.MagicItemTable=="Magic Item Table B"){table2 = MagicTableB;}
+	else if (LootFormula.MagicItemTable=="Magic Item Table C"){table2 = MagicTableC;}
+	else if (LootFormula.MagicItemTable=="Magic Item Table D"){table2 = MagicTableD;}
+	else if (LootFormula.MagicItemTable=="Magic Item Table E"){table2 = MagicTableE;}
+	else if (LootFormula.MagicItemTable=="Magic Item Table F"){table2 = MagicTableF;}
+	else if (LootFormula.MagicItemTable=="Magic Item Table G"){table2 = MagicTableG;}
+	else if (LootFormula.MagicItemTable=="Magic Item Table H"){table2 = MagicTableH;}
+	else if (LootFormula.MagicItemTable=="Magic Item Table I"){table2 = MagicTableI;}
+	
+	for (i = 0; i < magicItem2Dice; i++) {
+		magicItems.push(table2(getRandomArbitrary(100)));
+	}	
+	
 	return magicItems;
   }
 
@@ -477,8 +413,7 @@ function getRandomSpellScroll(spellLevel){
 
 }
 
-var spellscrolls0 = [
-	"Acid Splash",
+var spellscrolls0 = ["Acid Splash",
 	"Blade Ward",
 	"Booming Blade",
 	"Chill Touch",
@@ -521,7 +456,6 @@ var spellscrolls0 = [
 	"True Strike",
 	"Vicious Mockery",
 	"Word of Radiance"];
-
 var spellscrolls1 = ["Absorb Elements",
 "Alarm",
 "Animal Friendship",
