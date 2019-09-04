@@ -578,7 +578,7 @@ function MagicTableG(d100) {
 	} else if (inRange(d100, 85, 85)) {
 		magicItem = "Staff of withering";
 	} else if (inRange(d100, 86, 86)) {
-		magicItem = "Stone of controlling earthelementals";
+		magicItem = "Stone of controlling earth elementals";
 	} else if (inRange(d100, 87, 87)) {
 		magicItem = "Sun blade";
 	} else if (inRange(d100, 88, 88)) {
