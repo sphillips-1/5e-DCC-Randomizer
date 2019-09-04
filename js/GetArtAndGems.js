@@ -1,5 +1,4 @@
 function GetArtAndGems(dice){
-
     return rollAndCombineDice(dice);
     
   }
