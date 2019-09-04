@@ -349,7 +349,6 @@ function MagicTableG(d100){
 }
 
 function FigurineOfWondrousPower(){
-	getRandomArbitrary(8)
 
 	var Figurines = [
 		"NULL",
@@ -445,10 +444,81 @@ function MagicTableI(d100){
 
 	var magicItem;
 
-	if(inRange(d100, 1, 100)) {
-		magicItem =  "NULL";
-	} 
+	if(inRange(d100, 1, 5)) {magicItem =  "Defender";}
+	else if(inRange(d100, 6, 10)) {magicItem =  "Hammer of thunderbolts";}
+	else if(inRange(d100, 16, 20)) {magicItem =  "Sword of answering";}
+	else if(inRange(d100, 21, 23)) {magicItem =  "Holy avenger";}
+	else if(inRange(d100, 24, 26)) {magicItem =  "Ring of djinni summoning";}
+	else if(inRange(d100, 27, 29)) {magicItem =  "Ring of invisibility";}
+	else if(inRange(d100, 30, 32)) {magicItem =  "Ring of spell turning";}
+	else if(inRange(d100, 36, 38)) {magicItem =  "Rod of lordly might";}
+	else if(inRange(d100, 39, 41)) {magicItem =  "Vorpal sword";}
+	else if(inRange(d100, 42, 43)) {magicItem =  "Belt of cloud giant strength";}
+	else if(inRange(d100, 44, 45)) {magicItem =  "Armor, +2 breastplate";}
+	else if(inRange(d100, 46, 47)) {magicItem =  "Armor, +3 chain mail";}
+	else if(inRange(d100, 48, 49)) {magicItem =  "Armor, +3 chain shirt";}
+	else if(inRange(d100, 50, 51)) {magicItem =  "Cloak of invisibility";}
+	else if(inRange(d100, 52, 53)) {magicItem =  "Crystal ball (legendary version)";}
+	else if(inRange(d100, 54, 55)) {magicItem =  "Armor, + 1 half plate";}
+	else if(inRange(d100, 56, 57)) {magicItem =  "Iron flask";}
+	else if(inRange(d100, 58, 59)) {magicItem =  "Armor, +3 leather";}
+	else if(inRange(d100, 60, 61)) {magicItem =  "Armor, +1 plate";}
+	else if(inRange(d100, 62, 63)) {magicItem =  "Robe of the archmagi";}
+	else if(inRange(d100, 64, 65)) {magicItem =  "Rod of resurrection";}
+	else if(inRange(d100, 66, 67)) {magicItem =  "Armor, +1 scale mail";}
+	else if(inRange(d100, 68, 69)) {magicItem =  "Scarab of protection";}
+	else if(inRange(d100, 70, 71)) {magicItem =  "Armor, +2 splint";}
+	else if(inRange(d100, 72, 73)) {magicItem =  "Armor, +2 studded leather";}
+	else if(inRange(d100, 74, 75)) {magicItem =  "Well of many worlds";}
+	else if(inRange(d100, 76, 76)) {magicItem =  "Magic armor [" + MagicArmor() + "]";}
+	else if(inRange(d100, 77, 77)) {magicItem =  "Apparatus of Kwalish";}
+	else if(inRange(d100, 78, 78)) {magicItem =  "Armor of invulnerability";}
+	else if(inRange(d100, 79, 79)) {magicItem =  "Belt of storm giant strength";}
+	else if(inRange(d100, 80, 80)) {magicItem =  "Cubic gate";}
+	else if(inRange(d100, 81, 81)) {magicItem =  "Deck of many things";}
+	else if(inRange(d100, 82, 82)) {magicItem =  "Efreeti chain";}
+	else if(inRange(d100, 83, 83)) {magicItem =  "Armor of resistance (half plate)";}
+	else if(inRange(d100, 84, 84)) {magicItem =  "Horn ofValhalla (iron)";}
+	else if(inRange(d100, 85, 85)) {magicItem =  "Instrument of the bards (OIIamh harp)";}
+	else if(inRange(d100, 86, 86)) {magicItem =  "loun stone (greater absorption)";}
+	else if(inRange(d100, 87, 87)) {magicItem =  "loun stone (mastery)";}
+	else if(inRange(d100, 88, 88)) {magicItem =  "loun stone (regeneration)";}
+	else if(inRange(d100, 89, 89)) {magicItem =  "Plate armor of etherealness";}
+	else if(inRange(d100, 90, 90)) {magicItem =  "Plate armor of resistance";}
+	else if(inRange(d100, 91, 91)) {magicItem =  "Ring of air elemental command";}
+	else if(inRange(d100, 92, 92)) {magicItem =  "Ring of earthelemental command";}
+	else if(inRange(d100, 93, 93)) {magicItem =  "Ring of fire elemental command";}
+	else if(inRange(d100, 94, 94)) {magicItem =  "Ring of three wishes";}
+	else if(inRange(d100, 95, 95)) {magicItem =  "Ring of water elemental command";}
+	else if(inRange(d100, 96, 96)) {magicItem =  "Sphere of annihilation";}
+	else if(inRange(d100, 97, 97)) {magicItem =  "Talisman of pure good";}
+	else if(inRange(d100, 98, 98)) {magicItem =  "Talisman of the sphere";}
+	else if(inRange(d100, 99, 99)) {magicItem =  "Talisman of ultimate evil";}
+	else if(inRange(d100, 100, 100)) {magicItem =  "Tome of the stilled tongue";}
+
 	return magicItem;
+}
+
+
+function MagicArmor(){
+
+	var Armor = [
+		"NULL",
+		"+2 Half Plate",
+		"+2 Half Plate",
+		"+2 Plate",
+		"+2 Plate",
+		"+3 studded leather",
+		"+3 studded leather",
+		"+3 breastplate",
+		"+3 breastplate",
+		"+3 splint",
+		"+3 splint",
+		"+3 half plate",
+		"+3 plate"		
+	];
+
+	return Armor[getRandomArbitrary(12)];
 }
 
 function inRange(x, min, max) {
