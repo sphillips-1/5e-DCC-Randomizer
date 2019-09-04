@@ -137,7 +137,7 @@ function CR17LootTable(d100){
 	var lootFormula;
 
 	if(inRange(d100, 1, 2)) {lootFormula =  createFormulaObject("","","","","");}
-	else if(inRange(d100, 3, 5)) {lootFormula =  createFormulaObject("3d6*1000","1d8","Magic Item Table C.","","");}
+	else if(inRange(d100, 3, 5)) {lootFormula =  createFormulaObject("3d6*1000","1d8","Magic Item Table C","","");}
 	else if(inRange(d100, 6, 8)) {lootFormula =  createFormulaObject("1d10*2500","1d8","Magic Item Table C","","");}
 	else if(inRange(d100, 9, 11)) {lootFormula =  createFormulaObject("1d4*7500","1d8","Magic Item Table C","","");}
 	else if(inRange(d100, 12, 14)) {lootFormula =  createFormulaObject("1d8*5000","1d8","Magic Item Table C","","");}
@@ -159,7 +159,7 @@ function CR17LootTable(d100){
 	else if(inRange(d100, 79, 80)) {lootFormula =  createFormulaObject("1d8*5000","1d4","Magic Item Table H","","");}
 	else if(inRange(d100, 81, 85)) {lootFormula =  createFormulaObject("3d6*1000","1d4","Magic Item Table I","","");}
 	else if(inRange(d100, 86, 90)) {lootFormula =  createFormulaObject("1d10*2500","1d4","Magic Item Table I","","");}
-	else if(inRange(d100, 91, 95)) {lootFormula =  createFormulaObject("1d4*7500","1d1","Magic Item Table F ","1d4","Magic Item Table G");}
+	else if(inRange(d100, 91, 95)) {lootFormula =  createFormulaObject("1d4*7500","1d1","Magic Item Table F","1d4","Magic Item Table G");}
 	else if(inRange(d100, 96, 100)) {lootFormula =  createFormulaObject("1d8*5000","1d4","Magic Item Table I","","");}
 
 	return lootFormula;

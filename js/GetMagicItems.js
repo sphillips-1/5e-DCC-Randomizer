@@ -1,49 +1,59 @@
 function GetMagicItems(LootFormula){
   	var magicItems = [];
 
-	  //Magic Table #1
-	var output;  
-
+	 
+	//Get Magic Items for Table #1
 	var magicItem1Dice = rollAndCombineDice(LootFormula.MagicItemDice);
-	var table1 = [];
-		
-	if (LootFormula.MagicItemTable=="Magic Item Table A"){table1 = MagicTableA;}
-	else if (LootFormula.MagicItemTable=="Magic Item Table B"){table1 = MagicTableB;}
-	else if (LootFormula.MagicItemTable=="Magic Item Table C"){table1 = MagicTableC;}
-	else if (LootFormula.MagicItemTable=="Magic Item Table D"){table1 = MagicTableD;}
-	else if (LootFormula.MagicItemTable=="Magic Item Table E"){table1 = MagicTableE;}
-	else if (LootFormula.MagicItemTable=="Magic Item Table F"){table1 = MagicTableF;}
-	else if (LootFormula.MagicItemTable=="Magic Item Table G"){table1 = MagicTableG;}
-	else if (LootFormula.MagicItemTable=="Magic Item Table H"){table1 = MagicTableH;}
-	else if (LootFormula.MagicItemTable=="Magic Item Table I"){table1 = MagicTableI;}
-	
-	for (i = 0; i < magicItem1Dice; i++) {
-		magicItems.push(table1(getRandomArbitrary(100)));
-	}	
-	
-	  
+	var table1 = GetMagicItemTable(LootFormula.MagicItemTable);
+	magicItems = AddItemsToArray(magicItem1Dice,table1,magicItems);
 
+	//Get Magic Items for Table #2
 	var magicItem2Dice = rollAndCombineDice(LootFormula.MagicItemDice2);
-	var table2 = [];
-		
-	if (LootFormula.MagicItemTable2=="Magic Item Table A"){table2 = MagicTableA;}
-	else if (LootFormula.MagicItemTable=="Magic Item Table B"){table2 = MagicTableB;}
-	else if (LootFormula.MagicItemTable=="Magic Item Table C"){table2 = MagicTableC;}
-	else if (LootFormula.MagicItemTable=="Magic Item Table D"){table2 = MagicTableD;}
-	else if (LootFormula.MagicItemTable=="Magic Item Table E"){table2 = MagicTableE;}
-	else if (LootFormula.MagicItemTable=="Magic Item Table F"){table2 = MagicTableF;}
-	else if (LootFormula.MagicItemTable=="Magic Item Table G"){table2 = MagicTableG;}
-	else if (LootFormula.MagicItemTable=="Magic Item Table H"){table2 = MagicTableH;}
-	else if (LootFormula.MagicItemTable=="Magic Item Table I"){table2 = MagicTableI;}
-	
-	for (i = 0; i < magicItem2Dice; i++) {
-		magicItems.push(table2(getRandomArbitrary(100)));
-	}	
-	
+	var table2 = GetMagicItemTable(LootFormula.MagicItemTable2);
+	magicItems = AddItemsToArray(magicItem2Dice,table2,magicItems);
+
 	return magicItems;
   }
 
 
+function GetMagicItemTable(tableString){
+	
+	var table = [];
+
+	if (tableString=="Magic Item Table A"){table = MagicTableA;}
+	else if (tableString=="Magic Item Table B"){table = MagicTableB;}
+	else if (tableString=="Magic Item Table C"){table = MagicTableC;}
+	else if (tableString=="Magic Item Table D"){table = MagicTableD;}
+	else if (tableString=="Magic Item Table E"){table = MagicTableE;}
+	else if (tableString=="Magic Item Table F"){table = MagicTableF;}
+	else if (tableString=="Magic Item Table G"){table = MagicTableG;}
+	else if (tableString=="Magic Item Table H"){table = MagicTableH;}
+	else if (tableString=="Magic Item Table I"){table = MagicTableI;}
+
+	return table;
+
+}
+
+function AddItemsToArray(dice, table, array){
+
+	var item;
+
+	for (i = 0; i < dice; i++) {
+		
+		item = table(getRandomArbitrary(100));
+
+		if (array.includes(item) == true){
+			item = table(getRandomArbitrary(100));
+		}
+
+		array.push(item);
+
+
+	}
+	
+	return array;
+
+}
 
 function MagicTableA(d100){
 
