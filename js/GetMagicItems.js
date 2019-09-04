@@ -550,44 +550,34 @@ function getRandomSpellScroll(spellLevel){
 	var spellTable;
 
 	switch (spellLevel){
-		case 0:
-		spellTable = spellscrolls0;
+		case 0: spellTable = spellscrolls0;
 		break;
 
-		case 1:
-		spellTable = spellscrolls1;
+		case 1: spellTable = spellscrolls1;
 		break;
 
-		case 2:
-		spellTable = spellscrolls2;
+		case 2: spellTable = spellscrolls2;
 		break;
 
-		case 3:
-		spellTable = spellscrolls3;
+		case 3: spellTable = spellscrolls3;
 		break;
 
-		case 4:
-		spellTable = spellscrolls4;
+		case 4: spellTable = spellscrolls4;
 		break;
 
-		case 5:
-		spellTable = spellscrolls5;
+		case 5: spellTable = spellscrolls5;
 		break;
 
-		case 6:
-		spellTable = spellscrolls6;
+		case 6: spellTable = spellscrolls6;
 		break;
 
-		case 7:
-		spellTable = spellscrolls7
+		case 7: spellTable = spellscrolls7
 		break;
 
-		case 8:
-		spellTable = spellscrolls8;
+		case 8: spellTable = spellscrolls8;
 		break;
 
-		case 9:
-		spellTable = spellscrolls9;
+		case 9: spellTable = spellscrolls9;
 		break;
 
 	}
