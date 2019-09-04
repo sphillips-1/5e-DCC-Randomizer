@@ -303,7 +303,7 @@ function MagicTableF(d100) {
 	var magicItem;
 
 	if (inRange(d100, 1, 15)) {
-		magicItem = "Weapon, +1";
+		magicItem = "[" + getRandomWeapon() + "]+1";
 	} else if (inRange(d100, 16, 18)) {
 		magicItem = "Shield,+ 1";
 	} else if (inRange(d100, 19, 21)) {
@@ -432,7 +432,7 @@ function MagicTableG(d100) {
 	var magicItem;
 
 	if (inRange(d100, 1, 11)) {
-		magicItem = "Weapon, +2";
+		magicItem = "[" + getRandomWeapon() + "]+2";
 	} else if (inRange(d100, 12, 14)) {
 		magicItem = "Figurine of Wondrous Power [" + FigurineOfWondrousPower() + "]";
 	} else if (inRange(d100, 15, 15)) {
@@ -634,7 +634,7 @@ function MagicTableH(d100) {
 	var magicItem;
 
 	if (inRange(d100, 1, 10)) {
-		magicItem = "Weapon, +3";
+		magicItem = "[" + getRandomWeapon() + "]+3";
 	} else if (inRange(d100, 11, 12)) {
 		magicItem = "Amulet of the planes";
 	} else if (inRange(d100, 13, 14)) {
@@ -938,44 +938,34 @@ function getRandomSpellScroll(spellLevel) {
 	var spellTable;
 
 	switch (spellLevel) {
-		case 0:
-			spellTable = spellscrolls0;
+		case 0:spellTable = spellscrolls0;
 			break;
 
-		case 1:
-			spellTable = spellscrolls1;
+		case 1:spellTable = spellscrolls1;
 			break;
 
-		case 2:
-			spellTable = spellscrolls2;
+		case 2:spellTable = spellscrolls2;
 			break;
 
-		case 3:
-			spellTable = spellscrolls3;
+		case 3:spellTable = spellscrolls3;
 			break;
 
-		case 4:
-			spellTable = spellscrolls4;
+		case 4:spellTable = spellscrolls4;
 			break;
 
-		case 5:
-			spellTable = spellscrolls5;
+		case 5:spellTable = spellscrolls5;
 			break;
 
-		case 6:
-			spellTable = spellscrolls6;
+		case 6:spellTable = spellscrolls6;
 			break;
 
-		case 7:
-			spellTable = spellscrolls7
+		case 7:spellTable = spellscrolls7
 			break;
 
-		case 8:
-			spellTable = spellscrolls8;
+		case 8:spellTable = spellscrolls8;
 			break;
 
-		case 9:
-			spellTable = spellscrolls9;
+		case 9:spellTable = spellscrolls9;
 			break;
 
 	}
@@ -985,6 +975,9 @@ function getRandomSpellScroll(spellLevel) {
 	return randomSpell;
 
 }
+
+
+
 
 var spellscrolls0 = ["Acid Splash",
 	"Blade Ward",
@@ -1456,3 +1449,40 @@ var spellscrolls9 = ["Astral Projection",
 	"Weird",
 	"Wish"
 ];
+
+var weapons = ["Quarterstaff",
+	"Sickle",
+	"Spear",
+	"Crossbow, Light",
+	"Dart",
+	"Shortbow",
+	"Sling",
+	"Battleaxe",
+	"Flail",
+	"Glaive",
+	"Greataxe",
+	"Greatsword",
+	"Halberd",
+	"Lance",
+	"Longsword",
+	"Maul",
+	"Morningstar",
+	"Pike",
+	"Rapier",
+	"Scimitar",
+	"Shortsword",
+	"Trident",
+	"War Pick",
+	"Warhammer",
+	"Whip",
+	"Blowgun",
+	"Crossbow, Hand",
+	"Crossbow, Heavy",
+	"Longbow",
+	"Net"
+];
+
+function getRandomWeapon() {
+	var randomWeapon =  weapons[Math.floor(Math.random() * weapons.length)];
+	return randomWeapon;
+}
