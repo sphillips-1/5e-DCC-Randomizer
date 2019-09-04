@@ -256,11 +256,116 @@ function MagicTableG(d100){
 
 	var magicItem;
 
-	if(inRange(d100, 1, 100)) {
-		magicItem =  "NULL";
-	} 
+	if(inRange(d100, 1, 11)) {magicItem =  "Weapon, +2";}
+	else if(inRange(d100, 12, 14)) {magicItem =  "Figurine of Wondrous Power [" + FigurineOfWondrousPower() + "]";}
+	else if(inRange(d100, 15, 15)) {magicItem =  "Adamantine armor (breastplate)";}
+	else if(inRange(d100, 16, 16)) {magicItem =  "Adamantine armor (splint)";}
+	else if(inRange(d100, 17, 17)) {magicItem =  "Amulet of health";}
+	else if(inRange(d100, 18, 18)) {magicItem =  "Armor of vulnerability";}
+	else if(inRange(d100, 19, 19)) {magicItem =  "Arrow-catching shield";}
+	else if(inRange(d100, 20, 20)) {magicItem =  "Belt of dwarvenkind";}
+	else if(inRange(d100, 21, 21)) {magicItem =  "Belt of hill giant strength";}
+	else if(inRange(d100, 22, 22)) {magicItem =  "Berserker axe";}
+	else if(inRange(d100, 23, 23)) {magicItem =  "Boots of levitation";}
+	else if(inRange(d100, 24, 24)) {magicItem =  "Boots of speed";}
+	else if(inRange(d100, 25, 25)) {magicItem =  "Bowl of commanding water elementals";}
+	else if(inRange(d100, 26, 26)) {magicItem =  "Bracers of defense";}
+	else if(inRange(d100, 27, 27)) {magicItem =  "Brazier of commanding fire elementals";}
+	else if(inRange(d100, 28, 28)) {magicItem =  "Cape of the mountebank";}
+	else if(inRange(d100, 29, 29)) {magicItem =  "Censer of controlling air elementals";}
+	else if(inRange(d100, 30, 30)) {magicItem =  "Armor, +1 chain mail";}
+	else if(inRange(d100, 31, 31)) {magicItem =  "Armor of resistance (chain mail)";}
+	else if(inRange(d100, 32, 32)) {magicItem =  "Armor of resistance (chain shirt)";}
+	else if(inRange(d100, 33, 33)) {magicItem =  "Armor,+ 1 chain shirt";}
+	else if(inRange(d100, 34, 34)) {magicItem =  "Cloak of displacement";}
+	else if(inRange(d100, 35, 35)) {magicItem =  "Cloak of the bat";}
+	else if(inRange(d100, 36, 36)) {magicItem =  "Cube of force";}
+	else if(inRange(d100, 37, 37)) {magicItem =  "Daern's instant fortress";}
+	else if(inRange(d100, 38, 38)) {magicItem =  "Dagger of venom";}
+	else if(inRange(d100, 39, 39)) {magicItem =  "Dimensional shackles";}
+	else if(inRange(d100, 40, 40)) {magicItem =  "Dragon slayer";}
+	else if(inRange(d100, 41, 41)) {magicItem =  "Elven chain";}
+	else if(inRange(d100, 42, 42)) {magicItem =  "Flame tongue";}
+	else if(inRange(d100, 43, 43)) {magicItem =  "Gem of seeing";}
+	else if(inRange(d100, 44, 44)) {magicItem =  "Giant slayer";}
+	else if(inRange(d100, 45, 45)) {magicItem =  "Clamoured studded leather";}
+	else if(inRange(d100, 46, 46)) {magicItem =  "Helm of teleportation";}
+	else if(inRange(d100, 47, 47)) {magicItem =  "Horn of blasting";}
+	else if(inRange(d100, 48, 48)) {magicItem =  "Horn of Valhalla (silver or brass)";}
+	else if(inRange(d100, 49, 49)) {magicItem =  "Instrument of the bards (Canaithmandolin)";}
+	else if(inRange(d100, 50, 50)) {magicItem =  "Instrument ofthe bards (Cii lyre)";}
+	else if(inRange(d100, 51, 51)) {magicItem =  "loun stone (awareness)";}
+	else if(inRange(d100, 52, 52)) {magicItem =  "loun stone (protection)";}
+	else if(inRange(d100, 53, 53)) {magicItem =  "loun stone (reserve)";}
+	else if(inRange(d100, 54, 54)) {magicItem =  "loun stone (sustenance)";}
+	else if(inRange(d100, 55, 55)) {magicItem =  "Iron bands of Bilarro";}
+	else if(inRange(d100, 56, 56)) {magicItem =  "Armor, + 1 leather";}
+	else if(inRange(d100, 57, 57)) {magicItem =  "Armor of resistance (leather)";}
+	else if(inRange(d100, 58, 58)) {magicItem =  "Mace of disruption";}
+	else if(inRange(d100, 59, 59)) {magicItem =  "Mace of smiting";}
+	else if(inRange(d100, 60, 60)) {magicItem =  "Mace of terror";}
+	else if(inRange(d100, 61, 61)) {magicItem =  "Mantle of spell resistance";}
+	else if(inRange(d100, 62, 62)) {magicItem =  "Necklace of prayer beads";}
+	else if(inRange(d100, 63, 63)) {magicItem =  "Periapt of proof against poison";}
+	else if(inRange(d100, 64, 64)) {magicItem =  "Ring of animal influence";}
+	else if(inRange(d100, 65, 65)) {magicItem =  "Ring of evasion";}
+	else if(inRange(d100, 66, 66)) {magicItem =  "Ring of feather falling";}
+	else if(inRange(d100, 67, 67)) {magicItem =  "Ring of free action";}
+	else if(inRange(d100, 68, 68)) {magicItem =  "Ring of protection";}
+	else if(inRange(d100, 69, 69)) {magicItem =  "Ring of resistance";}
+	else if(inRange(d100, 70, 70)) {magicItem =  "Ring of spell storing";}
+	else if(inRange(d100, 71, 71)) {magicItem =  "Ring of the ram";}
+	else if(inRange(d100, 72, 72)) {magicItem =  "Ring of X-ray vision";}
+	else if(inRange(d100, 73, 73)) {magicItem =  "Robe of eyes";}
+	else if(inRange(d100, 74, 74)) {magicItem =  "Rod of rulership";}
+	else if(inRange(d100, 75, 75)) {magicItem =  "Rod of the pact keeper, +2";}
+	else if(inRange(d100, 76, 76)) {magicItem =  "Rope of entanglement";}
+	else if(inRange(d100, 77, 77)) {magicItem =  "Armor, +1 scale mail";}
+	else if(inRange(d100, 78, 78)) {magicItem =  "Armor of resistance (scale mail)";}
+	else if(inRange(d100, 79, 79)) {magicItem =  "Shield, +2";}
+	else if(inRange(d100, 80, 80)) {magicItem =  "Shield of missile attraction";}
+	else if(inRange(d100, 81, 81)) {magicItem =  "Staff of charming";}
+	else if(inRange(d100, 82, 82)) {magicItem =  "Staff of healing";}
+	else if(inRange(d100, 83, 83)) {magicItem =  "Staff of swarming insects";}
+	else if(inRange(d100, 84, 84)) {magicItem =  "Staff of the woodlands";}
+	else if(inRange(d100, 85, 85)) {magicItem =  "Staff of withering";}
+	else if(inRange(d100, 86, 86)) {magicItem =  "Stone of controlling earthelementals";}
+	else if(inRange(d100, 87, 87)) {magicItem =  "Sun blade";}
+	else if(inRange(d100, 88, 88)) {magicItem =  "Sword of life stealing";}
+	else if(inRange(d100, 89, 89)) {magicItem =  "Sword of wounding";}
+	else if(inRange(d100, 90, 90)) {magicItem =  "Tentacle rod";}
+	else if(inRange(d100, 91, 91)) {magicItem =  "Vicious weapon";}
+	else if(inRange(d100, 92, 92)) {magicItem =  "Wand of binding";}
+	else if(inRange(d100, 93, 93)) {magicItem =  "Wand of enemy detection";}
+	else if(inRange(d100, 94, 94)) {magicItem =  "Wand of fear";}
+	else if(inRange(d100, 95, 95)) {magicItem =  "Wand of fireballs";}
+	else if(inRange(d100, 96, 96)) {magicItem =  "Wand of lightning bolts";}
+	else if(inRange(d100, 97, 97)) {magicItem =  "Wand of paralysis";}
+	else if(inRange(d100, 98, 98)) {magicItem =  "Wand of the war mage, +2";}
+	else if(inRange(d100, 99, 99)) {magicItem =  "Wand of wonder";}
+	else if(inRange(d100, 100, 100)) {magicItem =  "Wings of flying";}
+
 	return magicItem;
 }
+
+function FigurineOfWondrousPower(){
+	getRandomArbitrary(8)
+
+	var Figurines = [
+		"NULL",
+		"Bronze griffon",
+		"Ebony fly",
+		"Golden lions",
+		"Ivory goats",
+		"Marble elephant",
+		"Onyx dog",
+		"Onyx dog",
+		"Serpentine owl"
+	];
+
+	return Figurines[getRandomArbitrary(8)];
+}
+
 function MagicTableH(d100){
 
 	var magicItem;
