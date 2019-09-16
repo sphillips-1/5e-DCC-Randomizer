@@ -84,13 +84,13 @@ function CR10LootTable(d100) {
 	if (inRange(d100, 1, 4)) {
 		lootFormula = createFormulaObject("", "", "", ",");
 	} else if (inRange(d100, 5, 10)) {
-		lootFormula = createFormulaObject("2d4*25", "", "", ",");
+		lootFormula = createFormulaObject("2d4*25", "", "", "");
 	} else if (inRange(d100, 11, 16)) {
-		lootFormula = createFormulaObject("3d6*50", "", "", ",");
+		lootFormula = createFormulaObject("3d6*50", "", "", "");
 	} else if (inRange(d100, 17, 22)) {
-		lootFormula = createFormulaObject("3d6*100", "", "", ",");
+		lootFormula = createFormulaObject("3d6*100", "", "", "");
 	} else if (inRange(d100, 23, 28)) {
-		lootFormula = createFormulaObject("2d4*25", "", "", ",");
+		lootFormula = createFormulaObject("2d4*25", "", "", "");
 	} else if (inRange(d100, 29, 32)) {
 		lootFormula = createFormulaObject("2d4*25", "1d6", "Magic Item Table A", "", "");
 	} else if (inRange(d100, 33, 36)) {
