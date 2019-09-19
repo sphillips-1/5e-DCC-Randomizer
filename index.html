@@ -1,5 +1,7 @@
 ﻿<!DOCTYPE HTML>
 <html>
+
+
 <head>
 	
 	<script src="js/jquery-3.4.1.min.js"></script>
@@ -10,90 +12,117 @@
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1" /> 
 	
-
-</head>
+	<style>
+			body {
+			  font-family: "Lato", sans-serif;
+			}
+			
+			.sidenav {
+			  height: 100%;
+			  width: 160px;
+			  position: fixed;
+			  z-index: 1;
+			  top: 0;
+			  left: 0;
+			  background-color: #111;
+			  overflow-x: hidden;
+			  padding-top: 20px;
+			}
+			
+			.sidenav a {
+			  padding: 6px 8px 6px 16px;
+			  text-decoration: none;
+			  font-size: 25px;
+			  color: #818181;
+			  display: block;
+			}
+			
+			.sidenav a:hover {
+			  color: #f1f1f1;
+			}
+			
+			.main {
+			  margin-left: 160px; /* Same as the width of the sidenav */
+			  font-size: 28px; /* Increased text to enable scrolling */
+			  padding: 0px 10px;
+			}
+			
+			@media screen and (max-height: 450px) {
+			  .sidenav {padding-top: 15px;}
+			  .sidenav a {font-size: 18px;}
+			}
+			</style>
+		</head>
 <body>
-	<h1>DnD 5E Random Generator</h1>
-	<select id="challenge_rating" name="challenge_rating" class="string">
-		<option value="Challenge 0-4">Challenge 0-4</option>
-		<option value="Challenge 5-10">Challenge 5-10</option>
-		<option value="Challenge 11-16">Challenge 11-16</option>
-		<option value="Challenge 17+">Challenge 17+</option>
-	</select>
-	<input type="button" value="Go!" onclick="get_treasure()">
 
-	<div id="Challenge Rating"></div>
-	<div id="D100 Roll"></div>
-	<div id="Loot Formula"></div>
-	<div id="Currency"></div>
-	<div id="Art and Gems Currency"></div>
-	<div id="Magic Items"></div>
+	<div class="sidenav">
+		<a href="#RandomTreasureHoard">Random Treasure Hoard</a>
+		<a href="#RandomFantasyRomanceNovel">Random Fantasy Romance Novel</a>
+	</div>
+
+	<div class="main">
+
+		<h1>DnD 5E Random Generator</h1>
+		<select id="challenge_rating" name="challenge_rating" class="string">
+			<option value="Challenge 0-4">Challenge 0-4</option>
+			<option value="Challenge 5-10">Challenge 5-10</option>
+			<option value="Challenge 11-16">Challenge 11-16</option>
+			<option value="Challenge 17+">Challenge 17+</option>
+		</select>
+		<input type="button" value="Go!" onclick="get_treasure()">
+
+		<div id="output"></div>
+
+	</div>
 
 
 </body>
 </html>
 <script>
+	
 	function get_treasure(){
-		
+
 		//Get Challenge Rating
 		var challengeRating = document.getElementById("challenge_rating").value;
-		document.getElementById("Challenge Rating").innerHTML = "Challenge Rating ["+challengeRating+"]";
-		
+
 		//Get D100 Roll
 		var diceRoll = getRandomArbitrary(100);
-		document.getElementById("D100 Roll").innerHTML = diceRoll;
 		
 		//Get Currency
 		var Currency = GetGP(challengeRating);
 		
-		/*
-			Currency.CP
-			Currency.SP
-			Currency.GP
-			Currency.PP
-			Currency.Total 
-		*/
-		document.getElementById("Currency").innerHTML = "--------------------------"+
-			"<br>Currency"+
-			"<br>["+Currency.CP+"] copper pieces, ["+Currency.SP+"] silver pieces, ["+Currency.GP+"] gold pieces, ["+Currency.PP+"] platinum pieces"+
-			"<br>OR"+
-			"<br>["+Currency.Total+"] gold pieces";
-		
-		
 		//Get Loot Formula
 		var LootFormula = GetLootFormula(challengeRating,diceRoll);
-		
-		/*
-		    LootFormula.ArtAndGemsGP
-		    LootFormula.MagicItemDice
-		    LootFormula.MagicItemTable
-		    LootFormula.MagicItemDice2
-		    LootFormula.MagicItemTable2
-		*/
-		
-		var outputLootFormula = "--------------------------"+
-			"<br>Loot Formula" + 
-			"<br> GP from Art and Gems["+LootFormula.ArtAndGemsGP+"]";
 
-		if (LootFormula.MagicItemDice != ""){
-			outputLootFormula = outputLootFormula + "<br>["+LootFormula.MagicItemDice+"] items from ["+LootFormula.MagicItemTable+"]";
-		}
-
-		if (LootFormula.MagicItemDice2 != ""){
-			outputLootFormula = outputLootFormula + "<br>["+LootFormula.MagicItemDice2+"] items from ["+LootFormula.MagicItemTable2+"]";
-		}
-
-		document.getElementById("Loot Formula").innerHTML = outputLootFormula;
-		
 		//Get GP from Arts and Gems
 		var ArtsAndGemsGP = GetArtAndGems(LootFormula.ArtAndGemsGP);
-		document.getElementById("Art and Gems Currency").innerHTML = "--------------------------"+
-			"<br>GP from Art and Gems["+ArtsAndGemsGP+"]";
 		
 		//Get Magic Items
 		var MagicItems = GetMagicItems(LootFormula);
-		document.getElementById("Magic Items").innerHTML = "--------------------------"+
-			"<br>" + MagicItems.sort().join("<br>");
+
+
+
+		var output = ["Challenge Rating ["+challengeRating+"]",
+			diceRoll,
+			"--------------------------",
+			"Currency",
+			"["+Currency.CP+"] copper pieces, ["+Currency.SP+"] silver pieces, ["+Currency.GP+"] gold pieces, ["+Currency.PP+"] platinum pieces",
+			"OR",
+			"["+Currency.Total+"] gold pieces",
+			"Loot Formula",
+			"GP from Art and Gems["+LootFormula.ArtAndGemsGP+"]",
+			if(LootFormula.MagicItemDice != ""){"["+LootFormula.MagicItemDice+"] items from ["+LootFormula.MagicItemTable+"]";},
+			if(LootFormula.MagicItemDice2 != ""){"["+LootFormula.MagicItemDice2+"] items from ["+LootFormula.MagicItemTable2+"]";},
+			"--------------------------",
+			"GP from Art and Gems["+ArtsAndGemsGP+"]",
+			"--------------------------",
+			MagicItems.sort().join("<br>")
+			];
+
+
+
+
+		document.getElementById("output").innerHTML =	output;
 	  }
 	
 </script>
