@@ -21,7 +21,7 @@ function getRandom(array){
 }
 
 //Part 1 of title
-var Part1 = ["A","The"];
+var Part1 = ["A(n)","The"];
 
 //Part 2 of title - descriptor
 var Part2 = ["Surrendering","Impenetrable","Sentimental","Unbreakable",
