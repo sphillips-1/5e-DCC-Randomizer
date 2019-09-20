@@ -15,53 +15,71 @@
 	
 	<style>
 		body {
-			font-family: "Lato", sans-serif;
+		  margin: 0;
+		  font-family: "Lato", sans-serif;
 		}
 		
-		.sidenav {
-			height: 100%;
-			width: 160px;
-			position: fixed;
-			z-index: 1;
-			top: 0;
-			left: 0;
-			background-color: #111;
-			overflow-x: hidden;
-			padding-top: 20px;
+		.sidebar {
+		  margin: 0;
+		  padding: 0;
+		  width: 200px;
+		  background-color: #f1f1f1;
+		  position: fixed;
+		  height: 100%;
+		  overflow: auto;
 		}
 		
-		.sidenav a {
-			padding: 6px 8px 6px 16px;
-			text-decoration: none;
-			font-size: 25px;
-			color: #818181;
-			display: block;
+		.sidebar a {
+		  display: block;
+		  color: black;
+		  padding: 16px;
+		  text-decoration: none;
+		}
+		 
+		.sidebar a.active {
+		  background-color: #4CAF50;
+		  color: white;
 		}
 		
-		.sidenav a:hover {
-			color: #f1f1f1;
+		.sidebar a:hover:not(.active) {
+		  background-color: #555;
+		  color: white;
 		}
 		
-		.main {
-			margin-left: 160px; /* Same as the width of the sidenav */
-			font-size: 28px; /* Increased text to enable scrolling */
-			padding: 0px 10px;
+		div.content {
+		  margin-left: 200px;
+		  padding: 1px 16px;
+		  height: 1000px;
 		}
 		
-		@media screen and (max-height: 450px) {
-			.sidenav {padding-top: 15px;}
-			.sidenav a {font-size: 18px;}
+		@media screen and (max-width: 700px) {
+		  .sidebar {
+			width: 100%;
+			height: auto;
+			position: relative;
+		  }
+		  .sidebar a {float: left;}
+		  div.content {margin-left: 0;}
+		}
+		
+		@media screen and (max-width: 400px) {
+		  .sidebar a {
+			text-align: center;
+			float: none;
+		  }
 		}
 	</style>
 </head>
 <body>
 
-	<div class="sidenav">
-		<a href="#RandomTreasureHoard" onclick = "get_treasureBody()">Random Treasure Hoard</a>
-		<a href="#RandomFantasyRomanceNovel" onclick = "get_RomanceNovelBody()">Random Fantasy Romance Novel</a>
+
+	<div class="sidebar">
+		<a href="#RandomTreasureHoard" id=tab_Treasure onclick = "get_treasureBody()">Treasure</a>
+		<a href="#RandomFantasyRomanceNovel" id=tab_RomanceNovels onclick = "get_RomanceNovelBody()">Romance Novels</a>
 	</div>
 
-	<div class="main">
+
+	<div class="content">
 
 		<h1>DnD 5E Random Generator</h1>
 		
@@ -86,6 +104,8 @@
 	function get_treasureBody(){
 
 		cleanUp();
+
+		document.getElementById("tab_Treasure").className = "active";
 
 		var output = "<select id=\"challenge_rating\" name=\"challenge_rating\" class=\"string\">" +
 			"<option value=\"Challenge 0-4\">Challenge 0-4</option>" +
