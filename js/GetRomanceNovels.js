@@ -6,9 +6,24 @@ function GetNovelNames() {
 
     var novelName;
 
+    var determiner;
+    var descriptor;
+
     var i;
     for (i = 0; i < 5; i++) {
-        novelName = getRandom(Part1) + " " + getRandom(Part2) + " " + getRandom(Part3) + " " + getRandom(Part4);
+
+
+        determiner = getRandom(Part1);
+        descriptor = getRandom(Part2);
+
+        if(determiner === "A(n)" && isVowel(descriptor.charAt(0))){
+            determiner = "An";
+        } else {
+            determiner = "A";
+        }
+
+
+        novelName = determiner + " " + descriptor + " " + getRandom(Part3) + " " + getRandom(Part4);
         novelNames.push(novelName);
 
     }
@@ -16,11 +31,13 @@ function GetNovelNames() {
 	return novelNames;
 }
 
+function isVowel(x) {  return /[aeiouAEIOU]/.test(x); }
+
 function getRandom(array){
     return array[Math.floor(Math.random()*array.length)];
 }
 
-//Part 1 of title
+//Part 1 of title, determiner
 var Part1 = ["A(n)","The"];
 
 //Part 2 of title - descriptor

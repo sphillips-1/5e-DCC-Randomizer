@@ -81,11 +81,8 @@
 
 	<div class="content">
 
-		<h1>DnD 5E Random Generator</h1>
-		
+		<div id="title"></div>
 		<div id="main"></div>
-		
-
 		<div id="output"></div>
 
 	</div>
@@ -96,6 +93,7 @@
 <script>
 
 	function cleanUp(){
+		document.getElementById("title").innerHTML = "";
 		document.getElementById("main").innerHTML = "";
 		document.getElementById("output").innerHTML = "";
 
@@ -106,6 +104,8 @@
 		cleanUp();
 
 		document.getElementById("tab_Treasure").className = "active";
+
+		document.getElementById("title").innerHTML = "<h1>DnD 5E Random Treasure Hoard</h1>";
 
 		var output = "<select id=\"challenge_rating\" name=\"challenge_rating\" class=\"string\">" +
 			"<option value=\"Challenge 0-4\">Challenge 0-4</option>" +
@@ -176,6 +176,9 @@
 		cleanUp();
 
 		//Generate List
+
+		document.getElementById("title").innerHTML = "<h1>Random Fantasy Romance Novels</h1>";
+
 		var novels = GetNovelNames();
 		document.getElementById("main").innerHTML = "";
 		document.getElementById("output").innerHTML = novels.join("<br>");
