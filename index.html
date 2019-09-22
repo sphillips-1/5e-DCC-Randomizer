@@ -5,10 +5,7 @@
 <head>
 	
 	<script src="js/jquery-3.4.1.min.js"></script>
-	<script src="js/GetLootFormula.js" type="text/javascript"></script>
-	<script src="js/GetGP.js" type="text/javascript"></script>
-	<script src="js/GetArtAndGems.js" type="text/javascript"></script>
-	<script src="js/GetMagicItems.js" type="text/javascript"></script>
+	<script src="js/RandomTreasureHoard.js" type="text/javascript"></script>
 	<script src="js/GetRomanceNovels.js" type="text/javascript"></script>
 		
 	<meta name="viewport" content="width=device-width, initial-scale=1" /> 
@@ -119,56 +116,15 @@
 
 	}
 
-	function get_treasure(){
+    function get_treasure() {
 
-		//Get Challenge Rating
+        //Get Challenge Rating
 		var challengeRating = document.getElementById("challenge_rating").value;
 
-		//Get D100 Roll
-		var diceRoll = getRandomArbitrary(100);
-		
-		//Get Currency
-		var Currency = GetGP(challengeRating);
-		
-		//Get Loot Formula
-		var LootFormula = GetLootFormula(challengeRating,diceRoll);
-
-		//Get GP from Arts and Gems
-		var ArtsAndGemsGP = GetArtAndGems(LootFormula.ArtAndGemsGP);
-		
-		//Get Magic Items
-		var MagicItems = GetMagicItems(LootFormula);
-
-		var MagicItemsFormula = [];
-
-		if(LootFormula.MagicItemDice != ""){
-			MagicItemsFormula.push("["+LootFormula.MagicItemDice+"] items from ["+LootFormula.MagicItemTable+"]");
-		}
-		if(LootFormula.MagicItemDice2 != ""){
-			MagicItemsFormula.push("["+LootFormula.MagicItemDice2+"] items from ["+LootFormula.MagicItemTable2+"]");
-		}
-
-		var output = [
-			"<b>Challenge Rating ["+challengeRating+"]</b>",
-			diceRoll,
-			"",
-			"<b>Currency</b>",
-			"["+Currency.CP+"] copper pieces, ["+Currency.SP+"] silver pieces, ["+Currency.GP+"] gold pieces, ["+Currency.PP+"] platinum pieces",
-			"OR",
-			"["+Currency.Total+"] gold pieces",
-			"",
-			"<b>GP from Art and Gems</b>",
-			"["+LootFormula.ArtAndGemsGP+"]",
-			"["+ArtsAndGemsGP+"] GP",
-			"",
-			"<b>Magic Items</b>",
-			MagicItemsFormula.join("<br>"),
-			"",
-			MagicItems.sort().join("<br>")
-		];
-
+        output =  getTreasure(challengeRating);
 		document.getElementById("output").innerHTML = output.join("<br>");
-	  }
+
+    }
 	
 
 	function get_RomanceNovelBody(){
