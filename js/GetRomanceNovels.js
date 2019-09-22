@@ -68,7 +68,7 @@ var Part2 = ["Surrendering","Impenetrable","Sentimental","Unbreakable",
                 "Common","Exotic","Young","Crazy","Firey","Close","Fated",
                 "Blind","Brave","Ideal","Angry","Naked","Rough","Eager","Roped",
                 "Alpha","Cruel","Bound","Deep","True","Wild","Bare","Pure","Bold",
-                "Dark","Rare","Tied","Hard","Sexy","Hot"];
+                "Dark","Rare","Tied","Hard","Sexy","Hot","Throbbing"];
 
 //Part 3 of title - Fantasy races
 var Part3 = ["Dragonborn","Dwarf","Elf","Gnome","Half Elf",
