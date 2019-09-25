@@ -16,8 +16,8 @@
 
 
 	<div class="sidebar">
-		<a href="#RandomTreasureHoard" id=tab_Treasure onclick = "get_treasureBody()">Treasure</a>
-		<a href="#RandomFantasyRomanceNovel" id=tab_RomanceNovels onclick = "get_RomanceNovelBody()">Romance Novels</a>
+		<a href="#RandomTreasureHoard" id=tab_Treasure onclick = "cleanUp(); get_treasureBody()">Treasure</a>
+		<a href="#RandomFantasyRomanceNovel" id=tab_RomanceNovels onclick = "cleanUp(); get_RomanceNovelBody()">Romance Novels</a>
 	</div>
 
 
@@ -39,11 +39,15 @@
 		document.getElementById("main").innerHTML = "";
 		document.getElementById("output").innerHTML = "";
 
+		document.getElementById("tab_Treasure").className = "inactive";
+		document.getElementById("tab_RomanceNovels").className = "inactive";
+
+
 	}
 
 	function get_treasureBody(){
 
-		cleanUp();
+		
 
 		document.getElementById("tab_Treasure").className = "active";
 
@@ -74,9 +78,11 @@
 
 	function get_RomanceNovelBody(){
 
-		cleanUp();
+		
 
 		//Generate List
+
+		document.getElementById("tab_RomanceNovels").className = "active";
 
 		document.getElementById("title").innerHTML = "<h1>Random Fantasy Romance Novels</h1>";
 
