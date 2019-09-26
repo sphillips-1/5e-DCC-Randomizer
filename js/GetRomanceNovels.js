@@ -16,7 +16,7 @@ function GetNovelNames() {
         determiner = getRandom(Part1);
         descriptor = getRandom(Part2);
 
-        if(determiner === "A(n)" && isVowel(descriptor.charAt(0))){
+        if(isFirstLetterAVowel(descriptor) && determiner === "A(n)"){
             determiner = "An";
         } else {
             determiner = "A";
@@ -31,7 +31,31 @@ function GetNovelNames() {
 	return novelNames;
 }
 
-function isVowel(x) {  return /[aeiouAEIOU]/.test(x); }
+function isVowel(x) 
+{  
+	return /[aeiouAEIOU]/.test(x); 
+}
+
+
+
+function isFirstLetterAVowel(word){
+
+	console.log("word :["+word+"]");
+	console.log("first letter:[" + word.charAt(0) + "]);
+	
+	var result;
+	
+	switch( word.charAt(0)) {
+	case "A": case "E": case "I": case "O": case "U":
+		result = true;
+		break;
+	default:
+		result = false;
+	} 
+	
+	return result;
+
+}
 
 function getRandom(array){
     return array[Math.floor(Math.random()*array.length)];
