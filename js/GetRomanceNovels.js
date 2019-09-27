@@ -41,7 +41,7 @@ function isVowel(x)
 function isFirstLetterAVowel(word){
 
 	console.log("word :["+word+"]");
-	console.log("first letter:[" + word.charAt(0) + "]);
+	console.log("first letter:[" + word.charAt(0) + "]");
 	
 	var result;
 	
