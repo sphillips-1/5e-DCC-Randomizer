@@ -18,6 +18,7 @@ function GetNovelNames() {
 
         if(isFirstLetterAVowel(descriptor) && determiner === "A(n)"){
             determiner = "An";
+	    console.log("fixing this one ["+ determiner +" " +descriptor+"]");	
         } else {
             determiner = "A";
         }
@@ -31,10 +32,6 @@ function GetNovelNames() {
 	return novelNames;
 }
 
-function isVowel(x) 
-{  
-	return /[aeiouAEIOU]/.test(x); 
-}
 
 
 
