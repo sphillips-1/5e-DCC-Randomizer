@@ -37,8 +37,8 @@ function GetNovelNames() {
 
 function isFirstLetterAVowel(word){
 
-	console.log("word :["+word+"]");
-	console.log("first letter:[" + word.charAt(0) + "]");
+	//console.log("word :["+word+"]");
+	//console.log("first letter:[" + word.charAt(0) + "]");
 	
 	var result;
 	
