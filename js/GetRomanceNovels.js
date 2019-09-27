@@ -18,11 +18,10 @@ function GetNovelNames() {
 
         if(isFirstLetterAVowel(descriptor) && determiner === "A(n)"){
             determiner = "An";
-	    console.log("fixing this one ["+ determiner +" " +descriptor+"]");	
+	        console.log("fixing this one ["+ determiner +" " +descriptor+"]");	
         } else {
             determiner = "A";
         }
-
 
         novelName = determiner + " " + descriptor + " " + getRandom(Part3) + " " + getRandom(Part4);
         novelNames.push(novelName);
@@ -40,7 +39,7 @@ function isFirstLetterAVowel(word){
 	//console.log("word :["+word+"]");
 	//console.log("first letter:[" + word.charAt(0) + "]");
 	
-	var result;
+	var result = false;
 	
 	switch( word.charAt(0)) {
 	case "A": case "E": case "I": case "O": case "U":
