@@ -1,4 +1,4 @@
-function GetRandomSkyrimAdventure() {
+function GetAdventure() {
 
 	return getRandom(adventures);
 }
