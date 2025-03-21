@@ -22,7 +22,7 @@
 		<a href="#RandomFantasyRomanceNovel" id=tab_RomanceNovels onclick = "cleanUp(); get_RomanceNovelBody()">Romance Novels</a>
 		<a href="#RandomSkyrimAdventure" id=tab_RandomSkyrimAdventure onclick = "cleanUp(); get_RandomSkyrimAdventure()">Skyrim Adventure</a>
 		<a href="#RandomPlaybookMove" id=tab_RandomPlaybookMove onclick = "cleanUp(); get_RandomPlaybookMove()">Random MOTW Moves</a>
-
+		<a href="#RandomCrawlLoot" id=tab_RandomCrawlLoot onclick = "cleanUp(); get_RandomCrawlLoot()">Random Crawl Loot</a>
 	</div>
 
 
@@ -47,6 +47,8 @@
 		document.getElementById("tab_Treasure").className = "inactive";
 		document.getElementById("tab_RomanceNovels").className = "inactive";
 		document.getElementById("tab_RandomSkyrimAdventure").className = "inactive";
+		document.getElementById("tab_RandomPlaybookMove").className = "inactive";
+		document.getElementById("tab_RandomCrawlLoot").className = "inactive";
 
 
 	}
@@ -118,6 +120,18 @@
 
 		document.getElementById("title").innerHTML = "<h1>Random MOTW Move</h1>";
 		document.getElementById("main").innerHTML = Move;
+		document.getElementById("output").innerHTML = "";
+
+	}
+
+	function get_RandomCrawlLoot(){
+
+		document.getElementById("tab_RandomCrawlLoot").className = "active";
+
+		var loot = GetCrawlLoot();
+
+		document.getElementById("title").innerHTML = "<h1>Random Crawl Loot</h1>";
+		document.getElementById("main").innerHTML = loot;
 		document.getElementById("output").innerHTML = "";
 
 	}

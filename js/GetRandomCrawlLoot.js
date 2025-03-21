@@ -1,0 +1,3 @@
+function GetCrawlLoot() {
+	return null;
+}
