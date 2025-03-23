@@ -4,6 +4,7 @@
 <head>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/GetRandomCrawlLoot.js" type="text/javascript"></script>
+	<script src="js/GetEquipment.js" type="text/javascript"></script>
     <link rel="stylesheet" href="styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
@@ -65,16 +66,19 @@
 
     async function generateCrawlLoot() {
         var characterLevel = document.getElementById("character_level").value;
-        var loot = await GetCrawlLoot(characterLevel, spellListCache, equipmentListCache);
-        var spellDescription = loot.spell ? await getSpellDescription(loot.spell.spellName) : "None available for this level";
+        var equipment = GetRandomEquipment(equipmentListCache);
+        var spell = GetRandomSpell(characterLevel, spellListCache);
+
+
+        var spellDescription = await getSpellDescription(spell.spellName) ;
         var output = "<div class='spell-card'>" +
             "<h1>Crawl Item</h1>" +
-            "<h2>Name: " + loot.equipment.EquipmentName + " of " + loot.spell.spellName + "</h2>" +
+            "<h2>Name: " + equipment.EquipmentName + " of " + spell.spellName + "</h2>" +
             "<p>This item allows you to cast the spell " + loot.spell.spellName + " once per long rest.</p>" +
             "<p>Your spellcasting stat for this item is your class's primary ability stat. If your class has spell slots, you may use those spell slots to cast these spells additional times as long as the spell slot matches the spell level.</p>" +
             "<p>This is an item specific to the Crawl and requires attunement. Attuning to an item requires a creature to spend a short rest focused on only that item while being in physical contact with it. An item can be attuned to only one creature at a time, and a creature can be attuned to 1 item per item slot.</p>" +
-            "<p>Weapon Damage: " + loot.equipment.damage + "</p>" +
-            "<p>Notes: " + loot.equipment.notes.join(", ") + "</p>" +
+            "<p>Weapon Damage: " + equipment.damage + "</p>" +
+            "<p>Notes: " + equipment.notes.join(", ") + "</p>" +
             "<h2>Spell</h2>";
         if (loot.spell) {
             output += "<p>Name: " + loot.spell.spellName + "</p>" +
@@ -88,74 +92,6 @@
         document.getElementById("output").innerHTML = output;
     }
 
-    async function getSpellDescription(spellName) {
-        const response = await fetch(`https://www.dnd5eapi.co/api/spells/${spellName.toLowerCase().replace(/ /g, '-')}`);
-        if (!response.ok) {
-            return "Description not available.";
-        }
-        const spellData = await response.json();
-        return spellData.desc.join(" ");
-    }
-
-    async function getSpellList() {
-        if (spellListCache) {
-            return spellListCache;
-        }
-        const response = await fetch('https://www.dnd5eapi.co/api/spells');
-        if (!response.ok) {
-            return [];
-        }
-        const spellList = await response.json();
-        const spellDetailsList = await Promise.all(spellList.results.map(async (spell) => {
-            const spellDetailsResponse = await fetch(`https://www.dnd5eapi.co${spell.url}`);
-            const spellDetails = await spellDetailsResponse.json();
-            return {
-                name: spell.name,
-                level: spellDetails.level
-            };
-        }));
-        spellListCache = spellDetailsList;
-        return spellListCache;
-    }
-
-    async function getEquipmentList() {
-        if (equipmentListCache) {
-            return equipmentListCache;
-        }
-        const weaponResponse = await fetch('https://www.dnd5eapi.co/api/equipment-categories/weapon');
-        const armorResponse = await fetch('https://www.dnd5eapi.co/api/equipment-categories/armor');
-
-        if (!weaponResponse.ok || !armorResponse.ok) {
-            console.error('Failed to fetch equipment data');
-            return [];
-        }
-
-        const weaponData = await weaponResponse.json();
-        const armorData = await armorResponse.json();
-
-        const weapons = await Promise.all(weaponData.equipment.map(async (item) => {
-            const itemResponse = await fetch(`https://www.dnd5eapi.co${item.url}`);
-            return itemResponse.json();
-        }));
-
-        const armors = await Promise.all(armorData.equipment.map(async (item) => {
-            const itemResponse = await fetch(`https://www.dnd5eapi.co${item.url}`);
-            return itemResponse.json();
-        }));
-
-        equipmentListCache = [
-            ...weapons.map(weapon => new Equipment(weapon.name, weapon.damage ? weapon.damage.damage_dice : 'N/A', weapon.properties.map(prop => prop.name))),
-            ...armors.map(armor => new Equipment(armor.name, '0', [armor.armor_category, `AC = ${armor.armor_class.base} + ${armor.armor_class.dex_bonus ? 'Dex modifier' : ''}`, armor.stealth_disadvantage ? 'Stealth Disadvantage' : '']))
-        ];
-
-        return equipmentListCache;
-    }
-
-    function Equipment(EquipmentName, damage, notes) {
-        this.EquipmentName = EquipmentName;
-        this.damage = damage;
-        this.notes = notes; // notes is now a list of tags
-    }
 
     async function GetCrawlLoot(characterLevel, spellListCache, equipmentListCache) {
         const randomEquipment = GetRandomEquipment(equipmentListCache);
@@ -170,45 +106,6 @@
     function GetRandomEquipment(equipments) {
         const randomIndex = Math.floor(Math.random() * equipments.length);
         return equipments[randomIndex];
-    }
-
-    function GetRandomSpell(characterLevel, spellListCache) {
-        let maxSpellLevel;
-        if (characterLevel >= 1 && characterLevel <= 2) {
-            maxSpellLevel = 1;
-        } else if (characterLevel >= 3 && characterLevel <= 4) {
-            maxSpellLevel = 2;
-        } else if (characterLevel >= 5 && characterLevel <= 6) {
-            maxSpellLevel = 3;
-        } else if (characterLevel >= 7 && characterLevel <= 8) {
-            maxSpellLevel = 4;
-        } else if (characterLevel >= 9 && characterLevel <= 10) {
-            maxSpellLevel = 5;
-        } else if (characterLevel >= 11 && characterLevel <= 12) {
-            maxSpellLevel = 6;
-        } else if (characterLevel >= 13 && characterLevel <= 14) {
-            maxSpellLevel = 7;
-        } else if (characterLevel >= 15 && characterLevel <= 16) {
-            maxSpellLevel = 8;
-        } else if (characterLevel >= 17) {
-            maxSpellLevel = 9;
-        }
-
-        const filteredSpells = spellListCache.filter(spell => spell.level <= maxSpellLevel);
-
-        if (filteredSpells.length === 0) {
-            return null; // No spells found for the given character level or lower
-        }
-
-        const randomIndex = Math.floor(Math.random() * filteredSpells.length);
-        const selectedSpell = filteredSpells[randomIndex];
-        return new Spell(selectedSpell.name, selectedSpell.level, characterLevel);
-    }
-
-    function Spell(spellName, spellLevel, characterLevel) {
-        this.spellName = spellName;
-        this.spellLevel = spellLevel;
-        this.characterLevel = characterLevel;
     }
 
     document.addEventListener("DOMContentLoaded", async function() {
