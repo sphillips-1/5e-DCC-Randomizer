@@ -125,17 +125,31 @@
         var loot = GetCrawlLoot(characterLevel);
         var output = "<div class='spell-card'>" +
             "<h2>Magic Item</h2>" +
-            "<h1>Name: " + loot.equipment.EquipmentName + " of " + loot.spell.spellName + "</p>" +
+            "<h1>Name: " + loot.equipment.EquipmentName + " of " + loot.spell.spellName + "</h1>" +
             "<p>This item allows you to cast the spell " + loot.spell.spellName + " once per long rest.</p>" +
-
-			"<p>Your spellcasting stat for this item is your classes primary ability stat. If your class has spell slots, you may use those spell slots to cast these spells additional times as long as the spell slot matches the spell level. </p>"
-			"<p>This item requires attunement. Attuning to an item requires a creature to spend a short rest focused on only that item while being in physical contact with it. An item can be attuned to only one creature at a time, and a creature can be attuned to no more than three magic items at a time. </p>" 
-
-			"<p>Damage: " + loot.equipment.damage + "</p>" +
+            "<p>Your spellcasting stat for this item is your class's primary ability stat. If your class has spell slots, you may use those spell slots to cast these spells additional times as long as the spell slot matches the spell level.</p>" +
+            "<p>This item requires attunement. Attuning to an item requires a creature to spend a short rest focused on only that item while being in physical contact with it. An item can be attuned to only one creature at a time, and a creature can be attuned to no more than three magic items at a time.</p>" +
+            "<p>Damage: " + loot.equipment.damage + "</p>" +
             "<p>Notes: " + loot.equipment.notes + "</p>" +
             "<h2>Spell</h2>";
-
+        if (loot.spell) {
+            output += "<p>Name: " + loot.spell.spellName + "</p>" +
+                "<p>Level: " + (loot.spell.spellLevel === 0 ? "Cantrip" : loot.spell.spellLevel) + "</p>" +
+                "<p>Character Level: " + loot.spell.characterLevel + "</p>" +
+                "<p>Description: " + getSpellDescription(loot.spell.spellName) + "</p>";
+        } else {
+            output += "<p>None available for this level</p>";
+        }
         output += "</div>";
         document.getElementById("output").innerHTML = output;
+    }
+
+    async function getSpellDescription(spellName) {
+        const response = await fetch(`https://www.dnd5eapi.co/api/spells/${spellName.toLowerCase().replace(/ /g, '-')}`);
+        if (!response.ok) {
+            return "Description not available.";
+        }
+        const spellData = await response.json();
+        return spellData.desc.join(" ");
     }
 </script>
