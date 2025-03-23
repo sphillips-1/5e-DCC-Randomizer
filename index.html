@@ -124,16 +124,21 @@
 
 	}
 
-	function get_RandomCrawlLoot(){
+    function get_RandomCrawlLoot() {
+        document.getElementById("tab_RandomCrawlLoot").className = "active";
+        document.getElementById("title").innerHTML = "<h1>Random Crawl Loot</h1>";
 
-		document.getElementById("tab_RandomCrawlLoot").className = "active";
+        var output = "<input type='number' id='character_level' name='character_level' min='1' max='20' placeholder='Enter character level'>" +
+            "<input type='button' value='Go!' onclick='generateCrawlLoot()'>";
 
-		var loot = GetCrawlLoot();
+        document.getElementById("main").innerHTML = output;
+        document.getElementById("output").innerHTML = "";
+    }
 
-		document.getElementById("title").innerHTML = "<h1>Random Crawl Loot</h1>";
-		document.getElementById("main").innerHTML = loot;
-		document.getElementById("output").innerHTML = "";
-
-	}
+    function generateCrawlLoot() {
+        var characterLevel = document.getElementById("character_level").value;
+        var loot = GetCrawlLoot(characterLevel);
+        document.getElementById("output").innerHTML = "Equipment: " + loot.equipment.EquipmentName + "<br>Spell: " + loot.spell.spellName;
+    }
 
 </script>
