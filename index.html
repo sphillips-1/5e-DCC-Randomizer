@@ -125,13 +125,11 @@
         var loot = GetCrawlLoot(characterLevel);
         var output = "<div class='spell-card'>" +
             "<h2>Magic Item</h2>" +
-            "<p>Name: " + loot.equipment.EquipmentName + " of " + loot.spell.spellName + "</p>" +
+            "<h1>Name: " + loot.equipment.EquipmentName + " of " + loot.spell.spellName + "</p>" +
             "<p>This item allows you to cast the spell " + loot.spell.spellName + " once per long rest.</p>" +
 
-			"<p>Your spellcasting stat for this item is your classes primary ability stat.</p>" +
-			"<p>If your class has spell slots, you may use those spell slots to cast these spells additional times as long as the spell slot matches the spell level.</p>" +
-			"<p>This item requires attunement. Attuning to an item requires a creature to spend a short rest focused on only that item while being in physical contact with it</p>" +
-			"<p>An item can be attuned to only one creature at a time, and a creature can be attuned to no more than three magic items at a time. </p>" +
+			"<p>Your spellcasting stat for this item is your classes primary ability stat. If your class has spell slots, you may use those spell slots to cast these spells additional times as long as the spell slot matches the spell level. </p>"
+			"<p>This item requires attunement. Attuning to an item requires a creature to spend a short rest focused on only that item while being in physical contact with it. An item can be attuned to only one creature at a time, and a creature can be attuned to no more than three magic items at a time. </p>" 
 
 			"<p>Damage: " + loot.equipment.damage + "</p>" +
             "<p>Notes: " + loot.equipment.notes + "</p>" +
