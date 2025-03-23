@@ -36,22 +36,20 @@
         <div id="title"></div>
         <div id="main"></div>
         <div id="output"></div>
-        <div id="spell-list"></div>
     </div>
 </body>
 
 </html>
 <script>
     let spellListCache = null;
+    let equipmentListCache = null;
 
     function cleanUp() {
         document.getElementById("title").innerHTML = "";
         document.getElementById("main").innerHTML = "";
         document.getElementById("output").innerHTML = "";
-        document.getElementById("spell-list").innerHTML = "";
 
         document.getElementById("tab_RandomCrawlLoot").className = "inactive";
-        document.getElementById("tab_SpellList").className = "inactive";
     }
 
     function get_RandomCrawlLoot() {
@@ -67,7 +65,7 @@
 
     async function generateCrawlLoot() {
         var characterLevel = document.getElementById("character_level").value;
-        var loot = GetCrawlLoot(characterLevel, spellListCache);
+        var loot = await GetCrawlLoot(characterLevel, spellListCache, equipmentListCache);
         var spellDescription = loot.spell ? await getSpellDescription(loot.spell.spellName) : "None available for this level";
         var output = "<div class='spell-card'>" +
             "<h1>Crawl Item</h1>" +
@@ -76,7 +74,7 @@
             "<p>Your spellcasting stat for this item is your class's primary ability stat. If your class has spell slots, you may use those spell slots to cast these spells additional times as long as the spell slot matches the spell level.</p>" +
             "<p>This is an item specific to the Crawl and requires attunement. Attuning to an item requires a creature to spend a short rest focused on only that item while being in physical contact with it. An item can be attuned to only one creature at a time, and a creature can be attuned to 1 item per item slot.</p>" +
             "<p>Weapon Damage: " + loot.equipment.damage + "</p>" +
-            "<p>Notes: " + loot.equipment.notes + "</p>" +
+            "<p>Notes: " + loot.equipment.notes.join(", ") + "</p>" +
             "<h2>Spell</h2>";
         if (loot.spell) {
             output += "<p>Name: " + loot.spell.spellName + "</p>" +
@@ -120,25 +118,101 @@
         return spellListCache;
     }
 
-    async function displaySpellList() {
-        const spells = await getSpellList();
-        let output = "<ul>";
-        for (const spell of spells) {
-            output += `<li>${spell.name} (Level: ${spell.level})</li>`;
+    async function getEquipmentList() {
+        if (equipmentListCache) {
+            return equipmentListCache;
         }
-        output += "</ul>";
-        document.getElementById("spell-list").innerHTML = output;
+        const weaponResponse = await fetch('https://www.dnd5eapi.co/api/equipment-categories/weapon');
+        const armorResponse = await fetch('https://www.dnd5eapi.co/api/equipment-categories/armor');
+
+        if (!weaponResponse.ok || !armorResponse.ok) {
+            console.error('Failed to fetch equipment data');
+            return [];
+        }
+
+        const weaponData = await weaponResponse.json();
+        const armorData = await armorResponse.json();
+
+        const weapons = await Promise.all(weaponData.equipment.map(async (item) => {
+            const itemResponse = await fetch(`https://www.dnd5eapi.co${item.url}`);
+            return itemResponse.json();
+        }));
+
+        const armors = await Promise.all(armorData.equipment.map(async (item) => {
+            const itemResponse = await fetch(`https://www.dnd5eapi.co${item.url}`);
+            return itemResponse.json();
+        }));
+
+        equipmentListCache = [
+            ...weapons.map(weapon => new Equipment(weapon.name, weapon.damage ? weapon.damage.damage_dice : 'N/A', weapon.properties.map(prop => prop.name))),
+            ...armors.map(armor => new Equipment(armor.name, '0', [armor.armor_category, `AC = ${armor.armor_class.base} + ${armor.armor_class.dex_bonus ? 'Dex modifier' : ''}`, armor.stealth_disadvantage ? 'Stealth Disadvantage' : '']))
+        ];
+
+        return equipmentListCache;
     }
 
-    function get_SpellList() {
-        document.getElementById("tab_SpellList").className = "active";
-        document.getElementById("title").innerHTML = "<h1>Spell List</h1>";
-        document.getElementById("main").innerHTML = "";
-        document.getElementById("output").innerHTML = "";
-        displaySpellList();
+    function Equipment(EquipmentName, damage, notes) {
+        this.EquipmentName = EquipmentName;
+        this.damage = damage;
+        this.notes = notes; // notes is now a list of tags
     }
 
-    document.addEventListener("DOMContentLoaded", function() {
-        getSpellList(); // Fetch the spell list once when the page loads
+    async function GetCrawlLoot(characterLevel, spellListCache, equipmentListCache) {
+        const randomEquipment = GetRandomEquipment(equipmentListCache);
+        const randomSpell = GetRandomSpell(characterLevel, spellListCache);
+
+        return {
+            equipment: randomEquipment,
+            spell: randomSpell
+        };
+    }
+
+    function GetRandomEquipment(equipments) {
+        const randomIndex = Math.floor(Math.random() * equipments.length);
+        return equipments[randomIndex];
+    }
+
+    function GetRandomSpell(characterLevel, spellListCache) {
+        let maxSpellLevel;
+        if (characterLevel >= 1 && characterLevel <= 2) {
+            maxSpellLevel = 1;
+        } else if (characterLevel >= 3 && characterLevel <= 4) {
+            maxSpellLevel = 2;
+        } else if (characterLevel >= 5 && characterLevel <= 6) {
+            maxSpellLevel = 3;
+        } else if (characterLevel >= 7 && characterLevel <= 8) {
+            maxSpellLevel = 4;
+        } else if (characterLevel >= 9 && characterLevel <= 10) {
+            maxSpellLevel = 5;
+        } else if (characterLevel >= 11 && characterLevel <= 12) {
+            maxSpellLevel = 6;
+        } else if (characterLevel >= 13 && characterLevel <= 14) {
+            maxSpellLevel = 7;
+        } else if (characterLevel >= 15 && characterLevel <= 16) {
+            maxSpellLevel = 8;
+        } else if (characterLevel >= 17) {
+            maxSpellLevel = 9;
+        }
+
+        const filteredSpells = spellListCache.filter(spell => spell.level <= maxSpellLevel);
+
+        if (filteredSpells.length === 0) {
+            return null; // No spells found for the given character level or lower
+        }
+
+        const randomIndex = Math.floor(Math.random() * filteredSpells.length);
+        const selectedSpell = filteredSpells[randomIndex];
+        return new Spell(selectedSpell.name, selectedSpell.level, characterLevel);
+    }
+
+    function Spell(spellName, spellLevel, characterLevel) {
+        this.spellName = spellName;
+        this.spellLevel = spellLevel;
+        this.characterLevel = characterLevel;
+    }
+
+    document.addEventListener("DOMContentLoaded", async function() {
+        await getSpellList(); // Fetch the spell list once when the page loads
+        await getEquipmentList(); // Fetch the equipment list once when the page loads
     });
 </script>
