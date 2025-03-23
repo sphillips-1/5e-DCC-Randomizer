@@ -1,0 +1,110 @@
+﻿<!DOCTYPE HTML>
+<html>
+
+<head>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/RandomTreasureHoard.js" type="text/javascript"></script>
+    <script src="js/GetRomanceNovels.js" type="text/javascript"></script>
+    <script src="js/GetSkyrimAdventure.js" type="text/javascript"></script>
+    <script src="js/GetRandomPlaybookMove.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        .spell-card {
+            border: 1px solid #000;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px;
+            background-color: #f9f9f9;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .spell-card h2 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+
+        .spell-card p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sidebar">
+        <a href="#RandomTreasureHoard" id="tab_Treasure" onclick="cleanUp(); get_treasureBody()">Treasure</a>
+        <a href="#RandomFantasyRomanceNovel" id="tab_RomanceNovels" onclick="cleanUp(); get_RomanceNovelBody()">Romance Novels</a>
+        <a href="#RandomSkyrimAdventure" id="tab_RandomSkyrimAdventure" onclick="cleanUp(); get_RandomSkyrimAdventure()">Skyrim Adventure</a>
+        <a href="#RandomPlaybookMove" id="tab_RandomPlaybookMove" onclick="cleanUp(); get_RandomPlaybookMove()">Random MOTW Moves</a>
+    </div>
+
+    <div class="content">
+        <div id="title"></div>
+        <div id="main"></div>
+        <div id="output"></div>
+    </div>
+</body>
+
+</html>
+<script>
+    function cleanUp() {
+        document.getElementById("title").innerHTML = "";
+        document.getElementById("main").innerHTML = "";
+        document.getElementById("output").innerHTML = "";
+
+        document.getElementById("tab_Treasure").className = "inactive";
+        document.getElementById("tab_RomanceNovels").className = "inactive";
+        document.getElementById("tab_RandomSkyrimAdventure").className = "inactive";
+        document.getElementById("tab_RandomPlaybookMove").className = "inactive";
+        document.getElementById("tab_RandomCrawlLoot").className = "inactive";
+    }
+
+    function get_treasureBody() {
+        document.getElementById("tab_Treasure").className = "active";
+        document.getElementById("title").innerHTML = "<h1>DnD 5E Random Treasure Hoard</h1>";
+
+        var output = "<select id=\"challenge_rating\" name=\"challenge_rating\" class=\"string\">" +
+            "<option value=\"Challenge 0-4\">Challenge 0-4</option>" +
+            "<option value=\"Challenge 5-10\">Challenge 5-10</option>" +
+            "<option value=\"Challenge 11-16\">Challenge 11-16</option>" +
+            "<option value=\"Challenge 17+\">Challenge 17+</option>" +
+            "</select>" +
+            "<input type=\"button\" value=\"Go!\" onclick=\"get_treasure()\">";
+
+        document.getElementById("main").innerHTML = output;
+    }
+
+    function get_treasure() {
+        var challengeRating = document.getElementById("challenge_rating").value;
+        var output = getTreasure(challengeRating);
+        document.getElementById("output").innerHTML = output.join("<br>");
+    }
+
+    function get_RomanceNovelBody() {
+        document.getElementById("tab_RomanceNovels").className = "active";
+        document.getElementById("title").innerHTML = "<h1>Random Fantasy Romance Novels</h1>";
+
+        var novels = GetNovelNames();
+        document.getElementById("main").innerHTML = "";
+        document.getElementById("output").innerHTML = novels.join("<br>");
+    }
+
+    function get_RandomSkyrimAdventure() {
+        document.getElementById("tab_RandomSkyrimAdventure").className = "active";
+
+        var adventure = GetAdventure();
+        document.getElementById("title").innerHTML = "<h1>Random Skyrim Adventure</h1>";
+        document.getElementById("main").innerHTML = adventure;
+        document.getElementById("output").innerHTML = "";
+    }
+
+    function get_RandomPlaybookMove() {
+        document.getElementById("tab_RandomPlaybookMove").className = "active";
+
+        var Move = GetPlaybookMove();
+        document.getElementById("title").innerHTML = "<h1>Random MOTW Move</h1>";
+        document.getElementById("main").innerHTML = Move;
+        document.getElementById("output").innerHTML = "";
+    }
+
+</script>
