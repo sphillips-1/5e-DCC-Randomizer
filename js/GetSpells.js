@@ -1,4 +1,4 @@
-function GetRandomSpell(characterLevel, spellListCache) {
+async function GetRandomSpell(characterLevel, spellListCache) {
     let maxSpellLevel;
     if (characterLevel >= 1 && characterLevel <= 2) {
         maxSpellLevel = 1;
@@ -28,22 +28,45 @@ function GetRandomSpell(characterLevel, spellListCache) {
 
     const randomIndex = Math.floor(Math.random() * filteredSpells.length);
     const selectedSpell = filteredSpells[randomIndex];
-    return new Spell(selectedSpell.name, selectedSpell.level, characterLevel);
+
+    // Fetch the details of the selected spell
+    const spellDetails = await getSpellDetails(selectedSpell.url);
+
+    return new Spell(selectedSpell.name, selectedSpell.level, characterLevel, spellDetails);
 }
 
-function Spell(spellName, spellLevel, characterLevel) {
+function Spell(spellName, spellLevel, characterLevel, details) {
     this.spellName = spellName;
     this.spellLevel = spellLevel;
     this.characterLevel = characterLevel;
+    this.details = details;
 }
 
-async function getSpellDescription(spellName) {
-    const response = await fetch(`https://www.dnd5eapi.co/api/spells/${spellName.toLowerCase().replace(/ /g, '-')}`);
+function SpellDetails(name, level, description, range, components, duration, castingTime) {
+    this.name = name;
+    this.level = level;
+    this.description = description;
+    this.range = range;
+    this.components = components;
+    this.duration = duration;
+    this.castingTime = castingTime;
+}
+
+async function getSpellDetails(spellUrl) {
+    const response = await fetch(`https://www.dnd5eapi.co${spellUrl}`);
     if (!response.ok) {
-        return "Description not available.";
+        return new SpellDetails("Details not available.", "", "", "", "", "", "");
     }
     const spellData = await response.json();
-    return spellData.desc.join(" ");
+    return new SpellDetails(
+        spellData.name,
+        spellData.level,
+        spellData.desc.join(" "),
+        spellData.range,
+        spellData.components.join(", "),
+        spellData.duration,
+        spellData.casting_time
+    );
 }
 
 async function getSpellList() {
@@ -55,14 +78,6 @@ async function getSpellList() {
         return [];
     }
     const spellList = await response.json();
-    const spellDetailsList = await Promise.all(spellList.results.map(async (spell) => {
-        const spellDetailsResponse = await fetch(`https://www.dnd5eapi.co${spell.url}`);
-        const spellDetails = await spellDetailsResponse.json();
-        return {
-            name: spell.name,
-            level: spellDetails.level
-        };
-    }));
-    spellListCache = spellDetailsList;
+    spellListCache = spellList.results;
     return spellListCache;
 }

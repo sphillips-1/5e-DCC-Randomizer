@@ -3,8 +3,8 @@
 
 <head>
     <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/GetRandomCrawlLoot.js" type="text/javascript"></script>
-	<script src="js/GetEquipment.js" type="text/javascript"></script>
+    <script src="js/GetSpells.js" type="text/javascript"></script>
+    <script src="js/GetEquipment.js" type="text/javascript"></script>
     <link rel="stylesheet" href="styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
@@ -66,36 +66,28 @@
 
     async function generateCrawlLoot() {
         var characterLevel = document.getElementById("character_level").value;
-        var equipment = GetRandomEquipment(equipmentListCache);
-        var spell = GetRandomSpell(characterLevel, spellListCache);
-
-
-        var spellDescription = await getSpellDescription(spell.spellName) ;
+        var loot = await GetCrawlLoot(characterLevel, spellListCache, equipmentListCache);
+        var spellDescription = loot.spell ? loot.spell.details.description : "None available for this level";
         var output = "<div class='spell-card'>" +
             "<h1>Crawl Item</h1>" +
-            "<h2>Name: " + equipment.EquipmentName + " of " + spell.spellName + "</h2>" +
+            "<h2>Name: " + loot.equipment.EquipmentName + " of " + loot.spell.spellName + "</h2>" +
             "<p>This item allows you to cast the spell " + loot.spell.spellName + " once per long rest.</p>" +
             "<p>Your spellcasting stat for this item is your class's primary ability stat. If your class has spell slots, you may use those spell slots to cast these spells additional times as long as the spell slot matches the spell level.</p>" +
             "<p>This is an item specific to the Crawl and requires attunement. Attuning to an item requires a creature to spend a short rest focused on only that item while being in physical contact with it. An item can be attuned to only one creature at a time, and a creature can be attuned to 1 item per item slot.</p>" +
-            "<p>Weapon Damage: " + equipment.damage + "</p>" +
-            "<p>Notes: " + equipment.notes.join(", ") + "</p>" +
-            "<h2>Spell</h2>";
-        if (loot.spell) {
-            output += "<p>Name: " + loot.spell.spellName + "</p>" +
-                "<p>Level: " + (loot.spell.spellLevel === 0 ? "Cantrip" : loot.spell.spellLevel) + "</p>" +
-                "<p>Character Level: " + loot.spell.characterLevel + "</p>" +
-                "<p>Description: " + spellDescription + "</p>";
-        } else {
-            output += "<p>None available for this level</p>";
-        }
-        output += "</div>";
+            "<p>Weapon Damage: " + loot.equipment.damage + "</p>" +
+            "<p>Notes: " + loot.equipment.notes.join(", ") + "</p>" +
+            "<h2>Spell</h2>" +
+            "<p>Name: " + loot.spell.spellName + "</p>" +
+            "<p>Level: " + (loot.spell.spellLevel === 0 ? "Cantrip" : loot.spell.spellLevel) + "</p>" +
+            "<p>Character Level: " + loot.spell.characterLevel + "</p>" +
+            "<p>Description: " + spellDescription + "</p>" +
+            "</div>";
         document.getElementById("output").innerHTML = output;
     }
 
-
     async function GetCrawlLoot(characterLevel, spellListCache, equipmentListCache) {
         const randomEquipment = GetRandomEquipment(equipmentListCache);
-        const randomSpell = GetRandomSpell(characterLevel, spellListCache);
+        const randomSpell = await GetRandomSpell(characterLevel, spellListCache);
 
         return {
             equipment: randomEquipment,
@@ -103,13 +95,8 @@
         };
     }
 
-    function GetRandomEquipment(equipments) {
-        const randomIndex = Math.floor(Math.random() * equipments.length);
-        return equipments[randomIndex];
-    }
-
     document.addEventListener("DOMContentLoaded", async function() {
-        await getSpellList(); // Fetch the spell list once when the page loads
-        await getEquipmentList(); // Fetch the equipment list once when the page loads
+        spellListCache = await getSpellList(); // Fetch the spell list once when the page loads
+        equipmentListCache = await getEquipmentList(); // Fetch the equipment list once when the page loads
     });
 </script>
