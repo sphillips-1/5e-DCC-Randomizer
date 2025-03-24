@@ -74,8 +74,16 @@
             "<p>This item allows you to cast the spell " + loot.spell.spellName + " once per long rest.</p>" +
             "<p>Your spellcasting stat for this item is your class's primary ability stat. If your class has spell slots, you may use those spell slots to cast these spells additional times as long as the spell slot matches the spell level.</p>" +
             "<p>This is an item specific to the Crawl and requires attunement. Attuning to an item requires a creature to spend a short rest focused on only that item while being in physical contact with it. An item can be attuned to only one creature at a time, and a creature can be attuned to 1 item per item slot.</p>" +
-            "<p>Weapon Damage: " + loot.equipment.damage + "</p>" +
-            "<p>Notes: " + loot.equipment.notes.join(", ") + "</p>" +
+            "<h2>Equipment</h2>" +
+            "<p>Description: " + loot.equipment.description + "</p>";
+        
+        if (loot.equipment.type === "armor") {
+            output += "<p>Armor Class: " + loot.equipment.ac + "</p>";
+        } else {
+            output += "<p>Weapon Damage: " + loot.equipment.damage + "</p>";
+        }
+
+        output += "<p>Notes: " + loot.equipment.notes.join(", ") + "</p>" +
             "<h2>Spell</h2>" +
             "<p>Name: " + loot.spell.spellName + "</p>" +
             "<p>Level: " + (loot.spell.spellLevel === 0 ? "Cantrip" : loot.spell.spellLevel) + "</p>" +
