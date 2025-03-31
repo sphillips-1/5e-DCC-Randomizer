@@ -1,12 +1,15 @@
 ﻿<!DOCTYPE HTML>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPG Equipment</title>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/GetSpells.js" type="text/javascript"></script>
-    <script src="js/GetEquipment.js" type="text/javascript"></script>
+    <script src="js/GetEquipment.js" defer></script>
+    <script src="js/GetMagicItem.js" defer></script>
     <link rel="stylesheet" href="styles.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
         .spell-card {
             border: 1px solid #000;
@@ -30,7 +33,7 @@
 
 <body>
     <div class="sidebar">
-        <a href="#RandomCrawlLoot" id="tab_RandomCrawlLoot" onclick="cleanUp(); get_RandomCrawlLoot()">Random Crawl Loot</a>
+        <a href="#MagicItem" id="tab_MagicItem" onclick="cleanUp(); get_MagicItem()">Magic Items</a>
     </div>
 
     <div class="content">
@@ -40,7 +43,6 @@
     </div>
 </body>
 
-</html>
 <script>
     let spellListCache = null;
     let equipmentListCache = null;
@@ -50,61 +52,59 @@
         document.getElementById("main").innerHTML = "";
         document.getElementById("output").innerHTML = "";
 
-        document.getElementById("tab_RandomCrawlLoot").className = "inactive";
+        document.getElementById("tab_MagicItem").className = "active";
     }
 
-    function get_RandomCrawlLoot() {
-        document.getElementById("tab_RandomCrawlLoot").className = "active";
-        document.getElementById("title").innerHTML = "<h1>Random Crawl Loot</h1>";
+    function get_MagicItem() {
+        document.getElementById("tab_MagicItem").className = "active";
+        document.getElementById("title").innerHTML = "<h1>Magic Item</h1>";
 
-        var output = "<input type='number' id='character_level' name='character_level' min='1' max='20' placeholder='Enter character level'>" +
-            "<input type='button' value='Go!' onclick='generateCrawlLoot()'>";
+        var output = "<input type='number' id='character_level' name='character_level' min='1' max='20' value='1' placeholder='1'>" +
+            "<input type='button' value='Go!' onclick='generateMagicItem()'>";
 
         document.getElementById("main").innerHTML = output;
         document.getElementById("output").innerHTML = "";
     }
 
-    async function generateCrawlLoot() {
+    async function generateMagicItem() {
         var characterLevel = document.getElementById("character_level").value;
-        var loot = await GetCrawlLoot(characterLevel, spellListCache, equipmentListCache);
-        var spellDescription = loot.spell ? loot.spell.details.description : "None available for this level";
-        var output = "<div class='spell-card'>" +
-            "<h1>Crawl Item</h1>" +
-            "<h2>Name: " + loot.equipment.EquipmentName + " of " + loot.spell.spellName + "</h2>" +
-            "<p>This item allows you to cast the spell " + loot.spell.spellName + " once per long rest.</p>" +
-            "<p>Your spellcasting stat for this item is your class's primary ability stat. If your class has spell slots, you may use those spell slots to cast these spells additional times as long as the spell slot matches the spell level.</p>" +
-            "<p>This is an item specific to the Crawl and requires attunement. Attuning to an item requires a creature to spend a short rest focused on only that item while being in physical contact with it. An item can be attuned to only one creature at a time, and a creature can be attuned to 1 item per item slot.</p>" +
-            "<h2>Equipment</h2>" +
-            "<p>Description: " + loot.equipment.description + "</p>";
+        var equipment = await getEquipment(characterLevel, equipmentListCache);
+        var spell = await getSpell(characterLevel, spellListCache);
+
+        //console.log(equipment);
+
+        var output = `
+        <div class='spell-card'>
+        <h2>${equipment.name} of ${spell.name}</h2>
+        <h3>${equipment.name}</h3>
+        <p>Category: ${equipment.category}</p>
+        <p>Rarity: ${equipment.rarity}</p>
+        ${equipment.category === 'Weapon' ? `
+        <p>Damage: ${equipment.damage}</p>
+        <p>Damage Type: ${equipment.damageType}</p>
+        ` : equipment.category === 'Armor' ? `
+        <p>Armor Type: ${equipment.armorType}</p>
+        <p>AC Bonus: ${equipment.acBonus}</p>
+        <p>Stealth Disadvantage: ${equipment.stealthDisadvantage}</p>
+        ` : `
         
-        if (loot.equipment.type === "armor") {
-            output += "<p>Armor Class: " + loot.equipment.ac + "</p>";
-        } else {
-            output += "<p>Weapon Damage: " + loot.equipment.damage + "</p>";
-        }
+        `}
+        <p>Description: ${equipment.description}</p>
+        <h3>${spell.name}</h3>
+        <p>${spell.description}</p>
+        <p>Range: ${spell.range}</p>
+        <p>Duration: ${spell.duration}</p>
+        <p>Casting Time: ${spell.castingTime}</p>
+        </div>`;
 
-        output += "<p>Notes: " + loot.equipment.notes.join(", ") + "</p>" +
-            "<h2>Spell</h2>" +
-            "<p>Name: " + loot.spell.spellName + "</p>" +
-            "<p>Level: " + (loot.spell.spellLevel === 0 ? "Cantrip" : loot.spell.spellLevel) + "</p>" +
-            "<p>Character Level: " + loot.spell.characterLevel + "</p>" +
-            "<p>Description: " + spellDescription + "</p>" +
-            "</div>";
         document.getElementById("output").innerHTML = output;
-    }
-
-    async function GetCrawlLoot(characterLevel, spellListCache, equipmentListCache) {
-        const randomEquipment = GetRandomEquipment(equipmentListCache);
-        const randomSpell = await GetRandomSpell(characterLevel, spellListCache);
-
-        return {
-            equipment: randomEquipment,
-            spell: randomSpell
-        };
     }
 
     document.addEventListener("DOMContentLoaded", async function() {
         spellListCache = await getSpellList(); // Fetch the spell list once when the page loads
         equipmentListCache = await getEquipmentList(); // Fetch the equipment list once when the page loads
     });
+
+
 </script>
+</html>

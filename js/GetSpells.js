@@ -1,4 +1,4 @@
-async function GetRandomSpell(characterLevel, spellListCache) {
+async function getSpell(characterLevel, spellListCache) {
     let maxSpellLevel;
     if (characterLevel >= 1 && characterLevel <= 2) {
         maxSpellLevel = 1;
@@ -32,14 +32,20 @@ async function GetRandomSpell(characterLevel, spellListCache) {
     // Fetch the details of the selected spell
     const spellDetails = await getSpellDetails(selectedSpell.url);
 
+   //console.log("Spell Details:", spellDetails);
+
     return new Spell(selectedSpell.name, selectedSpell.level, characterLevel, spellDetails);
 }
 
-function Spell(spellName, spellLevel, characterLevel, details) {
-    this.spellName = spellName;
+function Spell(name, spellLevel, characterLevel, details) {
+    this.name = name;
     this.spellLevel = spellLevel;
     this.characterLevel = characterLevel;
-    this.details = details;
+    this.description = details.description;
+    this.range = details.range;
+    this.components = details.components;
+    this.duration = details.duration;
+    this.castingTime = details.castingTime;
 }
 
 function SpellDetails(name, level, description, range, components, duration, castingTime) {
