@@ -72,28 +72,25 @@
         var equipment = await getNewEquipment();
         var spell = await getSpell(characterLevel, spellListCache);
 
-        //console.log(equipment);
-
         var output = `
         <div class='spell-card'>
         <h2>${equipment.name} of ${spell.name}</h2>
         <h3>${equipment.name}</h3>
-        ${equipment.category ? `<p>Category: ${equipment.category}</p>` : ''}
-        ${equipment.rarity ? `<p>Rarity: ${equipment.rarity}</p>` : ''}
+        <p>Category: ${equipment.category}</p>
         ${equipment.category === 'Weapon' ? `
-        ${equipment.damage ? `<p>Damage: ${equipment.damage}</p>` : ''}
-        ${equipment.damageType ? `<p>Damage Type: ${equipment.damageType}</p>` : ''}
+            ${equipment.damage ? `<p>Damage: ${equipment.damage}</p>` : ''}
         ` : equipment.category === 'Armor' ? `
-        ${equipment.armorType ? `<p>Armor Type: ${equipment.armorType}</p>` : ''}
-        ${equipment.acBonus ? `<p>AC Bonus: ${equipment.acBonus}</p>` : ''}
-        ${equipment.stealthDisadvantage ? `<p>Stealth Disadvantage: ${equipment.stealthDisadvantage}</p>` : ''}
+            ${equipment.ac ? `<p>AC: ${equipment.ac}</p>` : ''}
+            ${equipment.stealthDisadvantage ? `<p>Stealth Disadvantage: ${equipment.stealthDisadvantage}</p>` : ''}
         ` : ''}
         ${equipment.description ? `<p>Description: ${equipment.description}</p>` : ''}
+        ${equipment.notes !== null ? `<p>Notes: ${equipment.notes}</p>` : ''}
         <h3>${spell.name}</h3>
         ${spell.description ? `<p>${spell.description}</p>` : ''}
         ${spell.range ? `<p>Range: ${spell.range}</p>` : ''}
         ${spell.duration ? `<p>Duration: ${spell.duration}</p>` : ''}
         ${spell.castingTime ? `<p>Casting Time: ${spell.castingTime}</p>` : ''}
+ 
         </div>`;
 
         document.getElementById("output").innerHTML = output;
@@ -101,7 +98,6 @@
 
     document.addEventListener("DOMContentLoaded", async function() {
         spellListCache = await getSpellList(); // Fetch the spell list once when the page loads
-        equipmentListCache = await getEquipmentList(); // Fetch the equipment list once when the page loads
     });
 
 
