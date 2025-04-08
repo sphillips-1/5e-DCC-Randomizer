@@ -8,6 +8,7 @@
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/GetSpells.js" type="text/javascript"></script>
     <script src="js/GetEquipment.js" defer></script>
+    <script src="js/Equipment.js" defer></script>
     <script src="js/GetMagicItem.js" defer></script>
     <link rel="stylesheet" href="styles.css">
     <style>
@@ -68,7 +69,7 @@
 
     async function generateMagicItem() {
         var characterLevel = document.getElementById("character_level").value;
-        var equipment = await getEquipment(characterLevel, equipmentListCache);
+        var equipment = await getNewEquipment();
         var spell = await getSpell(characterLevel, spellListCache);
 
         //console.log(equipment);
@@ -77,24 +78,22 @@
         <div class='spell-card'>
         <h2>${equipment.name} of ${spell.name}</h2>
         <h3>${equipment.name}</h3>
-        <p>Category: ${equipment.category}</p>
-        <p>Rarity: ${equipment.rarity}</p>
+        ${equipment.category ? `<p>Category: ${equipment.category}</p>` : ''}
+        ${equipment.rarity ? `<p>Rarity: ${equipment.rarity}</p>` : ''}
         ${equipment.category === 'Weapon' ? `
-        <p>Damage: ${equipment.damage}</p>
-        <p>Damage Type: ${equipment.damageType}</p>
+        ${equipment.damage ? `<p>Damage: ${equipment.damage}</p>` : ''}
+        ${equipment.damageType ? `<p>Damage Type: ${equipment.damageType}</p>` : ''}
         ` : equipment.category === 'Armor' ? `
-        <p>Armor Type: ${equipment.armorType}</p>
-        <p>AC Bonus: ${equipment.acBonus}</p>
-        <p>Stealth Disadvantage: ${equipment.stealthDisadvantage}</p>
-        ` : `
-        
-        `}
-        <p>Description: ${equipment.description}</p>
+        ${equipment.armorType ? `<p>Armor Type: ${equipment.armorType}</p>` : ''}
+        ${equipment.acBonus ? `<p>AC Bonus: ${equipment.acBonus}</p>` : ''}
+        ${equipment.stealthDisadvantage ? `<p>Stealth Disadvantage: ${equipment.stealthDisadvantage}</p>` : ''}
+        ` : ''}
+        ${equipment.description ? `<p>Description: ${equipment.description}</p>` : ''}
         <h3>${spell.name}</h3>
-        <p>${spell.description}</p>
-        <p>Range: ${spell.range}</p>
-        <p>Duration: ${spell.duration}</p>
-        <p>Casting Time: ${spell.castingTime}</p>
+        ${spell.description ? `<p>${spell.description}</p>` : ''}
+        ${spell.range ? `<p>Range: ${spell.range}</p>` : ''}
+        ${spell.duration ? `<p>Duration: ${spell.duration}</p>` : ''}
+        ${spell.castingTime ? `<p>Casting Time: ${spell.castingTime}</p>` : ''}
         </div>`;
 
         document.getElementById("output").innerHTML = output;
